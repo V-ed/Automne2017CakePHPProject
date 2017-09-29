@@ -42,7 +42,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         </ul>
         <div class="top-bar-section">
             <ul class="left">
-                <li><a href="#">Home</a></li>
+                <li><a href="<?= $appRoot ?>">Home</a></li>
             </ul>
             <ul class="right">
                 <li><?= $this->Html->link('Login', ['controller' => 'users', 'action' => 'login']) ?></li>

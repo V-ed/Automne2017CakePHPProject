@@ -16,6 +16,7 @@ namespace App\Controller;
 
 use Cake\Controller\Controller;
 use Cake\Event\Event;
+use Cake\Routing\Router;
 
 /**
  * Application Controller
@@ -50,6 +51,9 @@ class AppController extends Controller
          */
         //$this->loadComponent('Security');
         //$this->loadComponent('Csrf');
+        
+        $this->set('appRoot', Router::url('/', true));
+        
     }
 
     /**
@@ -69,4 +73,14 @@ class AppController extends Controller
             $this->set('_serialize', true);
         }
     }
+    
+    public function isAuthorized($user) {
+        // Admin can access every action
+        if ($user['is_admin'] === true) {
+            return true;
+        }
+        // Default deny
+        return false;
+    }
+    
 }
