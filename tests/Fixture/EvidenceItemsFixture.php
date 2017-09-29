@@ -52,8 +52,8 @@ class EvidenceItemsFixture extends TestFixture
             'is_sealed' => 1,
             'is_deleted' => 1,
             'fk_id_officier' => 1,
-            'created' => '2017-09-15 13:06:04',
-            'modified' => '2017-09-15 13:06:04'
+            'created' => '2017-09-29 14:20:33',
+            'modified' => '2017-09-29 14:20:33'
         ],
     ];
 }

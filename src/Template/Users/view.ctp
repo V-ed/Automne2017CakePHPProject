@@ -28,13 +28,17 @@
             <th scope="row"><?= __('Modified') ?></th>
             <td><?= h($user->modified) ?></td>
         </tr>
+        <tr>
+            <th scope="row"><?= __('Is Admin') ?></th>
+            <td><?= $user->is_admin ? __('Yes') : __('No'); ?></td>
+        </tr>
     </table>
     <div class="row">
-        <h4><?= __('Util Login') ?></h4>
-        <?= $this->Text->autoParagraph(h($user->util_login)); ?>
+        <h4><?= __('Username') ?></h4>
+        <?= $this->Text->autoParagraph(h($user->username)); ?>
     </div>
     <div class="row">
-        <h4><?= __('Util Mdp') ?></h4>
-        <?= $this->Text->autoParagraph(h($user->util_mdp)); ?>
+        <h4><?= __('Password') ?></h4>
+        <?= $this->Text->autoParagraph(h($user->password)); ?>
     </div>
 </div>

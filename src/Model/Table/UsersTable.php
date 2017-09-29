@@ -52,15 +52,34 @@ class UsersTable extends Table
             ->allowEmpty('id_utilisateur', 'create');
 
         $validator
-            ->scalar('util_login')
-            ->requirePresence('util_login', 'create')
-            ->notEmpty('util_login');
+            ->boolean('is_admin')
+            ->requirePresence('is_admin', 'create')
+            ->notEmpty('is_admin');
 
         $validator
-            ->scalar('util_mdp')
-            ->requirePresence('util_mdp', 'create')
-            ->notEmpty('util_mdp');
+            ->scalar('username')
+            ->requirePresence('username', 'create')
+            ->notEmpty('username');
+
+        $validator
+            ->scalar('password')
+            ->requirePresence('password', 'create')
+            ->notEmpty('password');
 
         return $validator;
+    }
+
+    /**
+     * Returns a rules checker object that will be used for validating
+     * application integrity.
+     *
+     * @param \Cake\ORM\RulesChecker $rules The rules object to be modified.
+     * @return \Cake\ORM\RulesChecker
+     */
+    public function buildRules(RulesChecker $rules)
+    {
+        $rules->add($rules->isUnique(['username']));
+
+        return $rules;
     }
 }

@@ -7,8 +7,9 @@ use Cake\ORM\Entity;
  * User Entity
  *
  * @property int $id_utilisateur
- * @property string $util_login
- * @property string $util_mdp
+ * @property bool $is_admin
+ * @property string $username
+ * @property string $password
  * @property \Cake\I18n\FrozenTime $created
  * @property \Cake\I18n\FrozenTime $modified
  */
@@ -27,5 +28,14 @@ class User extends Entity
     protected $_accessible = [
         '*' => true,
         'id_utilisateur' => false
+    ];
+
+    /**
+     * Fields that are excluded from JSON versions of the entity.
+     *
+     * @var array
+     */
+    protected $_hidden = [
+        'password'
     ];
 }
