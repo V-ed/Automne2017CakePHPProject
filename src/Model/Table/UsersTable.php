@@ -52,9 +52,9 @@ class UsersTable extends Table
             ->allowEmpty('id', 'create');
 
         $validator
-            ->boolean('is_admin')
-            ->requirePresence('is_admin', 'create')
-            ->notEmpty('is_admin');
+            ->boolean('isAdmin')
+            ->requirePresence('isAdmin', 'create')
+            ->notEmpty('isAdmin');
 
         $validator
             ->scalar('firstName')
