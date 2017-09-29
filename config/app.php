@@ -228,14 +228,14 @@ return [
              * MySQL on MAMP uses port 8889, MAMP users will want to uncomment
              * the following line and set the port accordingly
              */
-            'port' => '8889git session_status',
+            'port' => '8889',
             'username' => 'root',
             'password' => 'root',
             'database' => 'cours_cakephp_evidenceitems',
             'encoding' => 'utf8',
             'timezone' => 'UTC',
             'flags' => [],
-            'cacheMetadata' => true,
+            'cacheMetadata' => false,
             'log' => false,
 
             /**

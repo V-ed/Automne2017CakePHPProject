@@ -25,6 +25,6 @@ class Officer extends Entity
      */
     protected $_accessible = [
         '*' => true,
-        'id_officer' => false
+        'id' => false
     ];
 }

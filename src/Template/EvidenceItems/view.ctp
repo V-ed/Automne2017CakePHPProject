@@ -7,18 +7,26 @@
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
         <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('Edit Evidence Item'), ['action' => 'edit', $evidenceItem->id_item]) ?> </li>
-        <li><?= $this->Form->postLink(__('Delete Evidence Item'), ['action' => 'delete', $evidenceItem->id_item], ['confirm' => __('Are you sure you want to delete # {0}?', $evidenceItem->id_item)]) ?> </li>
+        <li><?= $this->Html->link(__('Edit Evidence Item'), ['action' => 'edit', $evidenceItem->id]) ?> </li>
+        <li><?= $this->Form->postLink(__('Delete Evidence Item'), ['action' => 'delete', $evidenceItem->id], ['confirm' => __('Are you sure you want to delete # {0}?', $evidenceItem->id)]) ?> </li>
         <li><?= $this->Html->link(__('List Evidence Items'), ['action' => 'index']) ?> </li>
         <li><?= $this->Html->link(__('New Evidence Item'), ['action' => 'add']) ?> </li>
     </ul>
 </nav>
 <div class="evidenceItems view large-9 medium-8 columns content">
-    <h3><?= h($evidenceItem->id_item) ?></h3>
+    <h3><?= h($evidenceItem->id) ?></h3>
     <table class="vertical-table">
         <tr>
-            <th scope="row"><?= __('Id Officier') ?></th>
-            <td><?= $this->Number->format($evidenceItem->id_officier) ?></td>
+            <th scope="row"><?= __('Description') ?></th>
+            <td><?= h($evidenceItem->description) ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Origin') ?></th>
+            <td><?= h($evidenceItem->origin) ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Id Officer') ?></th>
+            <td><?= $this->Number->format($evidenceItem->id_officer) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Created') ?></th>
@@ -37,12 +45,4 @@
             <td><?= $evidenceItem->is_deleted ? __('Yes') : __('No'); ?></td>
         </tr>
     </table>
-    <div class="row">
-        <h4><?= __('Description') ?></h4>
-        <?= $this->Text->autoParagraph(h($evidenceItem->description)); ?>
-    </div>
-    <div class="row">
-        <h4><?= __('Origin') ?></h4>
-        <?= $this->Text->autoParagraph(h($evidenceItem->origin)); ?>
-    </div>
 </div>

@@ -16,6 +16,7 @@
         <thead>
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('rank_code') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('rank_description') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>
@@ -23,6 +24,7 @@
             <?php foreach ($officerRanks as $officerRank): ?>
             <tr>
                 <td><?= h($officerRank->rank_code) ?></td>
+                <td><?= h($officerRank->rank_description) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $officerRank->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $officerRank->id]) ?>

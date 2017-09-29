@@ -11,7 +11,7 @@ use Cake\ORM\Entity;
  * @property string $origin
  * @property bool $is_sealed
  * @property bool $is_deleted
- * @property int $id_officier
+ * @property int $id_officer
  * @property \Cake\I18n\FrozenTime $created
  * @property \Cake\I18n\FrozenTime $modified
  */
@@ -29,6 +29,6 @@ class EvidenceItem extends Entity
      */
     protected $_accessible = [
         '*' => true,
-        'id_item' => false
+        'id' => false
     ];
 }

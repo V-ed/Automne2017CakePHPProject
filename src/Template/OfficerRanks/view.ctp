@@ -20,9 +20,9 @@
             <th scope="row"><?= __('Rank Code') ?></th>
             <td><?= h($officerRank->rank_code) ?></td>
         </tr>
+        <tr>
+            <th scope="row"><?= __('Rank Description') ?></th>
+            <td><?= h($officerRank->rank_description) ?></td>
+        </tr>
     </table>
-    <div class="row">
-        <h4><?= __('Rank Description') ?></h4>
-        <?= $this->Text->autoParagraph(h($officerRank->rank_description)); ?>
-    </div>
 </div>

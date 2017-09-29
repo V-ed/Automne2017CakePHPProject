@@ -15,17 +15,23 @@
     <table cellpadding="0" cellspacing="0">
         <thead>
             <tr>
-                <th scope="col"><?= $this->Paginator->sort('firstName', __('First Name')) ?></th>
-                <th scope="col"><?= $this->Paginator->sort('lastName', __('Last Name')) ?></th>
-                <th scope="col"><?= $this->Paginator->sort('created', __('Joined On')) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('isAdmin') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('firstName') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('lastName') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('username') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('password') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('created', 'Joined On') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>
         <tbody>
             <?php foreach ($users as $user): ?>
             <tr>
+                <td><?= h($user->isAdmin) ?></td>
                 <td><?= h($user->firstName) ?></td>
                 <td><?= h($user->lastName) ?></td>
+                <td><?= h($user->username) ?></td>
+                <td><?= h($user->password) ?></td>
                 <td><?= h($user->created) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $user->id]) ?>

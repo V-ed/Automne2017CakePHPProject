@@ -33,8 +33,8 @@ class EvidenceItemsTable extends Table
         parent::initialize($config);
 
         $this->setTable('evidence_items');
-        $this->setDisplayField('id_item');
-        $this->setPrimaryKey('id_item');
+        $this->setDisplayField('id');
+        $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');
     }
@@ -72,9 +72,9 @@ class EvidenceItemsTable extends Table
             ->notEmpty('is_deleted');
 
         $validator
-            ->integer('id_officier')
-            ->requirePresence('id_officier', 'create')
-            ->notEmpty('id_officier');
+            ->integer('id_officer')
+            ->requirePresence('id_officer', 'create')
+            ->notEmpty('id_officer');
 
         return $validator;
     }

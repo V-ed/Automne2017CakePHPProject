@@ -15,6 +15,9 @@
     <table cellpadding="0" cellspacing="0">
         <thead>
             <tr>
+                <th scope="col"><?= $this->Paginator->sort('name') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('path') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('detail') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('id_item') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('created') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('modified') ?></th>
@@ -24,6 +27,9 @@
         <tbody>
             <?php foreach ($files as $file): ?>
             <tr>
+                <td><?= h($file->name) ?></td>
+                <td><?= h($file->path) ?></td>
+                <td><?= h($file->detail) ?></td>
                 <td><?= $this->Number->format($file->id_item) ?></td>
                 <td><?= h($file->created) ?></td>
                 <td><?= h($file->modified) ?></td>
