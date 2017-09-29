@@ -85,7 +85,7 @@ class AppController extends Controller
     
     public function isAuthorized($user) {
         // Admin can access every action
-        if ($user['is_admin'] === true) {
+        if ($user['isAdmin'] === true) {
             return true;
         }
         // Default deny

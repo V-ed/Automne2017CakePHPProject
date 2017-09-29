@@ -62,14 +62,14 @@ class EvidenceItemsTable extends Table
             ->notEmpty('origin');
 
         $validator
-            ->boolean('is_sealed')
-            ->requirePresence('is_sealed', 'create')
-            ->notEmpty('is_sealed');
+            ->boolean('isSealed')
+            ->requirePresence('isSealed', 'create')
+            ->notEmpty('isSealed');
 
         $validator
-            ->boolean('is_deleted')
-            ->requirePresence('is_deleted', 'create')
-            ->notEmpty('is_deleted');
+            ->boolean('isDeleted')
+            ->requirePresence('isDeleted', 'create')
+            ->notEmpty('isDeleted');
 
         $validator
             ->integer('id_officer')

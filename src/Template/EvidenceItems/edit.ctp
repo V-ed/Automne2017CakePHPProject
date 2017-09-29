@@ -22,8 +22,8 @@
         <?php
             echo $this->Form->control('description');
             echo $this->Form->control('origin');
-            echo $this->Form->control('is_sealed');
-            echo $this->Form->control('is_deleted');
+            echo $this->Form->control('isSealed');
+            echo $this->Form->control('isDeleted');
             echo $this->Form->control('id_officer');
         ?>
     </fieldset>

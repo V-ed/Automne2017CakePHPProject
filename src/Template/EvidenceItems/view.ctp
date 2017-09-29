@@ -38,11 +38,11 @@
         </tr>
         <tr>
             <th scope="row"><?= __('Is Sealed') ?></th>
-            <td><?= $evidenceItem->is_sealed ? __('Yes') : __('No'); ?></td>
+            <td><?= $evidenceItem->isSealed ? __('Yes') : __('No'); ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Is Deleted') ?></th>
-            <td><?= $evidenceItem->is_deleted ? __('Yes') : __('No'); ?></td>
+            <td><?= $evidenceItem->isDeleted ? __('Yes') : __('No'); ?></td>
         </tr>
     </table>
 </div>
