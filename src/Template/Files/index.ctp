@@ -1,38 +1,38 @@
 <?php
 /**
   * @var \App\View\AppView $this
-  * @var \App\Model\Entity\User[]|\Cake\Collection\CollectionInterface $users
+  * @var \App\Model\Entity\File[]|\Cake\Collection\CollectionInterface $files
   */
 ?>
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
         <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('New User'), ['action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('New File'), ['action' => 'add']) ?></li>
     </ul>
 </nav>
-<div class="users index large-9 medium-8 columns content">
-    <h3><?= __('Users') ?></h3>
+<div class="files index large-9 medium-8 columns content">
+    <h3><?= __('Files') ?></h3>
     <table cellpadding="0" cellspacing="0">
         <thead>
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('id') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('is_admin') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('id_item') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('created') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('modified') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>
         <tbody>
-            <?php foreach ($users as $user): ?>
+            <?php foreach ($files as $file): ?>
             <tr>
-                <td><?= $this->Number->format($user->id) ?></td>
-                <td><?= h($user->is_admin) ?></td>
-                <td><?= h($user->created) ?></td>
-                <td><?= h($user->modified) ?></td>
+                <td><?= $this->Number->format($file->id) ?></td>
+                <td><?= $this->Number->format($file->id_item) ?></td>
+                <td><?= h($file->created) ?></td>
+                <td><?= h($file->modified) ?></td>
                 <td class="actions">
-                    <?= $this->Html->link(__('View'), ['action' => 'view', $user->id_utilisateur]) ?>
-                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $user->id_utilisateur]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $user->id_utilisateur], ['confirm' => __('Are you sure you want to delete # {0}?', $user->id_utilisateur)]) ?>
+                    <?= $this->Html->link(__('View'), ['action' => 'view', $file->id]) ?>
+                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $file->id]) ?>
+                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $file->id], ['confirm' => __('Are you sure you want to delete # {0}?', $file->id)]) ?>
                 </td>
             </tr>
             <?php endforeach; ?>

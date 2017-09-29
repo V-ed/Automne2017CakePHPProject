@@ -12,8 +12,9 @@
 <div class="users form large-9 medium-8 columns content">
     <?= $this->Form->create($user) ?>
     <fieldset>
-        <legend><?= __('Add User') ?></legend>
+        <legend><?= __('Register') ?></legend>
         <?php
+            echo $this->Form->control('id');
             echo $this->Form->control('is_admin');
             echo $this->Form->control('username');
             echo $this->Form->control('password');

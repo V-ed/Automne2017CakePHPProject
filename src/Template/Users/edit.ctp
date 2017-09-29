@@ -20,6 +20,7 @@
     <fieldset>
         <legend><?= __('Edit User') ?></legend>
         <?php
+            echo $this->Form->control('id');
             echo $this->Form->control('is_admin');
             echo $this->Form->control('username');
             echo $this->Form->control('password');

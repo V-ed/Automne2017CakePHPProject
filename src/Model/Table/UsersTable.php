@@ -48,8 +48,8 @@ class UsersTable extends Table
     public function validationDefault(Validator $validator)
     {
         $validator
-            ->integer('id_utilisateur')
-            ->allowEmpty('id_utilisateur', 'create');
+            ->integer('id')
+            ->allowEmpty('id', 'create');
 
         $validator
             ->boolean('is_admin')

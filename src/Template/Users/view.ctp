@@ -17,8 +17,8 @@
     <h3><?= h($user->id_utilisateur) ?></h3>
     <table class="vertical-table">
         <tr>
-            <th scope="row"><?= __('Id Utilisateur') ?></th>
-            <td><?= $this->Number->format($user->id_utilisateur) ?></td>
+            <th scope="row"><?= __('Id') ?></th>
+            <td><?= $this->Number->format($user->id) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Created') ?></th>
