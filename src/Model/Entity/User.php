@@ -8,6 +8,8 @@ use Cake\ORM\Entity;
  *
  * @property int $id
  * @property bool $is_admin
+ * @property string $firstName
+ * @property string $lastName
  * @property string $username
  * @property string $password
  * @property \Cake\I18n\FrozenTime $created

@@ -8,8 +8,8 @@
         <li class="heading"><?= __('Actions') ?></li>
         <li><?= $this->Form->postLink(
                 __('Delete'),
-                ['action' => 'delete', $officer->id_officer],
-                ['confirm' => __('Are you sure you want to delete # {0}?', $officer->id_officer)]
+                ['action' => 'delete', $officer->id],
+                ['confirm' => __('Are you sure you want to delete # {0}?', $officer->id)]
             )
         ?></li>
         <li><?= $this->Html->link(__('List Officers'), ['action' => 'index']) ?></li>
@@ -20,8 +20,9 @@
     <fieldset>
         <legend><?= __('Edit Officer') ?></legend>
         <?php
-            echo $this->Form->control('name');
             echo $this->Form->control('email');
+            echo $this->Form->control('id_rank');
+            echo $this->Form->control('id_user');
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

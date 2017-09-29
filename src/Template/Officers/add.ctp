@@ -14,8 +14,9 @@
     <fieldset>
         <legend><?= __('Add Officer') ?></legend>
         <?php
-            echo $this->Form->control('name');
             echo $this->Form->control('email');
+            echo $this->Form->control('id_rank');
+            echo $this->Form->control('id_user');
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

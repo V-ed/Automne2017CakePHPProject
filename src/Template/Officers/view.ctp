@@ -17,22 +17,14 @@
     <h3><?= h($officer->name) ?></h3>
     <table class="vertical-table">
         <tr>
-            <th scope="row"><?= __('Id Officer') ?></th>
-            <td><?= $this->Number->format($officer->id_officer) ?></td>
+            <th scope="row"><?= __('Id Rank') ?></th>
+            <td><?= $this->Number->format($officer->id_rank) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Created') ?></th>
-            <td><?= h($officer->created) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Modified') ?></th>
-            <td><?= h($officer->modified) ?></td>
+            <th scope="row"><?= __('Id User') ?></th>
+            <td><?= $this->Number->format($officer->id_user) ?></td>
         </tr>
     </table>
-    <div class="row">
-        <h4><?= __('Name') ?></h4>
-        <?= $this->Text->autoParagraph(h($officer->name)); ?>
-    </div>
     <div class="row">
         <h4><?= __('Email') ?></h4>
         <?= $this->Text->autoParagraph(h($officer->email)); ?>

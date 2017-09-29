@@ -4,18 +4,13 @@ namespace App\Model\Entity;
 use Cake\ORM\Entity;
 
 /**
- * EvidenceItem Entity
+ * OfficerRank Entity
  *
  * @property int $id
- * @property string $description
- * @property string $origin
- * @property bool $is_sealed
- * @property bool $is_deleted
- * @property int $id_officier
- * @property \Cake\I18n\FrozenTime $created
- * @property \Cake\I18n\FrozenTime $modified
+ * @property string $rank_code
+ * @property string $rank_description
  */
-class EvidenceItem extends Entity
+class OfficerRank extends Entity
 {
 
     /**
@@ -29,6 +24,6 @@ class EvidenceItem extends Entity
      */
     protected $_accessible = [
         '*' => true,
-        'id_item' => false
+        'id' => false
     ];
 }

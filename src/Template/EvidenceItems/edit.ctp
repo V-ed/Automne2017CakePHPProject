@@ -8,8 +8,8 @@
         <li class="heading"><?= __('Actions') ?></li>
         <li><?= $this->Form->postLink(
                 __('Delete'),
-                ['action' => 'delete', $evidenceItem->id_item],
-                ['confirm' => __('Are you sure you want to delete # {0}?', $evidenceItem->id_item)]
+                ['action' => 'delete', $evidenceItem->id],
+                ['confirm' => __('Are you sure you want to delete # {0}?', $evidenceItem->id)]
             )
         ?></li>
         <li><?= $this->Html->link(__('List Evidence Items'), ['action' => 'index']) ?></li>
@@ -24,7 +24,7 @@
             echo $this->Form->control('origin');
             echo $this->Form->control('is_sealed');
             echo $this->Form->control('is_deleted');
-            echo $this->Form->control('fk_id_officier');
+            echo $this->Form->control('id_officier');
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

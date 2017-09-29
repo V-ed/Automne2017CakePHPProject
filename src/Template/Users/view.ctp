@@ -34,6 +34,14 @@
         </tr>
     </table>
     <div class="row">
+        <h4><?= __('FirstName') ?></h4>
+        <?= $this->Text->autoParagraph(h($user->firstName)); ?>
+    </div>
+    <div class="row">
+        <h4><?= __('LastName') ?></h4>
+        <?= $this->Text->autoParagraph(h($user->lastName)); ?>
+    </div>
+    <div class="row">
         <h4><?= __('Username') ?></h4>
         <?= $this->Text->autoParagraph(h($user->username)); ?>
     </div>

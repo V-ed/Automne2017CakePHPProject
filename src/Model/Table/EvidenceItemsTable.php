@@ -48,8 +48,8 @@ class EvidenceItemsTable extends Table
     public function validationDefault(Validator $validator)
     {
         $validator
-            ->integer('id_item')
-            ->allowEmpty('id_item', 'create');
+            ->integer('id')
+            ->allowEmpty('id', 'create');
 
         $validator
             ->scalar('description')
@@ -72,9 +72,9 @@ class EvidenceItemsTable extends Table
             ->notEmpty('is_deleted');
 
         $validator
-            ->integer('fk_id_officier')
-            ->requirePresence('fk_id_officier', 'create')
-            ->notEmpty('fk_id_officier');
+            ->integer('id_officier')
+            ->requirePresence('id_officier', 'create')
+            ->notEmpty('id_officier');
 
         return $validator;
     }

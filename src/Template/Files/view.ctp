@@ -17,10 +17,6 @@
     <h3><?= h($file->name) ?></h3>
     <table class="vertical-table">
         <tr>
-            <th scope="row"><?= __('Id') ?></th>
-            <td><?= $this->Number->format($file->id) ?></td>
-        </tr>
-        <tr>
             <th scope="row"><?= __('Id Item') ?></th>
             <td><?= $this->Number->format($file->id_item) ?></td>
         </tr>

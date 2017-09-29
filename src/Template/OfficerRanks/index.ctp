@@ -1,36 +1,32 @@
 <?php
 /**
   * @var \App\View\AppView $this
-  * @var \App\Model\Entity\File[]|\Cake\Collection\CollectionInterface $files
+  * @var \App\Model\Entity\OfficerRank[]|\Cake\Collection\CollectionInterface $officerRanks
   */
 ?>
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
         <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('New File'), ['action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('New Officer Rank'), ['action' => 'add']) ?></li>
     </ul>
 </nav>
-<div class="files index large-9 medium-8 columns content">
-    <h3><?= __('Files') ?></h3>
+<div class="officerRanks index large-9 medium-8 columns content">
+    <h3><?= __('Officer Ranks') ?></h3>
     <table cellpadding="0" cellspacing="0">
         <thead>
             <tr>
-                <th scope="col"><?= $this->Paginator->sort('id_item') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('created') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('modified') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('rank_code') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>
         <tbody>
-            <?php foreach ($files as $file): ?>
+            <?php foreach ($officerRanks as $officerRank): ?>
             <tr>
-                <td><?= $this->Number->format($file->id_item) ?></td>
-                <td><?= h($file->created) ?></td>
-                <td><?= h($file->modified) ?></td>
+                <td><?= h($officerRank->rank_code) ?></td>
                 <td class="actions">
-                    <?= $this->Html->link(__('View'), ['action' => 'view', $file->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $file->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $file->id], ['confirm' => __('Are you sure you want to delete # {0}?', $file->id)]) ?>
+                    <?= $this->Html->link(__('View'), ['action' => 'view', $officerRank->id]) ?>
+                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $officerRank->id]) ?>
+                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $officerRank->id], ['confirm' => __('Are you sure you want to delete # {0}?', $officerRank->id)]) ?>
                 </td>
             </tr>
             <?php endforeach; ?>

@@ -16,8 +16,6 @@ use Cake\Validation\Validator;
  * @method \App\Model\Entity\Officer patchEntity(\Cake\Datasource\EntityInterface $entity, array $data, array $options = [])
  * @method \App\Model\Entity\Officer[] patchEntities($entities, array $data, array $options = [])
  * @method \App\Model\Entity\Officer findOrCreate($search, callable $callback = null, $options = [])
- *
- * @mixin \Cake\ORM\Behavior\TimestampBehavior
  */
 class OfficersTable extends Table
 {
@@ -35,8 +33,6 @@ class OfficersTable extends Table
         $this->setTable('officers');
         $this->setDisplayField('name');
         $this->setPrimaryKey('id_officer');
-
-        $this->addBehavior('Timestamp');
     }
 
     /**
@@ -48,18 +44,23 @@ class OfficersTable extends Table
     public function validationDefault(Validator $validator)
     {
         $validator
-            ->integer('id_officer')
-            ->allowEmpty('id_officer', 'create');
-
-        $validator
-            ->scalar('name')
-            ->requirePresence('name', 'create')
-            ->notEmpty('name');
+            ->integer('id')
+            ->allowEmpty('id', 'create');
 
         $validator
             ->email('email')
             ->requirePresence('email', 'create')
             ->notEmpty('email');
+
+        $validator
+            ->integer('id_rank')
+            ->requirePresence('id_rank', 'create')
+            ->notEmpty('id_rank');
+
+        $validator
+            ->integer('id_user')
+            ->requirePresence('id_user', 'create')
+            ->notEmpty('id_user');
 
         return $validator;
     }

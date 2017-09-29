@@ -17,12 +17,8 @@
     <h3><?= h($evidenceItem->id_item) ?></h3>
     <table class="vertical-table">
         <tr>
-            <th scope="row"><?= __('Id Item') ?></th>
-            <td><?= $this->Number->format($evidenceItem->id_item) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Fk Id Officier') ?></th>
-            <td><?= $this->Number->format($evidenceItem->fk_id_officier) ?></td>
+            <th scope="row"><?= __('Id Officier') ?></th>
+            <td><?= $this->Number->format($evidenceItem->id_officier) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Created') ?></th>

@@ -6,11 +6,10 @@ use Cake\ORM\Entity;
 /**
  * Officer Entity
  *
- * @property int $id_officer
- * @property string $name
+ * @property int $id
  * @property string $email
- * @property \Cake\I18n\FrozenTime $created
- * @property \Cake\I18n\FrozenTime $modified
+ * @property int $id_rank
+ * @property int $id_user
  */
 class Officer extends Entity
 {

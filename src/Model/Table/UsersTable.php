@@ -57,6 +57,16 @@ class UsersTable extends Table
             ->notEmpty('is_admin');
 
         $validator
+            ->scalar('firstName')
+            ->requirePresence('firstName', 'create')
+            ->notEmpty('firstName');
+
+        $validator
+            ->scalar('lastName')
+            ->requirePresence('lastName', 'create')
+            ->notEmpty('lastName');
+
+        $validator
             ->scalar('username')
             ->requirePresence('username', 'create')
             ->notEmpty('username');
