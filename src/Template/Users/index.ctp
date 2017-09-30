@@ -19,7 +19,6 @@
                 <th scope="col"><?= $this->Paginator->sort('firstName') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('lastName') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('username') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('password') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('created', 'Joined On') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
@@ -31,7 +30,6 @@
                 <td><?= h($user->firstName) ?></td>
                 <td><?= h($user->lastName) ?></td>
                 <td><?= h($user->username) ?></td>
-                <td><?= h($user->password) ?></td>
                 <td><?= h($user->created) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $user->id]) ?>

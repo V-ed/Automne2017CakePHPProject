@@ -1,17 +1,17 @@
 <?php
 /**
- * CakePHP(tm) : Rapid Development Framework (https://cakephp.org)
- * Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
- *
- * Licensed under The MIT License
- * For full copyright and license information, please see the LICENSE.txt
- * Redistributions of files must retain the above copyright notice.
- *
- * @copyright     Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
- * @link          https://cakephp.org CakePHP(tm) Project
- * @since         0.10.0
- * @license       https://opensource.org/licenses/mit-license.php MIT License
- */
+* CakePHP(tm) : Rapid Development Framework (https://cakephp.org)
+* Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
+*
+* Licensed under The MIT License
+* For full copyright and license information, please see the LICENSE.txt
+* Redistributions of files must retain the above copyright notice.
+*
+* @copyright     Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
+* @link          https://cakephp.org CakePHP(tm) Project
+* @since         0.10.0
+* @license       https://opensource.org/licenses/mit-license.php MIT License
+*/
 
 $cakeDescription = 'CakePHP: the rapid development php framework';
 ?>
@@ -25,10 +25,10 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         <?= $this->fetch('title') ?>
     </title>
     <?= $this->Html->meta('icon') ?>
-
+    
     <?= $this->Html->css('base.css') ?>
     <?= $this->Html->css('cake.css') ?>
-
+    
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
     <?= $this->fetch('script') ?>
@@ -48,8 +48,13 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                 <li><?= $this->Html->link('Users', ['controller' => 'users']) ?></li>
             </ul>
             <ul class="right">
-                <li><?= $this->Html->link('Login', ['controller' => 'users', 'action' => 'login']) ?></li>
-                <li><?= $this->Html->link('Register', ['controller' => 'users', 'action' => 'register']) ?></li>
+                <?php if( isset($loggedUser) ): ?>
+                    <li><?= $this->Html->link('Logged in as ' . h($loggedUser['firstName']) . ' ' . h($loggedUser['lastName']), ['controller' => 'users', 'action' => 'edit', $loggedUser['id']]) ?></li>
+                    <li><?= $this->Html->link('Logout', ['controller' => 'users', 'action' => 'logout']) ?></li>
+                <?php else: ?>
+                    <li><?= $this->Html->link('Login', ['controller' => 'users', 'action' => 'login']) ?></li>
+                    <li><?= $this->Html->link('Register', ['controller' => 'users', 'action' => 'register']) ?></li>
+                <?php endif; ?>
             </ul>
         </div>
     </nav>
