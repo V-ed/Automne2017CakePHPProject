@@ -27,7 +27,7 @@
         <tbody>
             <?php foreach ($users as $user): ?>
             <tr>
-                <td><?= h($user->isAdmin) ?></td>
+                <td><?= $user->isAdmin ? __('Yes') : __('No') ?></td>
                 <td><?= h($user->firstName) ?></td>
                 <td><?= h($user->lastName) ?></td>
                 <td><?= h($user->username) ?></td>
