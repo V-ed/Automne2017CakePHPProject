@@ -19,7 +19,7 @@
                 <th scope="col"><?= $this->Paginator->sort('origin') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('isSealed') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('isDeleted') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('id_officer') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('officer_id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('created') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
@@ -31,7 +31,7 @@
                 <td><?= h($evidenceItem->origin) ?></td>
                 <td><?= h($evidenceItem->isSealed) ?></td>
                 <td><?= h($evidenceItem->is_deleted) ?></td>
-                <td><?= $this->Number->format($evidenceItem->id_officer) ?></td>
+                <td><?= $this->Number->format($evidenceItem->officer_id) ?></td>
                 <td><?= h($evidenceItem->created) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $evidenceItem->id]) ?>

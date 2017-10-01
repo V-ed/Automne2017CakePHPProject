@@ -8,8 +8,10 @@ use Cake\ORM\Entity;
  *
  * @property int $id
  * @property string $email
- * @property int $id_rank
- * @property int $id_user
+ * @property int $officer_rank_id
+ * @property int $user_id
+ *
+ * @property \App\Model\Entity\User $user
  */
 class Officer extends Entity
 {

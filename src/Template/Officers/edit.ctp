@@ -21,8 +21,8 @@
         <legend><?= __('Edit Officer') ?></legend>
         <?php
             echo $this->Form->control('email');
-            echo $this->Form->control('id_rank');
-            echo $this->Form->control('id_user');
+            echo $this->Form->control('officer_rank_id');
+            echo $this->Form->control('user_id');
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

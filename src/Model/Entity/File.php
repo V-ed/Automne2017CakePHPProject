@@ -10,7 +10,7 @@ use Cake\ORM\Entity;
  * @property string $name
  * @property string $path
  * @property string $detail
- * @property int $id_item
+ * @property int $evidence_item_id
  * @property \Cake\I18n\FrozenTime $created
  * @property \Cake\I18n\FrozenTime $modified
  */

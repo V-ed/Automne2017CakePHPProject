@@ -22,11 +22,11 @@
         </tr>
         <tr>
             <th scope="row"><?= __('Id Rank') ?></th>
-            <td><?= $this->Number->format($officer->id_rank) ?></td>
+            <td><?= $this->Number->format($officer->officer_rank_id) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Id User') ?></th>
-            <td><?= $this->Number->format($officer->id_user) ?></td>
+            <td><?= $this->Number->format($officer->user_id) ?></td>
         </tr>
     </table>
 </div>

@@ -9,9 +9,9 @@ use Cake\ORM\Entity;
  * @property int $id
  * @property string $description
  * @property string $origin
- * @property bool $is_sealed
- * @property bool $is_deleted
- * @property int $id_officer
+ * @property bool $isSealed
+ * @property bool $isDeleted
+ * @property int $officer_id
  * @property \Cake\I18n\FrozenTime $created
  * @property \Cake\I18n\FrozenTime $modified
  */

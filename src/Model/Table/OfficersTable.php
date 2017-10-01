@@ -9,6 +9,10 @@ use Cake\Validation\Validator;
 /**
  * Officers Model
  *
+ * @property |\Cake\ORM\Association\BelongsTo $OfficerRanks
+ * @property \App\Model\Table\UsersTable|\Cake\ORM\Association\BelongsTo $Users
+ * @property |\Cake\ORM\Association\HasMany $EvidenceItems
+ *
  * @method \App\Model\Entity\Officer get($primaryKey, $options = [])
  * @method \App\Model\Entity\Officer newEntity($data = null, array $options = [])
  * @method \App\Model\Entity\Officer[] newEntities(array $data, array $options = [])
@@ -33,8 +37,18 @@ class OfficersTable extends Table
         $this->setTable('officers');
         $this->setDisplayField('id');
         $this->setPrimaryKey('id');
-        
-        $this->belongsTo('Users')->setForeignKey('id_user');
+
+        $this->belongsTo('OfficerRanks', [
+            'foreignKey' => 'officer_rank_id',
+            'joinType' => 'INNER'
+        ]);
+        $this->belongsTo('Users', [
+            'foreignKey' => 'user_id',
+            'joinType' => 'INNER'
+        ]);
+        $this->hasMany('EvidenceItems', [
+            'foreignKey' => 'officer_id'
+        ]);
     }
 
     /**
@@ -54,16 +68,6 @@ class OfficersTable extends Table
             ->requirePresence('email', 'create')
             ->notEmpty('email');
 
-        $validator
-            ->integer('id_rank')
-            ->requirePresence('id_rank', 'create')
-            ->notEmpty('id_rank');
-
-        $validator
-            ->integer('id_user')
-            ->requirePresence('id_user', 'create')
-            ->notEmpty('id_user');
-
         return $validator;
     }
 
@@ -77,6 +81,8 @@ class OfficersTable extends Table
     public function buildRules(RulesChecker $rules)
     {
         $rules->add($rules->isUnique(['email']));
+        $rules->add($rules->existsIn(['officer_rank_id'], 'OfficerRanks'));
+        $rules->add($rules->existsIn(['user_id'], 'Users'));
 
         return $rules;
     }

@@ -23,7 +23,7 @@
             echo $this->Form->control('name');
             echo $this->Form->control('path');
             echo $this->Form->control('detail');
-            echo $this->Form->control('id_item');
+            echo $this->Form->control('evidence_item_id');
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

@@ -9,6 +9,8 @@ use Cake\Validation\Validator;
 /**
  * Files Model
  *
+ * @property |\Cake\ORM\Association\BelongsTo $EvidenceItems
+ *
  * @method \App\Model\Entity\File get($primaryKey, $options = [])
  * @method \App\Model\Entity\File newEntity($data = null, array $options = [])
  * @method \App\Model\Entity\File[] newEntities(array $data, array $options = [])
@@ -37,6 +39,11 @@ class FilesTable extends Table
         $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');
+
+        $this->belongsTo('EvidenceItems', [
+            'foreignKey' => 'evidence_item_id',
+            'joinType' => 'INNER'
+        ]);
     }
 
     /**
@@ -65,11 +72,20 @@ class FilesTable extends Table
             ->requirePresence('detail', 'create')
             ->notEmpty('detail');
 
-        $validator
-            ->integer('id_item')
-            ->requirePresence('id_item', 'create')
-            ->notEmpty('id_item');
-
         return $validator;
+    }
+
+    /**
+     * Returns a rules checker object that will be used for validating
+     * application integrity.
+     *
+     * @param \Cake\ORM\RulesChecker $rules The rules object to be modified.
+     * @return \Cake\ORM\RulesChecker
+     */
+    public function buildRules(RulesChecker $rules)
+    {
+        $rules->add($rules->existsIn(['evidence_item_id'], 'EvidenceItems'));
+
+        return $rules;
     }
 }

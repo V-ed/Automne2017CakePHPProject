@@ -9,6 +9,9 @@ use Cake\Validation\Validator;
 /**
  * EvidenceItems Model
  *
+ * @property |\Cake\ORM\Association\BelongsTo $Officers
+ * @property |\Cake\ORM\Association\HasMany $Files
+ *
  * @method \App\Model\Entity\EvidenceItem get($primaryKey, $options = [])
  * @method \App\Model\Entity\EvidenceItem newEntity($data = null, array $options = [])
  * @method \App\Model\Entity\EvidenceItem[] newEntities(array $data, array $options = [])
@@ -37,6 +40,14 @@ class EvidenceItemsTable extends Table
         $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');
+
+        $this->belongsTo('Officers', [
+            'foreignKey' => 'officer_id',
+            'joinType' => 'INNER'
+        ]);
+        $this->hasMany('Files', [
+            'foreignKey' => 'evidence_item_id'
+        ]);
     }
 
     /**
@@ -71,11 +82,20 @@ class EvidenceItemsTable extends Table
             ->requirePresence('isDeleted', 'create')
             ->notEmpty('isDeleted');
 
-        $validator
-            ->integer('id_officer')
-            ->requirePresence('id_officer', 'create')
-            ->notEmpty('id_officer');
-
         return $validator;
+    }
+
+    /**
+     * Returns a rules checker object that will be used for validating
+     * application integrity.
+     *
+     * @param \Cake\ORM\RulesChecker $rules The rules object to be modified.
+     * @return \Cake\ORM\RulesChecker
+     */
+    public function buildRules(RulesChecker $rules)
+    {
+        $rules->add($rules->existsIn(['officer_id'], 'Officers'));
+
+        return $rules;
     }
 }

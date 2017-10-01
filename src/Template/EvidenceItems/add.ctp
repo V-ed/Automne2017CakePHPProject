@@ -18,7 +18,7 @@
             echo $this->Form->control('origin');
             echo $this->Form->control('isSealed');
             echo $this->Form->control('isDeleted');
-            echo $this->Form->control('id_officer');
+            echo $this->Form->control('officer_id');
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

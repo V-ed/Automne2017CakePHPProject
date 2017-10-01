@@ -18,7 +18,7 @@
                 <th scope="col"><?= $this->Paginator->sort('name') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('path') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('detail') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('id_item') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('evidence_item_id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('created') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('modified') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
@@ -30,7 +30,7 @@
                 <td><?= h($file->name) ?></td>
                 <td><?= h($file->path) ?></td>
                 <td><?= h($file->detail) ?></td>
-                <td><?= $this->Number->format($file->id_item) ?></td>
+                <td><?= $this->Number->format($file->evidence_item_id) ?></td>
                 <td><?= h($file->created) ?></td>
                 <td><?= h($file->modified) ?></td>
                 <td class="actions">

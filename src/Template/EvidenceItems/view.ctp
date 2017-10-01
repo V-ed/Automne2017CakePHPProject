@@ -26,7 +26,7 @@
         </tr>
         <tr>
             <th scope="row"><?= __('Id Officer') ?></th>
-            <td><?= $this->Number->format($evidenceItem->id_officer) ?></td>
+            <td><?= $this->Number->format($evidenceItem->officer_id) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Created') ?></th>

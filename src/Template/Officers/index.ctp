@@ -16,8 +16,8 @@
         <thead>
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('email') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('id_rank', __('Officer\'s Rank')) ?></th>
-                <th scope="col"><?= $this->Paginator->sort('id_user') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('officer_rank_id', __('Officer\'s Rank')) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('user_id') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>
@@ -25,8 +25,8 @@
             <?php foreach ($officers as $officer): ?>
                 <tr>
                     <td><?= h($officer->email) ?></td>
-                    <td><?= $this->Number->format($officer->id_rank) ?></td>
-                    <td><?= $this->Number->format($officer->id_user) ?></td>
+                    <td><?= $this->Number->format($officer->officer_rank_id) ?></td>
+                    <td><?= $this->Number->format($officer->user_id) ?></td>
                     <td class="actions">
                         <?= $this->Html->link(__('View'), ['action' => 'view', $officer->id]) ?>
                         <?= $this->Html->link(__('Edit'), ['action' => 'edit', $officer->id]) ?>

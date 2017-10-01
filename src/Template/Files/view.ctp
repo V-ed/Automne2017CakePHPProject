@@ -30,7 +30,7 @@
         </tr>
         <tr>
             <th scope="row"><?= __('Id Item') ?></th>
-            <td><?= $this->Number->format($file->id_item) ?></td>
+            <td><?= $this->Number->format($file->evidence_item_id) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Created') ?></th>
