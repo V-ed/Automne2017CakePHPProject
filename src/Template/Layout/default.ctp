@@ -63,11 +63,14 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                     <li><?= $this->Html->link(__('Register'), ['controller' => 'users', 'action' => 'register']) ?></li>
                 <?php endif; ?>
                 
-                <ul class="dropdown-menu">
-                    <li><?= $this->Html->link('Français', ['action' => 'changeLang', 'fr_CA'], ['escape' => false]) ?></li>
-                    <li><?= $this->Html->link('English', ['action' => 'changeLang', 'en_US'], ['escape' => false]) ?></li>
-                    <li><?= $this->Html->link('Deutsch', ['action' => 'changeLang', 'de_DE'], ['escape' => false]) ?></li>
-                </ul>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown<b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><?= $this->Html->link('Français', ['action' => 'changeLang', 'fr_CA'], ['escape' => false]) ?></li>
+                        <li><?= $this->Html->link('English', ['action' => 'changeLang', 'en_US'], ['escape' => false]) ?></li>
+                        <li><?= $this->Html->link('Deutsch', ['action' => 'changeLang', 'de_DE'], ['escape' => false]) ?></li>
+                    </ul>
+                </li>
                 
             </ul>
         </div>
