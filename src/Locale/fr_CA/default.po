@@ -398,8 +398,8 @@ msgid "ADMIN"
 msgstr "ADMIN"
 
 #: Template/Layout/default.ctp:59
-msgid "Logged in as %s"
-msgstr "Connecté en tant que %s"
+msgid "Logged in as {0}"
+msgstr "Connecté en tant que {0}"
 
 #: Template/Layout/default.ctp:60
 msgid "Logout"
@@ -565,4 +565,3 @@ msgstr "Nom d'utilisateur"
 #: Template/Layout/default.ctp:46
 msgid "Home"
 msgstr "Accueil"
-

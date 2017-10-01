@@ -16,13 +16,13 @@
         <thead>
             <tr>
                 <?php if($loggedUser['isAdmin']): ?>
-                    <th scope="col"><?= $this->Paginator->sort('isDeleted') ?></th>
+                    <th scope="col"><?= $this->Paginator->sort('isDeleted', __('Is Deleted')) ?></th>
                 <?php endif; ?>
                 <th scope="col"><?= $this->Paginator->sort('description') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('origin') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('isSealed') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('isSealed', __('Is Sealed')) ?></th>
                 <th scope="col"><?= $this->Paginator->sort('officer_id') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('created') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('created', __('Created On')) ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>
@@ -44,8 +44,10 @@
                         <td><?= h($evidenceItem->created) ?></td>
                         <td class="actions">
                             <?= $this->Html->link(__('View'), ['action' => 'view', $evidenceItem->id]) ?>
-                            <?= $this->Html->link(__('Edit'), ['action' => 'edit', $evidenceItem->id]) ?>
-                            <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $evidenceItem->id], ['confirm' => __('Are you sure you want to delete # {0}?', $evidenceItem->id)]) ?>
+                            <?php if ($loggedUser['id'] == $evidenceItem->officer->user_id || $loggedUser['isAdmin']) : ?>
+                                <?= $this->Html->link(__('Edit'), ['action' => 'edit', $evidenceItem->id]) ?>
+                                <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $evidenceItem->id], ['confirm' => __('Are you sure you want to delete # {0}?', $evidenceItem->id)]) ?>
+                            <?php endif; ?>
                         </td>
                     </tr>
                 <?php endif; ?>
