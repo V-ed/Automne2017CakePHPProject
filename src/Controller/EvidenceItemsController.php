@@ -71,7 +71,7 @@ class EvidenceItemsController extends AppController
                 }
                 $this->Flash->error(__('The evidence item could not be saved. Please, try again.'));
             }
-            $officers = $this->EvidenceItems->Officers->find('list', ['limit' => 200]);
+            $officers = $this->EvidenceItems->Officers->find('list', ['limit' => 200])->contain(['Users']);
             $this->set(compact('evidenceItem', 'officers'));
             $this->set('_serialize', ['evidenceItem']);
             
@@ -100,7 +100,7 @@ class EvidenceItemsController extends AppController
             }
             $this->Flash->error(__('The evidence item could not be saved. Please, try again.'));
         }
-        $officers = $this->EvidenceItems->Officers->find('list', ['limit' => 200]);
+        $officers = $this->EvidenceItems->Officers->find('list', ['limit' => 200])->contain(['Users']);
         $this->set(compact('evidenceItem', 'officers'));
         $this->set('_serialize', ['evidenceItem']);
     }

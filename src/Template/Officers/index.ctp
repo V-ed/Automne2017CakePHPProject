@@ -26,7 +26,7 @@
                 <tr>
                     <td><?= h($officer->email) ?></td>
                     <td><?= $this->Number->format($officer->officer_rank_id) ?></td>
-                    <td><?= $this->Number->format($officer->user_id) ?></td>
+                    <td><?= h($officer->user->username) ?></td>
                     <td class="actions">
                         <?= $this->Html->link(__('View'), ['action' => 'view', $officer->id]) ?>
                         <?= $this->Html->link(__('Edit'), ['action' => 'edit', $officer->id]) ?>

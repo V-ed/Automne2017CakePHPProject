@@ -39,7 +39,7 @@
                         <td><?= h($evidenceItem->description) ?></td>
                         <td><?= h($evidenceItem->origin) ?></td>
                         <td><?= h($evidenceItem->isSealed) ?></td>
-                        <td><?= $this->Number->format($evidenceItem->officer_id) ?></td>
+                        <td><?= h($evidenceItem->officer->email) ?></td>
                         <td><?= h($evidenceItem->created) ?></td>
                         <td class="actions">
                             <?= $this->Html->link(__('View'), ['action' => 'view', $evidenceItem->id]) ?>

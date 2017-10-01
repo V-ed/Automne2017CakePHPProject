@@ -66,8 +66,8 @@ class FilesController extends AppController
                 if (!empty($this->request->data['name']['name'])) {
                     
                     $fileName = $this->request->data['name']['name'];
-                    $uploadPath = 'files\\';
-                    $uploadFile = WWW_ROOT . 'img\\' . $uploadPath . $fileName;
+                    $uploadPath = 'files';
+                    $uploadFile = WWW_ROOT . 'img' . DS . $uploadPath . DS . $fileName;
                     
                     if (move_uploaded_file($this->request->data['name']['tmp_name'], $uploadFile)) {
                         
@@ -79,7 +79,7 @@ class FilesController extends AppController
                             $this->redirect(['action' => index]);
                             $this->Flash->success(__('File has been uploaded and inserted successfully.'));
                         } else {
-                            $this->Flash->error(__('Unable to upload file, please try again.'));
+                            $this->Flash->error(__('The file has been saved but there was a problem saving it in the database. Contact the administrator to seek some help.'));
                         }
                         
                     } else {
