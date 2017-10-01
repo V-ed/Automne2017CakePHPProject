@@ -31,7 +31,7 @@ class OfficerRanksTable extends Table
         parent::initialize($config);
 
         $this->setTable('officer_ranks');
-        $this->setDisplayField('id');
+        $this->setDisplayField('rank_name');
         $this->setPrimaryKey('id');
     }
 

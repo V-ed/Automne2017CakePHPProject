@@ -23,7 +23,6 @@
             echo $this->Form->control('description');
             echo $this->Form->control('origin');
             echo $this->Form->control('isSealed');
-            echo $this->Form->control('isDeleted');
             echo $this->Form->control('officer_id');
         ?>
     </fieldset>

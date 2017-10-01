@@ -35,8 +35,6 @@ class OfficersTable extends Table
         parent::initialize($config);
 
         $this->setTable('officers');
-        $this->setDisplayField('id');
-        $this->setPrimaryKey('id');
 
         $this->belongsTo('OfficerRanks', [
             'foreignKey' => 'officer_rank_id',
@@ -49,6 +47,9 @@ class OfficersTable extends Table
         $this->hasMany('EvidenceItems', [
             'foreignKey' => 'officer_id'
         ]);
+        
+        $this->setDisplayField('email');
+        $this->setPrimaryKey('id');
     }
 
     /**

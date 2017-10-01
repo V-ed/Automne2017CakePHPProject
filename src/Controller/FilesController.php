@@ -20,6 +20,9 @@ class FilesController extends AppController
      */
     public function index()
     {
+        $this->paginate = [
+            'contain' => ['EvidenceItems']
+        ];
         $files = $this->paginate($this->Files);
 
         $this->set(compact('files'));
@@ -36,7 +39,7 @@ class FilesController extends AppController
     public function view($id = null)
     {
         $file = $this->Files->get($id, [
-            'contain' => []
+            'contain' => ['EvidenceItems']
         ]);
 
         $this->set('file', $file);
@@ -60,7 +63,8 @@ class FilesController extends AppController
             }
             $this->Flash->error(__('The file could not be saved. Please, try again.'));
         }
-        $this->set(compact('file'));
+        $evidenceItems = $this->Files->EvidenceItems->find('list', ['limit' => 200]);
+        $this->set(compact('file', 'evidenceItems'));
         $this->set('_serialize', ['file']);
     }
 
@@ -85,7 +89,8 @@ class FilesController extends AppController
             }
             $this->Flash->error(__('The file could not be saved. Please, try again.'));
         }
-        $this->set(compact('file'));
+        $evidenceItems = $this->Files->EvidenceItems->find('list', ['limit' => 200]);
+        $this->set(compact('file', 'evidenceItems'));
         $this->set('_serialize', ['file']);
     }
 

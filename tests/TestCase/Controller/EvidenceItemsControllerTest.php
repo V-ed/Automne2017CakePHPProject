@@ -16,7 +16,11 @@ class EvidenceItemsControllerTest extends IntegrationTestCase
      * @var array
      */
     public $fixtures = [
-        'app.evidence_items'
+        'app.evidence_items',
+        'app.officers',
+        'app.officer_ranks',
+        'app.users',
+        'app.files'
     ];
 
     /**

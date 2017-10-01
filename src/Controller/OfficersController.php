@@ -21,6 +21,9 @@ class OfficersController extends AppController
     */
     public function index()
     {
+        $this->paginate = [
+            'contain' => ['OfficerRanks', 'Users']
+        ];
         $officers = $this->paginate($this->Officers);
         
         $this->set(compact('officers'));
@@ -37,7 +40,7 @@ class OfficersController extends AppController
     public function view($id = null)
     {
         $officer = $this->Officers->get($id, [
-            'contain' => []
+            'contain' => ['OfficerRanks', 'Users', 'EvidenceItems']
         ]);
         
         $this->set('officer', $officer);
@@ -51,18 +54,31 @@ class OfficersController extends AppController
     */
     public function add()
     {
-        $officer = $this->Officers->newEntity();
-        if ($this->request->is('post')) {
-            $officer = $this->Officers->patchEntity($officer, $this->request->getData());
-            if ($this->Officers->save($officer)) {
-                $this->Flash->success(__('The officer has been saved.'));
-                
-                return $this->redirect(['action' => 'index']);
+        
+        $officerRanks = $this->Officers->OfficerRanks->find('list', ['limit' => 200])->toArray();
+        
+        if (count($officerRanks) == 0) {
+            $this->redirect($this->referer());
+            $this->Flash->error(__('No officer rank is in the database, no officer can be added.'));
+        } else {
+            
+            $officer = $this->Officers->newEntity();
+            if ($this->request->is('post')) {
+                $officer = $this->Officers->patchEntity($officer, $this->request->getData());
+                if ($this->Officers->save($officer)) {
+                    $this->Flash->success(__('The officer has been saved.'));
+                    
+                    return $this->redirect(['action' => 'index']);
+                }
+                $this->Flash->error(__('The officer could not be saved. Please, try again.'));
             }
-            $this->Flash->error(__('The officer could not be saved. Please, try again.'));
+            $officerRanks = $this->Officers->OfficerRanks->find('list', ['limit' => 200]);
+            $users = $this->Officers->Users->find('list', ['limit' => 200]);
+            $this->set(compact('officer', 'officerRanks', 'users'));
+            $this->set('_serialize', ['officer']);
+            
         }
-        $this->set(compact('officer'));
-        $this->set('_serialize', ['officer']);
+        
     }
     
     /**
@@ -86,7 +102,9 @@ class OfficersController extends AppController
             }
             $this->Flash->error(__('The officer could not be saved. Please, try again.'));
         }
-        $this->set(compact('officer'));
+        $officerRanks = $this->Officers->OfficerRanks->find('list', ['limit' => 200]);
+        $users = $this->Officers->Users->find('list', ['limit' => 200]);
+        $this->set(compact('officer', 'officerRanks', 'users'));
         $this->set('_serialize', ['officer']);
     }
     
@@ -111,11 +129,11 @@ class OfficersController extends AppController
     }
     
     public function beforeFilter(Event $event){
-        if ($loggedUser['isAdmin']) {
-            # code...
-        } else {
-            $this->Auth->deny();
-        }
+        // if ($loggedUser['isAdmin']) {
+        //     # code...
+        // } else {
+        //     $this->Auth->deny();
+        // }
     }
     
 }

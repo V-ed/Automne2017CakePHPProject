@@ -1,8 +1,8 @@
 <?php
 /**
-  * @var \App\View\AppView $this
-  * @var \App\Model\Entity\EvidenceItem[]|\Cake\Collection\CollectionInterface $evidenceItems
-  */
+* @var \App\View\AppView $this
+* @var \App\Model\Entity\EvidenceItem[]|\Cake\Collection\CollectionInterface $evidenceItems
+*/
 ?>
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
@@ -15,10 +15,12 @@
     <table cellpadding="0" cellspacing="0">
         <thead>
             <tr>
+                <?php if($loggedUser['isAdmin']): ?>
+                    <th scope="col"><?= $this->Paginator->sort('isDeleted') ?></th>
+                <?php endif; ?>
                 <th scope="col"><?= $this->Paginator->sort('description') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('origin') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('isSealed') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('isDeleted') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('officer_id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('created') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
@@ -26,19 +28,26 @@
         </thead>
         <tbody>
             <?php foreach ($evidenceItems as $evidenceItem): ?>
-            <tr>
-                <td><?= h($evidenceItem->description) ?></td>
-                <td><?= h($evidenceItem->origin) ?></td>
-                <td><?= h($evidenceItem->isSealed) ?></td>
-                <td><?= h($evidenceItem->is_deleted) ?></td>
-                <td><?= $this->Number->format($evidenceItem->officer_id) ?></td>
-                <td><?= h($evidenceItem->created) ?></td>
-                <td class="actions">
-                    <?= $this->Html->link(__('View'), ['action' => 'view', $evidenceItem->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $evidenceItem->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $evidenceItem->id], ['confirm' => __('Are you sure you want to delete # {0}?', $evidenceItem->id)]) ?>
-                </td>
-            </tr>
+                <?php
+                $isItemDeleted = $evidenceItem->isDeleted;
+                if (!$isItemDeleted || $loggedUser['isAdmin']) :
+                    ?>
+                    <tr <?php if($isItemDeleted) echo 'style="background-color: #DEDEDE"'; ?> >
+                        <?php if($loggedUser['isAdmin']): ?>
+                            <td><?= $isItemDeleted ? __('Yes') : __('No'); ?></td>
+                        <?php endif; ?>
+                        <td><?= h($evidenceItem->description) ?></td>
+                        <td><?= h($evidenceItem->origin) ?></td>
+                        <td><?= h($evidenceItem->isSealed) ?></td>
+                        <td><?= $this->Number->format($evidenceItem->officer_id) ?></td>
+                        <td><?= h($evidenceItem->created) ?></td>
+                        <td class="actions">
+                            <?= $this->Html->link(__('View'), ['action' => 'view', $evidenceItem->id]) ?>
+                            <?= $this->Html->link(__('Edit'), ['action' => 'edit', $evidenceItem->id]) ?>
+                            <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $evidenceItem->id], ['confirm' => __('Are you sure you want to delete # {0}?', $evidenceItem->id)]) ?>
+                        </td>
+                    </tr>
+                <?php endif; ?>
             <?php endforeach; ?>
         </tbody>
     </table>
