@@ -13,7 +13,7 @@
         <li><?= $this->Html->link(__('New File'), ['action' => 'add']) ?> </li>
     </ul>
 </nav>
-<div class="files view large-9 medium-8 columns content">
+<div class="files view large-10 medium-8 columns content">
     <h3><?= h($file->name) ?></h3>
     <table class="vertical-table">
         <tr>

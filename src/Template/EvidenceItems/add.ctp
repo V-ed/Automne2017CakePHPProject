@@ -9,7 +9,7 @@
         <li><?= $this->Html->link(__('List Evidence Items'), ['action' => 'index']) ?></li>
     </ul>
 </nav>
-<div class="evidenceItems form large-9 medium-8 columns content">
+<div class="evidenceItems form large-10 medium-8 columns content">
     <?= $this->Form->create($evidenceItem) ?>
     <fieldset>
         <legend><?= __('Add Evidence Item') ?></legend>

@@ -15,7 +15,7 @@
         <li><?= $this->Html->link(__('List Files'), ['action' => 'index']) ?></li>
     </ul>
 </nav>
-<div class="files form large-9 medium-8 columns content">
+<div class="files form large-10 medium-8 columns content">
     <?= $this->Form->create($file) ?>
     <fieldset>
         <legend><?= __('Edit File') ?></legend>

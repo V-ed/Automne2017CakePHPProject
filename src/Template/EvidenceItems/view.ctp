@@ -13,7 +13,7 @@
         <li><?= $this->Html->link(__('New Evidence Item'), ['action' => 'add']) ?> </li>
     </ul>
 </nav>
-<div class="evidenceItems view large-9 medium-8 columns content">
+<div class="evidenceItems view large-10 medium-8 columns content">
     <h3><?= h($evidenceItem->id) ?></h3>
     <table class="vertical-table">
         <tr>

@@ -13,7 +13,7 @@
         <li><?= $this->Html->link(__('New User'), ['action' => 'add']) ?> </li>
     </ul>
 </nav>
-<div class="users view large-9 medium-8 columns content">
+<div class="users view large-10 medium-8 columns content">
     <h3><?= h($user->firstName) . ' ' . h($user->lastName) ?></h3>
     <table class="vertical-table">
         <tr>

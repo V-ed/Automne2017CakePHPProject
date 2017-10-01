@@ -9,7 +9,7 @@
         <li><?= $this->Html->link(__('List Officer Ranks'), ['action' => 'index']) ?></li>
     </ul>
 </nav>
-<div class="officerRanks form large-9 medium-8 columns content">
+<div class="officerRanks form large-10 medium-8 columns content">
     <?= $this->Form->create($officerRank) ?>
     <fieldset>
         <legend><?= __('Add Officer Rank') ?></legend>

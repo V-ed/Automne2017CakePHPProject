@@ -36,7 +36,7 @@ class EvidenceItemsTable extends Table
         parent::initialize($config);
 
         $this->setTable('evidence_items');
-        $this->setDisplayField('id');
+        $this->setDisplayField('description');
         $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');
@@ -76,11 +76,6 @@ class EvidenceItemsTable extends Table
             ->boolean('isSealed')
             ->requirePresence('isSealed', 'create')
             ->notEmpty('isSealed');
-
-        $validator
-            ->boolean('isDeleted')
-            ->requirePresence('isDeleted', 'create')
-            ->notEmpty('isDeleted');
 
         return $validator;
     }
