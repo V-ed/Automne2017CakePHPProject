@@ -28,6 +28,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     
     <?= $this->Html->css('base.css') ?>
     <?= $this->Html->css('cake.css') ?>
+    <?= $this->Html->css('custom.css') ?>
     
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
@@ -35,7 +36,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 </head>
 <body>
     <nav class="top-bar expanded" data-topbar role="navigation">
-        <ul class="title-area large-3 medium-4 columns">
+        <ul class="title-area large-3 medium-4 columns" id="top-left-bar">
             <li class="name">
                 <h1><a href=""><?= $this->fetch('title') ?></a></h1>
             </li>
@@ -49,7 +50,13 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
             </ul>
             <ul class="right">
                 <?php if( isset($loggedUser) ): ?>
-                    <li><?= $this->Html->link('Logged in as ' . h($loggedUser['firstName']) . ' ' . h($loggedUser['lastName']), ['controller' => 'users', 'action' => 'edit', $loggedUser['id']]) ?></li>
+                    <?php
+                    $user = h($loggedUser['firstName']) . ' ' . h($loggedUser['lastName']);
+                    if ($loggedUser['isAdmin']) {
+                        $user = $user . ' (<span style="color: #FF5400">ADMIN</span>)';
+                    }
+                    ?>
+                    <li><?= $this->Html->link('Logged in as ' . $user, ['controller' => 'users', 'action' => 'edit', $loggedUser['id']], ['escape' => false]) ?></li>
                     <li><?= $this->Html->link('Logout', ['controller' => 'users', 'action' => 'logout']) ?></li>
                 <?php else: ?>
                     <li><?= $this->Html->link('Login', ['controller' => 'users', 'action' => 'login']) ?></li>

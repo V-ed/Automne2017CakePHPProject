@@ -20,7 +20,9 @@
     <fieldset>
         <legend><?= __('Edit User') ?></legend>
         <?php
-            echo $this->Form->control('isAdmin');
+            if ($loggedUser['isAdmin']) {
+                echo $this->Form->control('isAdmin');
+            }
             echo $this->Form->control('firstName');
             echo $this->Form->control('lastName');
             echo $this->Form->control('username');

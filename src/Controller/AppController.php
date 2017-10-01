@@ -58,7 +58,7 @@ class AppController extends Controller
         //$this->loadComponent('Security');
         //$this->loadComponent('Csrf');
         
-        $loggedUser = $this->Auth->user();
+        $loggedUser = $this->getLoggedUser();
         $this->set(compact('loggedUser'));
         
         $this->set('appRoot', Router::url('/', true));
@@ -93,6 +93,10 @@ class AppController extends Controller
         }
         // Default deny
         return false;
+    }
+    
+    public function getLoggedUser(){
+        return $this->Auth->user();
     }
     
 }
