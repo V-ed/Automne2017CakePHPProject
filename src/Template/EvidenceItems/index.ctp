@@ -39,7 +39,7 @@
                         <?php endif; ?>
                         <td><?= h($evidenceItem->description) ?></td>
                         <td><?= h($evidenceItem->origin) ?></td>
-                        <td><?= h($evidenceItem->isSealed) ?></td>
+                        <td><?= $evidenceItem->isSealed ? __('Yes') : __('No') ?></td>
                         <td><?= h($evidenceItem->officer->email) ?></td>
                         <td><?= h($evidenceItem->created) ?></td>
                         <td class="actions">
