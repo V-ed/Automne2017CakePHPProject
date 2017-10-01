@@ -43,7 +43,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         </ul>
         <div class="top-bar-section">
             <ul class="left">
-                <li><a href="<?= $appRoot ?>">Home</a></li>
+                <li><a href="<?= $appRoot ?>"><?= __('Home') ?></a></li>
                 <li><?= $this->Html->link(__('Evidence Items'), ['controller' => 'evidence_items']) ?></li>
                 <li><?= $this->Html->link(__('Officers'), ['controller' => 'officers']) ?></li>
                 <li><?= $this->Html->link(__('Users'), ['controller' => 'users']) ?></li>
@@ -53,7 +53,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                     <?php
                     $user = h($loggedUser['firstName']) . ' ' . h($loggedUser['lastName']);
                     if ($loggedUser['isAdmin']) {
-                        $user = $user . ' (<span style="color: #FF5400">ADMIN</span>)';
+                        $user = $user . ' (<span style="color: #FF5400">' . __('ADMIN') . '</span>)';
                     }
                     ?>
                     <li><?= $this->Html->link(__('Logged in as %s', $user), ['controller' => 'users', 'action' => 'edit', $loggedUser['id']], ['escape' => false]) ?></li>

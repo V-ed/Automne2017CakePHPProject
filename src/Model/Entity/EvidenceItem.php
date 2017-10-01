@@ -2,7 +2,6 @@
 namespace App\Model\Entity;
 
 use Cake\ORM\Entity;
-use Cake\ORM\Behavior\Translate\TranslateTrait;
 
 /**
  * EvidenceItem Entity
@@ -18,8 +17,6 @@ use Cake\ORM\Behavior\Translate\TranslateTrait;
  */
 class EvidenceItem extends Entity
 {
-    
-    use TranslateTrait;
 
     /**
      * Fields that can be mass assigned using newEntity() or patchEntity().

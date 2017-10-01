@@ -46,10 +46,7 @@ class AppController extends Controller
         $this->loadComponent('RequestHandler');
         $this->loadComponent('Flash');
         $this->loadComponent('Auth', [
-            'authorize' => ['Controller'],
-            'loginRedirect' => [
-                'controller' => 'home'
-            ]
+            'authorize' => ['Controller']
         ]);
         
         I18n::locale($this->request->session()->read('Config.language'));

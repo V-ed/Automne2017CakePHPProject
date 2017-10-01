@@ -65,19 +65,19 @@ msgstr "Le fichier n'a pas pu être supprimé. Veuillez réessayer."
 
 #: Controller/OfficerRanksController.php:58;83
 msgid "The officer rank has been saved."
-msgstr "Le grade d'officier a été enregistré."
+msgstr "Le rang d'officier a été enregistré."
 
 #: Controller/OfficerRanksController.php:62;87
 msgid "The officer rank could not be saved. Please, try again."
-msgstr "Le classement de l'officier n'a pas pu être enregistré. Veuillez réessayer."
+msgstr "Le rang d'officier n'a pas pu être enregistré. Veuillez réessayer."
 
 #: Controller/OfficerRanksController.php:105
 msgid "The officer rank has been deleted."
-msgstr "Le classement de l'officier a été supprimé."
+msgstr "Le rang d'officier a été supprimé."
 
 #: Controller/OfficerRanksController.php:107
 msgid "The officer rank could not be deleted. Please, try again."
-msgstr "Le grade d'officier n'a pas pu être supprimé. Veuillez réessayer."
+msgstr "Le rang d'officier n'a pas pu être supprimé. Veuillez réessayer."
 
 #: Controller/OfficerRanksController.php:120
 msgid "You must be an admin to access that page!"
@@ -85,11 +85,11 @@ msgstr "Vous devez être un administrateur pour accéder à cette page!"
 
 #: Controller/OfficersController.php:62
 msgid "No officer rank is in the database, no officer can be added."
-msgstr "Aucun grade d'officier n'est dans la base de données, aucun officier ne peut être ajouté."
+msgstr "Aucun rang d'officier n'est dans la base de données, aucun officier ne peut donc être ajouté."
 
 #: Controller/OfficersController.php:69;99
 msgid "The officer has been saved."
-msgstr "L'officier a été sauvegardé."
+msgstr "L'officier a été sauvé."
 
 #: Controller/OfficersController.php:73;103
 msgid "The officer could not be saved. Please, try again."
@@ -101,7 +101,7 @@ msgstr "L'officier a été supprimé."
 
 #: Controller/OfficersController.php:125
 msgid "The officer could not be deleted. Please, try again."
-msgstr "L'officier n'a pas pu être supprimé. Veuillez réessayer."
+msgstr "L'agent n'a pas pu être supprimé. Veuillez réessayer."
 
 #: Controller/UsersController.php:59
 msgid "The user has been saved."
@@ -219,6 +219,7 @@ msgid "New Evidence Item"
 msgstr "Nouvel élément de preuve"
 
 #: Template/EvidenceItems/index.ctp:14
+#: Template/Layout/default.ctp:47
 msgid "Evidence Items"
 msgstr "Éléments de preuve"
 
@@ -252,7 +253,7 @@ msgstr "Vue"
 #: Template/Officers/index.ctp:32
 #: Template/Users/index.ctp:41
 msgid "Edit"
-msgstr "modifier"
+msgstr "Modifier"
 
 #: Template/EvidenceItems/index.ctp:57
 #: Template/Files/index.ctp:47
@@ -292,7 +293,7 @@ msgstr "dernier"
 #: Template/Officers/index.ctp:47
 #: Template/Users/index.ctp:57
 msgid "Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total"
-msgstr "Page {{page}} de {{pages}}, montrant {{current}} enregistrement(s) sur un total de {{count}}"
+msgstr "Page {{page}} de {{pages}}, montrant {{current}} enregistrement (s) sur un total de {{count}}"
 
 #: Template/EvidenceItems/view.ctp:11
 msgid "Delete Evidence Item"
@@ -368,7 +369,7 @@ msgstr "Nouveau fichier"
 
 #: Template/Files/index.ctp:14
 msgid "Files"
-msgstr "Des dossiers"
+msgstr "Dossiers"
 
 #: Template/Files/view.ctp:11
 msgid "Delete File"
@@ -382,19 +383,52 @@ msgstr "Chemin"
 msgid "Id Item"
 msgstr "Id Item"
 
+#: Template/Layout/default.ctp:48
+#: Template/Officers/index.ctp:14
+msgid "Officers"
+msgstr "Officiers"
+
+#: Template/Layout/default.ctp:49
+#: Template/Users/index.ctp:14
+msgid "Users"
+msgstr "Utilisateurs"
+
+#: Template/Layout/default.ctp:56
+msgid "ADMIN"
+msgstr "ADMIN"
+
+#: Template/Layout/default.ctp:59
+msgid "Logged in as %s"
+msgstr "Connecté en tant que %s"
+
+#: Template/Layout/default.ctp:60
+msgid "Logout"
+msgstr "Déconnexion"
+
+#: Template/Layout/default.ctp:62
+#: Template/Users/login.ctp:10
+msgid "Login"
+msgstr "S'identifier"
+
+#: Template/Layout/default.ctp:63
+#: Template/Users/index.ctp:10
+#: Template/Users/register.ctp:15
+msgid "Register"
+msgstr "Créer un compte"
+
 #: Template/Layout/error.ctp:35
 msgid "Error"
 msgstr "Erreur"
 
 #: Template/Layout/error.ctp:43
 msgid "Back"
-msgstr "Arrière"
+msgstr "Retour"
 
 #: Template/OfficerRanks/add.ctp:9
 #: Template/OfficerRanks/edit.ctp:15
 #: Template/OfficerRanks/view.ctp:12
 msgid "List Officer Ranks"
-msgstr "List Officer Ranks"
+msgstr "Liste des rangs d'officier"
 
 #: Template/OfficerRanks/add.ctp:15
 msgid "Add Officer Rank"
@@ -403,24 +437,24 @@ msgstr "Ajouter un rang d'officier"
 #: Template/OfficerRanks/edit.ctp:21
 #: Template/OfficerRanks/view.ctp:10
 msgid "Edit Officer Rank"
-msgstr "Modifier le rang d'agent"
+msgstr "Modifier le rang d'officier"
 
 #: Template/OfficerRanks/index.ctp:10
 #: Template/OfficerRanks/view.ctp:13
 msgid "New Officer Rank"
-msgstr "Nouveau grade d'agent"
+msgstr "Nouveau rang d'officier"
 
 #: Template/OfficerRanks/index.ctp:14
 msgid "Officer Ranks"
-msgstr "Classement des officiers"
+msgstr "Rang des officiers"
 
 #: Template/OfficerRanks/view.ctp:11
 msgid "Delete Officer Rank"
-msgstr "Supprimer le rang d'agent"
+msgstr "Supprimer le rang d'officier"
 
 #: Template/OfficerRanks/view.ctp:20
 msgid "Rank Code"
-msgstr "Code de classement"
+msgstr "Rang (code)"
 
 #: Template/OfficerRanks/view.ctp:24
 msgid "Rank Name"
@@ -428,31 +462,27 @@ msgstr "Nom du rang"
 
 #: Template/OfficerRanks/view.ctp:28
 msgid "Rank Description"
-msgstr "Rang Description"
+msgstr "Description du Rang"
 
 #: Template/Officers/add.ctp:9
 #: Template/Officers/edit.ctp:15
 #: Template/Officers/view.ctp:12
 msgid "List Officers"
-msgstr "Agents de liste"
+msgstr "Liste des officiers"
 
 #: Template/Officers/add.ctp:15
 msgid "Add Officer"
-msgstr "Add Officer"
+msgstr "Ajouter un officier"
 
 #: Template/Officers/edit.ctp:21
 #: Template/Officers/view.ctp:10
 msgid "Edit Officer"
-msgstr "Editeur"
+msgstr "Modifier l'officier"
 
 #: Template/Officers/index.ctp:10
 #: Template/Officers/view.ctp:13
 msgid "New Officer"
 msgstr "Nouvel officier"
-
-#: Template/Officers/index.ctp:14
-msgid "Officers"
-msgstr "Officiers"
 
 #: Template/Officers/index.ctp:19
 msgid "Officer's Rank"
@@ -460,7 +490,7 @@ msgstr "Rang de l'officier"
 
 #: Template/Officers/view.ctp:11
 msgid "Delete Officer"
-msgstr "Effacer l'agent"
+msgstr "Supprimer l'officier"
 
 #: Template/Officers/view.ctp:20
 msgid "Email"
@@ -468,11 +498,11 @@ msgstr "Email"
 
 #: Template/Officers/view.ctp:24
 msgid "Id Rank"
-msgstr "ID Rang"
+msgstr "ID Rang (Trad : J'ai bu)"
 
 #: Template/Officers/view.ctp:28
 msgid "Id User"
-msgstr "Utilisateur ID"
+msgstr "ID Utilisateur"
 
 #: Template/Users/edit.ctp:12
 msgid "Are you sure you want to delete your account?"
@@ -511,27 +541,14 @@ msgstr "Nom de famille"
 msgid "New Password"
 msgstr "Nouveau mot de passe"
 
-#: Template/Users/index.ctp:10
-#: Template/Users/register.ctp:15
-msgid "Register"
-msgstr "Créez un compte"
-
-#: Template/Users/index.ctp:14
-msgid "Users"
-msgstr "Utilisateurs"
-
 #: Template/Users/index.ctp:24
 #: Template/Users/view.ctp:32
 msgid "Joined On"
-msgstr "Inscrit"
+msgstr "Inscrit le"
 
 #: Template/Users/login.ctp:4
 msgid "Please enter your username and password"
 msgstr "Veuillez s'il vous plaît entrer votre nom d'utilisateur et votre mot de passe"
-
-#: Template/Users/login.ctp:10
-msgid "Login"
-msgstr "S'identifier"
 
 #: Template/Users/view.ctp:11
 msgid "Delete User"
@@ -545,7 +562,7 @@ msgstr "Nouvel utilisateur"
 msgid "Username"
 msgstr "Nom d'utilisateur"
 
-#: 
-msgid "firstVersion"
-msgstr "Première version"
+#: Template/Layout/default.ctp:46
+msgid "Home"
+msgstr "Accueil"
 
