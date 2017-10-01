@@ -30,6 +30,7 @@
             <?php foreach ($evidenceItems as $evidenceItem): ?>
                 <?php
                 $isItemDeleted = $evidenceItem->isDeleted;
+                
                 if (!$isItemDeleted || $loggedUser['isAdmin']) :
                     ?>
                     <tr <?php if($isItemDeleted) echo 'style="background-color: #DEDEDE"'; ?> >

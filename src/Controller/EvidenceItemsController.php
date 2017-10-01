@@ -21,7 +21,7 @@ class EvidenceItemsController extends AppController
     public function index()
     {
         $this->paginate = [
-            'contain' => ['Officers']
+            'contain' => ['Officers', 'Files']
         ];
         $evidenceItems = $this->paginate($this->EvidenceItems);
         
