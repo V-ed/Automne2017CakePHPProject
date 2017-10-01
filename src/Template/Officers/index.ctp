@@ -10,13 +10,13 @@
         <li><?= $this->Html->link(__('New Officer'), ['action' => 'add']) ?></li>
     </ul>
 </nav>
-<div class="officers index large-9 medium-8 columns content">
+<div class="officers index large-10 medium-8 columns content">
     <h3><?= __('Officers') ?></h3>
     <table cellpadding="0" cellspacing="0">
         <thead>
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('email') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('id_rank') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('id_rank', __('Officer\'s Rank')) ?></th>
                 <th scope="col"><?= $this->Paginator->sort('id_user') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>

@@ -21,6 +21,10 @@
             <td><?= h($officerRank->rank_code) ?></td>
         </tr>
         <tr>
+            <th scope="row"><?= __('Rank Name') ?></th>
+            <td><?= h($officerRank->rank_name) ?></td>
+        </tr>
+        <tr>
             <th scope="row"><?= __('Rank Description') ?></th>
             <td><?= h($officerRank->rank_description) ?></td>
         </tr>

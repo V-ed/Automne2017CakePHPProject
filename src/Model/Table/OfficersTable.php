@@ -33,6 +33,8 @@ class OfficersTable extends Table
         $this->setTable('officers');
         $this->setDisplayField('id');
         $this->setPrimaryKey('id');
+        
+        $this->belongsTo('Users')->setForeignKey('id_user');
     }
 
     /**

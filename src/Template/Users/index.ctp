@@ -21,7 +21,7 @@
                 <th scope="col"><?= $this->Paginator->sort('firstName', __('First Name')) ?></th>
                 <th scope="col"><?= $this->Paginator->sort('lastName', __('Last Name')) ?></th>
                 <th scope="col"><?= $this->Paginator->sort('username') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('created', 'Joined On') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('created', __('Joined On')) ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>

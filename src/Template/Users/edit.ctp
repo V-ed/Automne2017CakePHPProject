@@ -9,7 +9,7 @@
         <li><?= $this->Form->postLink(
                 __('Delete'),
                 ['action' => 'delete', $user->id],
-                ['confirm' => __('Are you sure you want to delete # {0}?', $user->id)]
+                ['confirm' => __('Are you sure you want to delete your account?')]
             )
         ?></li>
         <li><?= $this->Html->link(__('List Users'), ['action' => 'index']) ?></li>
@@ -21,12 +21,12 @@
         <legend><?= __('Edit User') ?></legend>
         <?php
             if ($loggedUser['isAdmin']) {
-                echo $this->Form->control('isAdmin');
+                echo $this->Form->control('isAdmin', ['label' => __('Is Admin')]);
             }
-            echo $this->Form->control('firstName');
-            echo $this->Form->control('lastName');
+            echo $this->Form->control('firstName', ['label' => __('First Name')]);
+            echo $this->Form->control('lastName', ['label' => __('Last Name')]);
             echo $this->Form->control('username');
-            echo $this->Form->control('password');
+            echo $this->Form->control('password', ['value' => '', 'label' => __('New Password')]);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

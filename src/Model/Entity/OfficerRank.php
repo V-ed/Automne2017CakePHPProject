@@ -8,6 +8,7 @@ use Cake\ORM\Entity;
  *
  * @property int $id
  * @property string $rank_code
+ * @property string $rank_name
  * @property string $rank_description
  */
 class OfficerRank extends Entity

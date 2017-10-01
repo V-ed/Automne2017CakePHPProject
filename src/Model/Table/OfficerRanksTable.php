@@ -53,6 +53,11 @@ class OfficerRanksTable extends Table
             ->notEmpty('rank_code');
 
         $validator
+            ->scalar('rank_name')
+            ->requirePresence('rank_name', 'create')
+            ->notEmpty('rank_name');
+
+        $validator
             ->scalar('rank_description')
             ->allowEmpty('rank_description');
 

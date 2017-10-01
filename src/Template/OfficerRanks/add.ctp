@@ -15,6 +15,7 @@
         <legend><?= __('Add Officer Rank') ?></legend>
         <?php
             echo $this->Form->control('rank_code');
+            echo $this->Form->control('rank_name');
             echo $this->Form->control('rank_description');
         ?>
     </fieldset>

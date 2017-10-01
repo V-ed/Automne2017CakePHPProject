@@ -17,11 +17,11 @@
     <h3><?= h($user->firstName) . ' ' . h($user->lastName) ?></h3>
     <table class="vertical-table">
         <tr>
-            <th scope="row"><?= __('FirstName') ?></th>
+            <th scope="row"><?= __('First Name') ?></th>
             <td><?= h($user->firstName) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('LastName') ?></th>
+            <th scope="row"><?= __('Last Name') ?></th>
             <td><?= h($user->lastName) ?></td>
         </tr>
         <tr>
@@ -29,12 +29,8 @@
             <td><?= h($user->username) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Created') ?></th>
+            <th scope="row"><?= __('Joined On') ?></th>
             <td><?= h($user->created) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Modified') ?></th>
-            <td><?= h($user->modified) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Is Admin') ?></th>

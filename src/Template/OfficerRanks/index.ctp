@@ -1,8 +1,8 @@
 <?php
 /**
-  * @var \App\View\AppView $this
-  * @var \App\Model\Entity\OfficerRank[]|\Cake\Collection\CollectionInterface $officerRanks
-  */
+* @var \App\View\AppView $this
+* @var \App\Model\Entity\OfficerRank[]|\Cake\Collection\CollectionInterface $officerRanks
+*/
 ?>
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
@@ -16,21 +16,23 @@
         <thead>
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('rank_code') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('rank_name') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('rank_description') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>
         <tbody>
             <?php foreach ($officerRanks as $officerRank): ?>
-            <tr>
-                <td><?= h($officerRank->rank_code) ?></td>
-                <td><?= h($officerRank->rank_description) ?></td>
-                <td class="actions">
-                    <?= $this->Html->link(__('View'), ['action' => 'view', $officerRank->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $officerRank->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $officerRank->id], ['confirm' => __('Are you sure you want to delete # {0}?', $officerRank->id)]) ?>
-                </td>
-            </tr>
+                <tr>
+                    <td><?= h($officerRank->rank_code) ?></td>
+                    <td><?= h($officerRank->rank_name) ?></td>
+                    <td><?= h($officerRank->rank_description) ?></td>
+                    <td class="actions">
+                        <?= $this->Html->link(__('View'), ['action' => 'view', $officerRank->id]) ?>
+                        <?= $this->Html->link(__('Edit'), ['action' => 'edit', $officerRank->id]) ?>
+                        <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $officerRank->id], ['confirm' => __('Are you sure you want to delete # {0}?', $officerRank->id)]) ?>
+                    </td>
+                </tr>
             <?php endforeach; ?>
         </tbody>
     </table>
