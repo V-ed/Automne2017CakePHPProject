@@ -1,0 +1,567 @@
+# LANGUAGE translation of CakePHP Application
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2017-10-01 17:23+0000\n"
+"PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+#: Controller/EvidenceItemsController.php:61
+msgid "No officer is in the database, no item can be added."
+msgstr ""
+
+#: Controller/EvidenceItemsController.php:68;97
+msgid "The evidence item has been saved."
+msgstr ""
+
+#: Controller/EvidenceItemsController.php:72;101
+msgid "The evidence item could not be saved. Please, try again."
+msgstr ""
+
+#: Controller/EvidenceItemsController.php:120
+msgid "The evidence item has been deleted."
+msgstr ""
+
+#: Controller/EvidenceItemsController.php:122
+msgid "The evidence item could not be deleted. Please, try again."
+msgstr ""
+
+#: Controller/FilesController.php:60
+msgid "No evidence item is in the database, no new file can be linked to an item."
+msgstr ""
+
+#: Controller/FilesController.php:80
+msgid "File has been uploaded and inserted successfully."
+msgstr ""
+
+#: Controller/FilesController.php:82
+msgid "The file has been saved but there was a problem saving it in the database. Contact the administrator to seek some help."
+msgstr ""
+
+#: Controller/FilesController.php:86
+msgid "Unable to upload file, please try again."
+msgstr ""
+
+#: Controller/FilesController.php:89
+msgid "Please choose a file to upload."
+msgstr ""
+
+#: Controller/FilesController.php:117
+msgid "The file has been saved."
+msgstr ""
+
+#: Controller/FilesController.php:121
+msgid "The file could not be saved. Please, try again."
+msgstr ""
+
+#: Controller/FilesController.php:140
+msgid "The file has been deleted."
+msgstr ""
+
+#: Controller/FilesController.php:142
+msgid "The file could not be deleted. Please, try again."
+msgstr ""
+
+#: Controller/OfficerRanksController.php:58;83
+msgid "The officer rank has been saved."
+msgstr ""
+
+#: Controller/OfficerRanksController.php:62;87
+msgid "The officer rank could not be saved. Please, try again."
+msgstr ""
+
+#: Controller/OfficerRanksController.php:105
+msgid "The officer rank has been deleted."
+msgstr ""
+
+#: Controller/OfficerRanksController.php:107
+msgid "The officer rank could not be deleted. Please, try again."
+msgstr ""
+
+#: Controller/OfficerRanksController.php:120
+msgid "You must be an admin to access that page!"
+msgstr ""
+
+#: Controller/OfficersController.php:62
+msgid "No officer rank is in the database, no officer can be added."
+msgstr ""
+
+#: Controller/OfficersController.php:69;99
+msgid "The officer has been saved."
+msgstr ""
+
+#: Controller/OfficersController.php:73;103
+msgid "The officer could not be saved. Please, try again."
+msgstr ""
+
+#: Controller/OfficersController.php:123
+msgid "The officer has been deleted."
+msgstr ""
+
+#: Controller/OfficersController.php:125
+msgid "The officer could not be deleted. Please, try again."
+msgstr ""
+
+#: Controller/UsersController.php:59
+msgid "The user has been saved."
+msgstr ""
+
+#: Controller/UsersController.php:63;96
+msgid "The user could not be saved. Please, try again."
+msgstr ""
+
+#: Controller/UsersController.php:87
+msgid "Your data has been saved!"
+msgstr ""
+
+#: Controller/UsersController.php:91
+msgid "%s's data has been saved!"
+msgstr ""
+
+#: Controller/UsersController.php:114
+msgid "The user has been deleted."
+msgstr ""
+
+#: Controller/UsersController.php:116
+msgid "The user could not be deleted. Please, try again."
+msgstr ""
+
+#: Controller/UsersController.php:136
+msgid "Invalid username or password, try again"
+msgstr ""
+
+#: Template/EvidenceItems/add.ctp:8
+#: Template/EvidenceItems/edit.ctp:8
+#: Template/EvidenceItems/index.ctp:9;26
+#: Template/EvidenceItems/view.ctp:9;56
+#: Template/Files/add.ctp:8
+#: Template/Files/edit.ctp:8
+#: Template/Files/index.ctp:9;24
+#: Template/Files/view.ctp:9
+#: Template/OfficerRanks/add.ctp:8
+#: Template/OfficerRanks/edit.ctp:8
+#: Template/OfficerRanks/index.ctp:9;21
+#: Template/OfficerRanks/view.ctp:9
+#: Template/Officers/add.ctp:8
+#: Template/Officers/edit.ctp:8
+#: Template/Officers/index.ctp:9;21
+#: Template/Officers/view.ctp:9
+#: Template/Users/edit.ctp:8
+#: Template/Users/index.ctp:9;25
+#: Template/Users/register.ctp:8
+#: Template/Users/view.ctp:9
+msgid "Actions"
+msgstr ""
+
+#: Template/EvidenceItems/add.ctp:9
+#: Template/EvidenceItems/edit.ctp:15
+#: Template/EvidenceItems/view.ctp:12
+msgid "List Evidence Items"
+msgstr ""
+
+#: Template/EvidenceItems/add.ctp:15
+msgid "Add Evidence Item"
+msgstr ""
+
+#: Template/EvidenceItems/add.ctp:23
+#: Template/EvidenceItems/edit.ctp:29
+#: Template/Files/add.ctp:22
+#: Template/Files/edit.ctp:29
+#: Template/OfficerRanks/add.ctp:22
+#: Template/OfficerRanks/edit.ctp:28
+#: Template/Officers/add.ctp:22
+#: Template/Officers/edit.ctp:28
+#: Template/Users/edit.ctp:32
+#: Template/Users/register.ctp:23
+msgid "Submit"
+msgstr ""
+
+#: Template/EvidenceItems/edit.ctp:10
+#: Template/EvidenceItems/index.ctp:48
+#: Template/EvidenceItems/view.ctp:73
+#: Template/Files/edit.ctp:10
+#: Template/Files/index.ctp:39
+#: Template/OfficerRanks/edit.ctp:10
+#: Template/OfficerRanks/index.ctp:33
+#: Template/Officers/edit.ctp:10
+#: Template/Officers/index.ctp:33
+#: Template/Users/edit.ctp:10
+#: Template/Users/index.ctp:42
+msgid "Delete"
+msgstr ""
+
+#: Template/EvidenceItems/edit.ctp:12
+#: Template/EvidenceItems/index.ctp:48
+#: Template/EvidenceItems/view.ctp:11;73
+#: Template/Files/edit.ctp:12
+#: Template/Files/index.ctp:39
+#: Template/Files/view.ctp:11
+#: Template/OfficerRanks/edit.ctp:12
+#: Template/OfficerRanks/index.ctp:33
+#: Template/OfficerRanks/view.ctp:11
+#: Template/Officers/edit.ctp:12
+#: Template/Officers/index.ctp:33
+#: Template/Officers/view.ctp:11
+#: Template/Users/index.ctp:42
+#: Template/Users/view.ctp:11
+msgid "Are you sure you want to delete # {0}?"
+msgstr ""
+
+#: Template/EvidenceItems/edit.ctp:21
+#: Template/EvidenceItems/view.ctp:10
+msgid "Edit Evidence Item"
+msgstr ""
+
+#: Template/EvidenceItems/index.ctp:10
+#: Template/EvidenceItems/view.ctp:13
+msgid "New Evidence Item"
+msgstr ""
+
+#: Template/EvidenceItems/index.ctp:14
+#: Template/Layout/default.ctp:47
+msgid "Evidence Items"
+msgstr ""
+
+#: Template/EvidenceItems/index.ctp:38
+#: Template/EvidenceItems/view.ctp:37;42
+#: Template/Users/index.ctp:32
+#: Template/Users/view.ctp:37
+msgid "Yes"
+msgstr ""
+
+#: Template/EvidenceItems/index.ctp:38
+#: Template/EvidenceItems/view.ctp:37;42
+#: Template/Users/index.ctp:32
+#: Template/Users/view.ctp:37
+msgid "No"
+msgstr ""
+
+#: Template/EvidenceItems/index.ctp:46
+#: Template/EvidenceItems/view.ctp:71
+#: Template/Files/index.ctp:37
+#: Template/OfficerRanks/index.ctp:31
+#: Template/Officers/index.ctp:31
+#: Template/Users/index.ctp:39
+msgid "View"
+msgstr ""
+
+#: Template/EvidenceItems/index.ctp:47
+#: Template/EvidenceItems/view.ctp:72
+#: Template/Files/index.ctp:38
+#: Template/OfficerRanks/index.ctp:32
+#: Template/Officers/index.ctp:32
+#: Template/Users/index.ctp:41
+msgid "Edit"
+msgstr ""
+
+#: Template/EvidenceItems/index.ctp:57
+#: Template/Files/index.ctp:47
+#: Template/OfficerRanks/index.ctp:41
+#: Template/Officers/index.ctp:41
+#: Template/Users/index.ctp:51
+msgid "first"
+msgstr ""
+
+#: Template/EvidenceItems/index.ctp:58
+#: Template/Files/index.ctp:48
+#: Template/OfficerRanks/index.ctp:42
+#: Template/Officers/index.ctp:42
+#: Template/Users/index.ctp:52
+msgid "previous"
+msgstr ""
+
+#: Template/EvidenceItems/index.ctp:60
+#: Template/Files/index.ctp:50
+#: Template/OfficerRanks/index.ctp:44
+#: Template/Officers/index.ctp:44
+#: Template/Users/index.ctp:54
+msgid "next"
+msgstr ""
+
+#: Template/EvidenceItems/index.ctp:61
+#: Template/Files/index.ctp:51
+#: Template/OfficerRanks/index.ctp:45
+#: Template/Officers/index.ctp:45
+#: Template/Users/index.ctp:55
+msgid "last"
+msgstr ""
+
+#: Template/EvidenceItems/index.ctp:63
+#: Template/Files/index.ctp:53
+#: Template/OfficerRanks/index.ctp:47
+#: Template/Officers/index.ctp:47
+#: Template/Users/index.ctp:57
+msgid "Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total"
+msgstr ""
+
+#: Template/EvidenceItems/view.ctp:11
+msgid "Delete Evidence Item"
+msgstr ""
+
+#: Template/EvidenceItems/view.ctp:20
+msgid "Description"
+msgstr ""
+
+#: Template/EvidenceItems/view.ctp:24
+msgid "Origin"
+msgstr ""
+
+#: Template/EvidenceItems/view.ctp:28
+msgid "Id Officer"
+msgstr ""
+
+#: Template/EvidenceItems/view.ctp:32;54
+#: Template/Files/view.ctp:36
+msgid "Created"
+msgstr ""
+
+#: Template/EvidenceItems/view.ctp:36
+msgid "Is Sealed"
+msgstr ""
+
+#: Template/EvidenceItems/view.ctp:41
+msgid "Is Deleted"
+msgstr ""
+
+#: Template/EvidenceItems/view.ctp:48
+msgid "Related Files"
+msgstr ""
+
+#: Template/EvidenceItems/view.ctp:51
+#: Template/Files/view.ctp:20
+msgid "Name"
+msgstr ""
+
+#: Template/EvidenceItems/view.ctp:52
+msgid "Image"
+msgstr ""
+
+#: Template/EvidenceItems/view.ctp:53
+#: Template/Files/view.ctp:28
+msgid "Detail"
+msgstr ""
+
+#: Template/EvidenceItems/view.ctp:55
+#: Template/Files/view.ctp:40
+msgid "Modified"
+msgstr ""
+
+#: Template/Files/add.ctp:9
+#: Template/Files/edit.ctp:15
+#: Template/Files/view.ctp:12
+msgid "List Files"
+msgstr ""
+
+#: Template/Files/add.ctp:15
+msgid "Add File"
+msgstr ""
+
+#: Template/Files/edit.ctp:21
+#: Template/Files/view.ctp:10
+msgid "Edit File"
+msgstr ""
+
+#: Template/Files/index.ctp:10
+#: Template/Files/view.ctp:13
+msgid "New File"
+msgstr ""
+
+#: Template/Files/index.ctp:14
+msgid "Files"
+msgstr ""
+
+#: Template/Files/view.ctp:11
+msgid "Delete File"
+msgstr ""
+
+#: Template/Files/view.ctp:24
+msgid "Path"
+msgstr ""
+
+#: Template/Files/view.ctp:32
+msgid "Id Item"
+msgstr ""
+
+#: Template/Layout/default.ctp:48
+#: Template/Officers/index.ctp:14
+msgid "Officers"
+msgstr ""
+
+#: Template/Layout/default.ctp:49
+#: Template/Users/index.ctp:14
+msgid "Users"
+msgstr ""
+
+#: Template/Layout/default.ctp:59
+msgid "Logged in as %s"
+msgstr ""
+
+#: Template/Layout/default.ctp:60
+msgid "Logout"
+msgstr ""
+
+#: Template/Layout/default.ctp:62
+#: Template/Users/login.ctp:10
+msgid "Login"
+msgstr ""
+
+#: Template/Layout/default.ctp:63
+#: Template/Users/index.ctp:10
+#: Template/Users/register.ctp:15
+msgid "Register"
+msgstr ""
+
+#: Template/Layout/error.ctp:35
+msgid "Error"
+msgstr ""
+
+#: Template/Layout/error.ctp:43
+msgid "Back"
+msgstr ""
+
+#: Template/OfficerRanks/add.ctp:9
+#: Template/OfficerRanks/edit.ctp:15
+#: Template/OfficerRanks/view.ctp:12
+msgid "List Officer Ranks"
+msgstr ""
+
+#: Template/OfficerRanks/add.ctp:15
+msgid "Add Officer Rank"
+msgstr ""
+
+#: Template/OfficerRanks/edit.ctp:21
+#: Template/OfficerRanks/view.ctp:10
+msgid "Edit Officer Rank"
+msgstr ""
+
+#: Template/OfficerRanks/index.ctp:10
+#: Template/OfficerRanks/view.ctp:13
+msgid "New Officer Rank"
+msgstr ""
+
+#: Template/OfficerRanks/index.ctp:14
+msgid "Officer Ranks"
+msgstr ""
+
+#: Template/OfficerRanks/view.ctp:11
+msgid "Delete Officer Rank"
+msgstr ""
+
+#: Template/OfficerRanks/view.ctp:20
+msgid "Rank Code"
+msgstr ""
+
+#: Template/OfficerRanks/view.ctp:24
+msgid "Rank Name"
+msgstr ""
+
+#: Template/OfficerRanks/view.ctp:28
+msgid "Rank Description"
+msgstr ""
+
+#: Template/Officers/add.ctp:9
+#: Template/Officers/edit.ctp:15
+#: Template/Officers/view.ctp:12
+msgid "List Officers"
+msgstr ""
+
+#: Template/Officers/add.ctp:15
+msgid "Add Officer"
+msgstr ""
+
+#: Template/Officers/edit.ctp:21
+#: Template/Officers/view.ctp:10
+msgid "Edit Officer"
+msgstr ""
+
+#: Template/Officers/index.ctp:10
+#: Template/Officers/view.ctp:13
+msgid "New Officer"
+msgstr ""
+
+#: Template/Officers/index.ctp:19
+msgid "Officer's Rank"
+msgstr ""
+
+#: Template/Officers/view.ctp:11
+msgid "Delete Officer"
+msgstr ""
+
+#: Template/Officers/view.ctp:20
+msgid "Email"
+msgstr ""
+
+#: Template/Officers/view.ctp:24
+msgid "Id Rank"
+msgstr ""
+
+#: Template/Officers/view.ctp:28
+msgid "Id User"
+msgstr ""
+
+#: Template/Users/edit.ctp:12
+msgid "Are you sure you want to delete your account?"
+msgstr ""
+
+#: Template/Users/edit.ctp:15
+#: Template/Users/register.ctp:9
+#: Template/Users/view.ctp:12
+msgid "List Users"
+msgstr ""
+
+#: Template/Users/edit.ctp:21
+#: Template/Users/view.ctp:10
+msgid "Edit User"
+msgstr ""
+
+#: Template/Users/edit.ctp:24
+#: Template/Users/index.ctp:19
+#: Template/Users/view.ctp:36
+msgid "Is Admin"
+msgstr ""
+
+#: Template/Users/edit.ctp:26
+#: Template/Users/index.ctp:21
+#: Template/Users/view.ctp:20
+msgid "First Name"
+msgstr ""
+
+#: Template/Users/edit.ctp:27
+#: Template/Users/index.ctp:22
+#: Template/Users/view.ctp:24
+msgid "Last Name"
+msgstr ""
+
+#: Template/Users/edit.ctp:29
+msgid "New Password"
+msgstr ""
+
+#: Template/Users/index.ctp:24
+#: Template/Users/view.ctp:32
+msgid "Joined On"
+msgstr ""
+
+#: Template/Users/login.ctp:4
+msgid "Please enter your username and password"
+msgstr ""
+
+#: Template/Users/view.ctp:11
+msgid "Delete User"
+msgstr ""
+
+#: Template/Users/view.ctp:13
+msgid "New User"
+msgstr ""
+
+#: Template/Users/view.ctp:28
+msgid "Username"
+msgstr ""
+

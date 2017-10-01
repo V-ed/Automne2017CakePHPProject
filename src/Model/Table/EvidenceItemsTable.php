@@ -40,6 +40,7 @@ class EvidenceItemsTable extends Table
         $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');
+        $this->addBehavior('Translate', ['fields' => ['title']]);
 
         $this->belongsTo('Officers', [
             'foreignKey' => 'officer_id',

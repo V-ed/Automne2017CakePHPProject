@@ -54,7 +54,7 @@ class EvidenceItemsController extends AppController
     public function add()
     {
         
-        $officers = $this->EvidenceItems->Officers->find('list', ['limit' => 200])->toArray();
+        $officers = $this->EvidenceItems->Officers->find('list', ['limit' => 1])->toArray();
         
         if (count($officers) == 0) {
             $this->redirect($this->referer());

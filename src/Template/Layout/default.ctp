@@ -44,9 +44,9 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         <div class="top-bar-section">
             <ul class="left">
                 <li><a href="<?= $appRoot ?>">Home</a></li>
-                <li><?= $this->Html->link('Evidence Items', ['controller' => 'evidence_items']) ?></li>
-                <li><?= $this->Html->link('Officers', ['controller' => 'officers']) ?></li>
-                <li><?= $this->Html->link('Users', ['controller' => 'users']) ?></li>
+                <li><?= $this->Html->link(__('Evidence Items'), ['controller' => 'evidence_items']) ?></li>
+                <li><?= $this->Html->link(__('Officers'), ['controller' => 'officers']) ?></li>
+                <li><?= $this->Html->link(__('Users'), ['controller' => 'users']) ?></li>
             </ul>
             <ul class="right">
                 <?php if( isset($loggedUser) ): ?>
@@ -56,12 +56,19 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                         $user = $user . ' (<span style="color: #FF5400">ADMIN</span>)';
                     }
                     ?>
-                    <li><?= $this->Html->link('Logged in as ' . $user, ['controller' => 'users', 'action' => 'edit', $loggedUser['id']], ['escape' => false]) ?></li>
-                    <li><?= $this->Html->link('Logout', ['controller' => 'users', 'action' => 'logout']) ?></li>
+                    <li><?= $this->Html->link(__('Logged in as %s', $user), ['controller' => 'users', 'action' => 'edit', $loggedUser['id']], ['escape' => false]) ?></li>
+                    <li><?= $this->Html->link(__('Logout'), ['controller' => 'users', 'action' => 'logout']) ?></li>
                 <?php else: ?>
-                    <li><?= $this->Html->link('Login', ['controller' => 'users', 'action' => 'login']) ?></li>
-                    <li><?= $this->Html->link('Register', ['controller' => 'users', 'action' => 'register']) ?></li>
+                    <li><?= $this->Html->link(__('Login'), ['controller' => 'users', 'action' => 'login']) ?></li>
+                    <li><?= $this->Html->link(__('Register'), ['controller' => 'users', 'action' => 'register']) ?></li>
                 <?php endif; ?>
+                
+                <ul class="dropdown-menu">
+                    <li><?= $this->Html->link('Français', ['action' => 'changeLang', 'fr_CA'], ['escape' => false]) ?></li>
+                    <li><?= $this->Html->link('English', ['action' => 'changeLang', 'en_US'], ['escape' => false]) ?></li>
+                    <li><?= $this->Html->link('Deutsch', ['action' => 'changeLang', 'de_DE'], ['escape' => false]) ?></li>
+                </ul>
+                
             </ul>
         </div>
     </nav>
