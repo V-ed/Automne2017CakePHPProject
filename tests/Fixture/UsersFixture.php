@@ -18,7 +18,7 @@ class UsersFixture extends TestFixture
     // @codingStandardsIgnoreStart
     public $fields = [
         'id' => ['type' => 'integer', 'length' => 11, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'autoIncrement' => true, 'precision' => null],
-        'is_admin' => ['type' => 'boolean', 'length' => null, 'null' => false, 'default' => '0', 'comment' => '0 : FALSE | 1 : TRUE', 'precision' => null],
+        'isAdmin' => ['type' => 'boolean', 'length' => null, 'null' => false, 'default' => '0', 'comment' => '0 : FALSE | 1 : TRUE', 'precision' => null],
         'firstName' => ['type' => 'string', 'length' => 255, 'null' => false, 'default' => null, 'collate' => 'utf8_unicode_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
         'lastName' => ['type' => 'string', 'length' => 255, 'null' => false, 'default' => null, 'collate' => 'utf8_unicode_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
         'username' => ['type' => 'string', 'length' => 40, 'null' => false, 'default' => null, 'collate' => 'utf8_unicode_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
@@ -43,13 +43,13 @@ class UsersFixture extends TestFixture
     public $records = [
         [
             'id' => 1,
-            'is_admin' => 1,
+            'isAdmin' => 1,
             'firstName' => 'Lorem ipsum dolor sit amet',
             'lastName' => 'Lorem ipsum dolor sit amet',
             'username' => 'Lorem ipsum dolor sit amet',
             'password' => 'Lorem ipsum dolor sit amet',
-            'created' => '2017-09-29 18:15:15',
-            'modified' => '2017-09-29 18:15:15'
+            'created' => '2017-10-02 12:56:53',
+            'modified' => '2017-10-02 12:56:53'
         ],
     ];
 }

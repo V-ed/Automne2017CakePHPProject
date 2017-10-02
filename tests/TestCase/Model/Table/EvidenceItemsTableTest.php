@@ -24,7 +24,11 @@ class EvidenceItemsTableTest extends TestCase
      * @var array
      */
     public $fixtures = [
-        'app.evidence_items'
+        'app.evidence_items',
+        'app.officers',
+        'app.officer_ranks',
+        'app.users',
+        'app.files'
     ];
 
     /**
@@ -67,6 +71,16 @@ class EvidenceItemsTableTest extends TestCase
      * @return void
      */
     public function testValidationDefault()
+    {
+        $this->markTestIncomplete('Not implemented yet.');
+    }
+
+    /**
+     * Test buildRules method
+     *
+     * @return void
+     */
+    public function testBuildRules()
     {
         $this->markTestIncomplete('Not implemented yet.');
     }

@@ -12,8 +12,12 @@ use Cake\ORM\Entity;
  * @property bool $isSealed
  * @property bool $isDeleted
  * @property int $officer_id
+ * @property int $user_id
  * @property \Cake\I18n\FrozenTime $created
  * @property \Cake\I18n\FrozenTime $modified
+ *
+ * @property \App\Model\Entity\Officer $officer
+ * @property \App\Model\Entity\File[] $files
  */
 class EvidenceItem extends Entity
 {

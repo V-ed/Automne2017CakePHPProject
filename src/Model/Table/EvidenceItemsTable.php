@@ -9,8 +9,9 @@ use Cake\Validation\Validator;
 /**
  * EvidenceItems Model
  *
- * @property |\Cake\ORM\Association\BelongsTo $Officers
- * @property |\Cake\ORM\Association\HasMany $Files
+ * @property \App\Model\Table\OfficersTable|\Cake\ORM\Association\BelongsTo $Officers
+ * @property |\Cake\ORM\Association\BelongsTo $Users
+ * @property \App\Model\Table\FilesTable|\Cake\ORM\Association\HasMany $Files
  *
  * @method \App\Model\Entity\EvidenceItem get($primaryKey, $options = [])
  * @method \App\Model\Entity\EvidenceItem newEntity($data = null, array $options = [])
@@ -46,6 +47,10 @@ class EvidenceItemsTable extends Table
             'foreignKey' => 'officer_id',
             'joinType' => 'INNER'
         ]);
+        $this->belongsTo('Users', [
+            'foreignKey' => 'user_id',
+            'joinType' => 'INNER'
+        ]);
         $this->hasMany('Files', [
             'foreignKey' => 'evidence_item_id'
         ]);
@@ -78,6 +83,11 @@ class EvidenceItemsTable extends Table
             ->requirePresence('isSealed', 'create')
             ->notEmpty('isSealed');
 
+        $validator
+            ->boolean('isDeleted')
+            ->requirePresence('isDeleted', 'create')
+            ->notEmpty('isDeleted');
+
         return $validator;
     }
 
@@ -91,6 +101,7 @@ class EvidenceItemsTable extends Table
     public function buildRules(RulesChecker $rules)
     {
         $rules->add($rules->existsIn(['officer_id'], 'Officers'));
+        $rules->add($rules->existsIn(['user_id'], 'Users'));
 
         return $rules;
     }
