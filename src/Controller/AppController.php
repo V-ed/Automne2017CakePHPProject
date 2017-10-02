@@ -63,8 +63,6 @@ class AppController extends Controller
         
         $this->set('appRoot', Router::url('/', true));
         
-        $this->setLang();
-        
     }
     
     /**
