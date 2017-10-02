@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2017-10-01 21:52+0000\n"
+"POT-Creation-Date: 2017-10-02 01:28+0000\n"
 "PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
@@ -186,7 +186,7 @@ msgstr ""
 
 #: Template/EvidenceItems/edit.ctp:10
 #: Template/EvidenceItems/index.ctp:49
-#: Template/EvidenceItems/view.ctp:73
+#: Template/EvidenceItems/view.ctp:74
 #: Template/Files/edit.ctp:10
 #: Template/Files/index.ctp:39
 #: Template/OfficerRanks/edit.ctp:10
@@ -200,7 +200,7 @@ msgstr ""
 
 #: Template/EvidenceItems/edit.ctp:12
 #: Template/EvidenceItems/index.ctp:49
-#: Template/EvidenceItems/view.ctp:11;73
+#: Template/EvidenceItems/view.ctp:11;74
 #: Template/Files/edit.ctp:12
 #: Template/Files/index.ctp:39
 #: Template/Files/view.ctp:11
@@ -226,7 +226,8 @@ msgid "New Evidence Item"
 msgstr ""
 
 #: Template/EvidenceItems/index.ctp:14
-#: Template/Layout/default.ctp:47
+#: Template/Home/index.ctp:48
+#: Template/Layout/default.ctp:46
 msgid "Evidence Items"
 msgstr ""
 
@@ -244,14 +245,14 @@ msgstr ""
 msgid "Created On"
 msgstr ""
 
-#: Template/EvidenceItems/index.ctp:38
+#: Template/EvidenceItems/index.ctp:38;42
 #: Template/EvidenceItems/view.ctp:37;42
 #: Template/Users/index.ctp:32
 #: Template/Users/view.ctp:37
 msgid "Yes"
 msgstr ""
 
-#: Template/EvidenceItems/index.ctp:38
+#: Template/EvidenceItems/index.ctp:38;42
 #: Template/EvidenceItems/view.ctp:37;42
 #: Template/Users/index.ctp:32
 #: Template/Users/view.ctp:37
@@ -259,7 +260,7 @@ msgid "No"
 msgstr ""
 
 #: Template/EvidenceItems/index.ctp:46
-#: Template/EvidenceItems/view.ctp:71
+#: Template/EvidenceItems/view.ctp:72
 #: Template/Files/index.ctp:37
 #: Template/OfficerRanks/index.ctp:31
 #: Template/Officers/index.ctp:31
@@ -268,7 +269,7 @@ msgid "View"
 msgstr ""
 
 #: Template/EvidenceItems/index.ctp:48
-#: Template/EvidenceItems/view.ctp:72
+#: Template/EvidenceItems/view.ctp:73
 #: Template/Files/index.ctp:38
 #: Template/OfficerRanks/index.ctp:32
 #: Template/Officers/index.ctp:32
@@ -396,38 +397,54 @@ msgstr ""
 msgid "Id Item"
 msgstr ""
 
-#: Template/Layout/default.ctp:46
-msgid "Home"
+#: Template/Home/index.ctp:19
+#: Template/Layout/default.ctp:24
+msgid "Welcome to our site!"
 msgstr ""
 
-#: Template/Layout/default.ctp:48
-#: Template/Officers/index.ctp:14
-msgid "Officers"
+#: Template/Home/index.ctp:36
+msgid "Keeping the evidences under control."
 msgstr ""
 
-#: Template/Layout/default.ctp:49
-#: Template/Users/index.ctp:14
-msgid "Users"
-msgstr ""
-
-#: Template/Layout/default.ctp:56
-msgid "ADMIN"
-msgstr ""
-
-#: Template/Layout/default.ctp:59
-msgid "Logged in as {0}"
-msgstr ""
-
-#: Template/Layout/default.ctp:60
-msgid "Logout"
-msgstr ""
-
-#: Template/Layout/default.ctp:62
+#: Template/Home/index.ctp:44
+#: Template/Layout/default.ctp:61
 #: Template/Users/login.ctp:10
 msgid "Login"
 msgstr ""
 
-#: Template/Layout/default.ctp:63
+#: Template/Home/index.ctp:46
+msgid "Welcome, {0}! Logout?"
+msgstr ""
+
+#: Template/Home/index.ctp:49
+#: Template/Layout/default.ctp:47
+#: Template/Officers/index.ctp:14
+msgid "Officers"
+msgstr ""
+
+#: Template/Home/index.ctp:50
+#: Template/Layout/default.ctp:48
+#: Template/Users/index.ctp:14
+msgid "Users"
+msgstr ""
+
+#: Template/Layout/default.ctp:45
+msgid "Home"
+msgstr ""
+
+#: Template/Layout/default.ctp:55
+msgid "ADMIN"
+msgstr ""
+
+#: Template/Layout/default.ctp:58
+msgid "Logged in as {0}"
+msgstr ""
+
+#: Template/Layout/default.ctp:59
+msgid "Logout"
+msgstr ""
+
+#: Template/Layout/default.ctp:62
 #: Template/Users/index.ctp:10
 #: Template/Users/register.ctp:15
 msgid "Register"

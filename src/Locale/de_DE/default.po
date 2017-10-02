@@ -178,8 +178,8 @@ msgid "Submit"
 msgstr "einreichen"
 
 #: Template/EvidenceItems/edit.ctp:10
-#: Template/EvidenceItems/index.ctp:48
-#: Template/EvidenceItems/view.ctp:73
+#: Template/EvidenceItems/index.ctp:49
+#: Template/EvidenceItems/view.ctp:74
 #: Template/Files/edit.ctp:10
 #: Template/Files/index.ctp:39
 #: Template/OfficerRanks/edit.ctp:10
@@ -192,8 +192,8 @@ msgid "Delete"
 msgstr "Löschen"
 
 #: Template/EvidenceItems/edit.ctp:12
-#: Template/EvidenceItems/index.ctp:48
-#: Template/EvidenceItems/view.ctp:11;73
+#: Template/EvidenceItems/index.ctp:49
+#: Template/EvidenceItems/view.ctp:11;74
 #: Template/Files/edit.ctp:12
 #: Template/Files/index.ctp:39
 #: Template/Files/view.ctp:11
@@ -219,18 +219,19 @@ msgid "New Evidence Item"
 msgstr "Neues Beweisstück"
 
 #: Template/EvidenceItems/index.ctp:14
-#: Template/Layout/default.ctp:47
+#: Template/Home/index.ctp:48
+#: Template/Layout/default.ctp:46
 msgid "Evidence Items"
 msgstr "Beweisstücke"
 
-#: Template/EvidenceItems/index.ctp:38
+#: Template/EvidenceItems/index.ctp:38;42
 #: Template/EvidenceItems/view.ctp:37;42
 #: Template/Users/index.ctp:32
 #: Template/Users/view.ctp:37
 msgid "Yes"
 msgstr "Ja"
 
-#: Template/EvidenceItems/index.ctp:38
+#: Template/EvidenceItems/index.ctp:38;42
 #: Template/EvidenceItems/view.ctp:37;42
 #: Template/Users/index.ctp:32
 #: Template/Users/view.ctp:37
@@ -238,7 +239,7 @@ msgid "No"
 msgstr "Nein"
 
 #: Template/EvidenceItems/index.ctp:46
-#: Template/EvidenceItems/view.ctp:71
+#: Template/EvidenceItems/view.ctp:72
 #: Template/Files/index.ctp:37
 #: Template/OfficerRanks/index.ctp:31
 #: Template/Officers/index.ctp:31
@@ -246,8 +247,8 @@ msgstr "Nein"
 msgid "View"
 msgstr "Aussicht"
 
-#: Template/EvidenceItems/index.ctp:47
-#: Template/EvidenceItems/view.ctp:72
+#: Template/EvidenceItems/index.ctp:48
+#: Template/EvidenceItems/view.ctp:73
 #: Template/Files/index.ctp:38
 #: Template/OfficerRanks/index.ctp:32
 #: Template/Officers/index.ctp:32
@@ -255,7 +256,7 @@ msgstr "Aussicht"
 msgid "Edit"
 msgstr "Bearbeiten"
 
-#: Template/EvidenceItems/index.ctp:57
+#: Template/EvidenceItems/index.ctp:59
 #: Template/Files/index.ctp:47
 #: Template/OfficerRanks/index.ctp:41
 #: Template/Officers/index.ctp:41
@@ -263,7 +264,7 @@ msgstr "Bearbeiten"
 msgid "first"
 msgstr "zuerst"
 
-#: Template/EvidenceItems/index.ctp:58
+#: Template/EvidenceItems/index.ctp:60
 #: Template/Files/index.ctp:48
 #: Template/OfficerRanks/index.ctp:42
 #: Template/Officers/index.ctp:42
@@ -271,7 +272,7 @@ msgstr "zuerst"
 msgid "previous"
 msgstr "bisherige"
 
-#: Template/EvidenceItems/index.ctp:60
+#: Template/EvidenceItems/index.ctp:62
 #: Template/Files/index.ctp:50
 #: Template/OfficerRanks/index.ctp:44
 #: Template/Officers/index.ctp:44
@@ -279,7 +280,7 @@ msgstr "bisherige"
 msgid "next"
 msgstr "Nächster"
 
-#: Template/EvidenceItems/index.ctp:61
+#: Template/EvidenceItems/index.ctp:63
 #: Template/Files/index.ctp:51
 #: Template/OfficerRanks/index.ctp:45
 #: Template/Officers/index.ctp:45
@@ -287,7 +288,7 @@ msgstr "Nächster"
 msgid "last"
 msgstr "letzte"
 
-#: Template/EvidenceItems/index.ctp:63
+#: Template/EvidenceItems/index.ctp:65
 #: Template/Files/index.ctp:53
 #: Template/OfficerRanks/index.ctp:47
 #: Template/Officers/index.ctp:47
@@ -316,10 +317,12 @@ msgstr "Id Officer"
 msgid "Created"
 msgstr "Erstellt"
 
+#: Template/EvidenceItems/index.ctp:23
 #: Template/EvidenceItems/view.ctp:36
 msgid "Is Sealed"
 msgstr "Ist versiegelt"
 
+#: Template/EvidenceItems/index.ctp:19
 #: Template/EvidenceItems/view.ctp:41
 msgid "Is Deleted"
 msgstr "Ist gelöscht"
@@ -383,17 +386,19 @@ msgstr "Pfad"
 msgid "Id Item"
 msgstr "ID Element"
 
-#: Template/Layout/default.ctp:48
+#: Template/Home/index.ctp:49
+#: Template/Layout/default.ctp:47
 #: Template/Officers/index.ctp:14
 msgid "Officers"
 msgstr "Offiziere"
 
-#: Template/Layout/default.ctp:49
+#: Template/Home/index.ctp:50
+#: Template/Layout/default.ctp:48
 #: Template/Users/index.ctp:14
 msgid "Users"
 msgstr "Benutzer"
 
-#: Template/Layout/default.ctp:56
+#: Template/Layout/default.ctp:55
 msgid "ADMIN"
 msgstr "ADMINISTRATOR"
 
@@ -401,16 +406,17 @@ msgstr "ADMINISTRATOR"
 msgid "Logged in as %s"
 msgstr "Eingetragen als% s"
 
-#: Template/Layout/default.ctp:60
+#: Template/Layout/default.ctp:59
 msgid "Logout"
 msgstr "Ausloggen"
 
-#: Template/Layout/default.ctp:62
+#: Template/Home/index.ctp:44
+#: Template/Layout/default.ctp:61
 #: Template/Users/login.ctp:10
 msgid "Login"
 msgstr "Anmeldung"
 
-#: Template/Layout/default.ctp:63
+#: Template/Layout/default.ctp:62
 #: Template/Users/index.ctp:10
 #: Template/Users/register.ctp:15
 msgid "Register"
@@ -562,7 +568,28 @@ msgstr "Neuer Benutzer"
 msgid "Username"
 msgstr "Benutzername"
 
-#: Template/Layout/default.ctp:46
+#: Template/Layout/default.ctp:45
 msgid "Home"
 msgstr "Zuhause"
+
+#: Template/EvidenceItems/index.ctp:25
+msgid "Created On"
+msgstr "Erstellt am"
+
+#: Template/Home/index.ctp:19
+#: Template/Layout/default.ctp:24
+msgid "Welcome to our site!"
+msgstr "Willkommen auf unserer Seite!"
+
+#: Template/Home/index.ctp:36
+msgid "Keeping the evidences under control."
+msgstr "Halten Sie die Beweise unter Kontrolle."
+
+#: Template/Home/index.ctp:46
+msgid "Welcome, {0}! Logout?"
+msgstr "Willkommen, {0}! Ausloggen?"
+
+#: Template/Layout/default.ctp:58
+msgid "Logged in as {0}"
+msgstr "Eingeloggt als {0}"
 
