@@ -20,7 +20,7 @@ class HomeController extends AppController
     */
     public function index()
     {
-        
+        parent::setLang('fr_CA');
     }
     
 }

@@ -152,6 +152,7 @@ class UsersController extends AppController
 	{
 		parent::beforeFilter($event);
 		$this->Auth->allow(['register', 'logout', 'login']);
+		parent::setLang('fr_CA');
 	}
 	
 }
