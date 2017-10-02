@@ -146,23 +146,25 @@ class FilesController extends AppController
             $this->set('_serialize', ['file']);
         }
         
-        /**
-        * Delete method
-        *
-        * @param string|null $id File id.
-        * @return \Cake\Http\Response|null Redirects to index.
-        * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
-        */
-        public function delete($id = null)
-        {
-            $this->request->allowMethod(['post', 'delete']);
-            $file = $this->Files->get($id);
-            if ($this->Files->delete($file)) {
-                $this->Flash->success(__('The file has been deleted.'));
-            } else {
-                $this->Flash->error(__('The file could not be deleted. Please, try again.'));
-            }
-            
-            return $this->redirect(['action' => 'index']);
-        }
     }
+    
+    /**
+    * Delete method
+    *
+    * @param string|null $id File id.
+    * @return \Cake\Http\Response|null Redirects to index.
+    * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
+    */
+    public function delete($id = null)
+    {
+        $this->request->allowMethod(['post', 'delete']);
+        $file = $this->Files->get($id);
+        if ($this->Files->delete($file)) {
+            $this->Flash->success(__('The file has been deleted.'));
+        } else {
+            $this->Flash->error(__('The file could not be deleted. Please, try again.'));
+        }
+        
+        return $this->redirect(['action' => 'index']);
+    }
+}

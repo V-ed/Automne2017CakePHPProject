@@ -1,8 +1,8 @@
 <?php
 /**
-  * @var \App\View\AppView $this
-  * @var \App\Model\Entity\File $file
-  */
+* @var \App\View\AppView $this
+* @var \App\Model\Entity\File $file
+*/
 ?>
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
@@ -21,16 +21,18 @@
             <td><?= h($file->name) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Path') ?></th>
-            <td><?= h($file->path) ?></td>
+            <th scope="row"><?= __('Image') ?></th>
+            <td>
+                <?= $this->Html->image($file->path . '/' . $file->name, [
+                    "alt" => $file->name,
+                    'width' => '200'
+                ]);
+                ?>
+            </td>
         </tr>
         <tr>
             <th scope="row"><?= __('Detail') ?></th>
             <td><?= h($file->detail) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Id Item') ?></th>
-            <td><?= $this->Number->format($file->evidence_item_id) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Created') ?></th>
