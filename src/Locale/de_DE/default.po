@@ -35,15 +35,15 @@ msgstr "Kein Evidenz Item ist in der Datenbank, keine neue Datei kann mit einem 
 msgid "File has been uploaded and inserted successfully."
 msgstr "Datei wurde hochgeladen und erfolgreich eingefügt."
 
-#: Controller/FilesController.php:82
+#: Controller/FilesController.php:82;134
 msgid "The file has been saved but there was a problem saving it in the database. Contact the administrator to seek some help."
 msgstr "Die Datei wurde gespeichert, aber es gab ein Problem beim Speichern in der Datenbank. Wenden Sie sich an den Administrator, um Hilfe zu suchen."
 
-#: Controller/FilesController.php:86
+#: Controller/FilesController.php:86;138
 msgid "Unable to upload file, please try again."
 msgstr "Kann keine Datei hochladen, bitte versuchen Sie es erneut."
 
-#: Controller/FilesController.php:89
+#: Controller/FilesController.php:89;141
 msgid "Please choose a file to upload."
 msgstr "Bitte wählen Sie eine Datei zum Hochladen."
 
@@ -55,11 +55,11 @@ msgstr "Die Datei wurde gespeichert."
 msgid "The file could not be saved. Please, try again."
 msgstr "Die Datei konnte nicht gespeichert werden. Bitte versuche es erneut."
 
-#: Controller/FilesController.php:140
+#: Controller/FilesController.php:163
 msgid "The file has been deleted."
 msgstr "Die Datei wurde gelöscht."
 
-#: Controller/FilesController.php:142
+#: Controller/FilesController.php:165
 msgid "The file could not be deleted. Please, try again."
 msgstr "Die Datei konnte nicht gelöscht werden. Bitte versuche es erneut."
 
@@ -133,11 +133,11 @@ msgstr "Ungültiger Benutzername oder Passwort, versuchen Sie es erneut"
 
 #: Template/EvidenceItems/add.ctp:8
 #: Template/EvidenceItems/edit.ctp:8
-#: Template/EvidenceItems/index.ctp:9;26
-#: Template/EvidenceItems/view.ctp:9;56
+#: Template/EvidenceItems/index.ctp:10;28
+#: Template/EvidenceItems/view.ctp:9;62
 #: Template/Files/add.ctp:8
 #: Template/Files/edit.ctp:8
-#: Template/Files/index.ctp:9;24
+#: Template/Files/index.ctp:10;26
 #: Template/Files/view.ctp:9
 #: Template/OfficerRanks/add.ctp:8
 #: Template/OfficerRanks/edit.ctp:8
@@ -156,7 +156,7 @@ msgstr "Aktionen"
 
 #: Template/EvidenceItems/add.ctp:9
 #: Template/EvidenceItems/edit.ctp:15
-#: Template/EvidenceItems/view.ctp:12
+#: Template/EvidenceItems/view.ctp:10
 msgid "List Evidence Items"
 msgstr "Liste Beweisstücke anzeigen"
 
@@ -178,181 +178,183 @@ msgid "Submit"
 msgstr "einreichen"
 
 #: Template/EvidenceItems/edit.ctp:10
-#: Template/EvidenceItems/index.ctp:49
-#: Template/EvidenceItems/view.ctp:74
+#: Template/EvidenceItems/index.ctp:51
+#: Template/EvidenceItems/view.ctp:81
 #: Template/Files/edit.ctp:10
-#: Template/Files/index.ctp:39
+#: Template/Files/index.ctp:48
 #: Template/OfficerRanks/edit.ctp:10
 #: Template/OfficerRanks/index.ctp:33
 #: Template/Officers/edit.ctp:10
-#: Template/Officers/index.ctp:33
+#: Template/Officers/index.ctp:34
 #: Template/Users/edit.ctp:10
 #: Template/Users/index.ctp:42
 msgid "Delete"
 msgstr "Löschen"
 
 #: Template/EvidenceItems/edit.ctp:12
-#: Template/EvidenceItems/index.ctp:49
-#: Template/EvidenceItems/view.ctp:11;74
+#: Template/EvidenceItems/index.ctp:51
+#: Template/EvidenceItems/view.ctp:17;81
 #: Template/Files/edit.ctp:12
-#: Template/Files/index.ctp:39
-#: Template/Files/view.ctp:11
+#: Template/Files/index.ctp:48
+#: Template/Files/view.ctp:17
 #: Template/OfficerRanks/edit.ctp:12
 #: Template/OfficerRanks/index.ctp:33
 #: Template/OfficerRanks/view.ctp:11
 #: Template/Officers/edit.ctp:12
-#: Template/Officers/index.ctp:33
+#: Template/Officers/index.ctp:34
 #: Template/Officers/view.ctp:11
 #: Template/Users/index.ctp:42
-#: Template/Users/view.ctp:11
+#: Template/Users/view.ctp:15
 msgid "Are you sure you want to delete # {0}?"
 msgstr "Bist du sicher, dass du # {0} löschen willst?"
 
 #: Template/EvidenceItems/edit.ctp:21
-#: Template/EvidenceItems/view.ctp:10
+#: Template/EvidenceItems/view.ctp:16
 msgid "Edit Evidence Item"
 msgstr "Bearbeiten Sie den Nachweis"
 
-#: Template/EvidenceItems/index.ctp:10
+#: Template/EvidenceItems/index.ctp:11
 #: Template/EvidenceItems/view.ctp:13
 msgid "New Evidence Item"
 msgstr "Neues Beweisstück"
 
-#: Template/EvidenceItems/index.ctp:14
+#: Template/EvidenceItems/index.ctp:16
 #: Template/Home/index.ctp:48
 #: Template/Layout/default.ctp:46
 msgid "Evidence Items"
 msgstr "Beweisstücke"
 
-#: Template/EvidenceItems/index.ctp:38;42
-#: Template/EvidenceItems/view.ctp:37;42
+#: Template/EvidenceItems/index.ctp:40;44
+#: Template/EvidenceItems/view.ctp:43;48
 #: Template/Users/index.ctp:32
-#: Template/Users/view.ctp:37
+#: Template/Users/view.ctp:25
 msgid "Yes"
 msgstr "Ja"
 
-#: Template/EvidenceItems/index.ctp:38;42
-#: Template/EvidenceItems/view.ctp:37;42
+#: Template/EvidenceItems/index.ctp:40;44
+#: Template/EvidenceItems/view.ctp:43;48
 #: Template/Users/index.ctp:32
-#: Template/Users/view.ctp:37
+#: Template/Users/view.ctp:25
 msgid "No"
 msgstr "Nein"
 
-#: Template/EvidenceItems/index.ctp:46
-#: Template/EvidenceItems/view.ctp:72
-#: Template/Files/index.ctp:37
+#: Template/EvidenceItems/index.ctp:48
+#: Template/EvidenceItems/view.ctp:78
+#: Template/Files/index.ctp:45
 #: Template/OfficerRanks/index.ctp:31
 #: Template/Officers/index.ctp:31
 #: Template/Users/index.ctp:39
 msgid "View"
 msgstr "Aussicht"
 
-#: Template/EvidenceItems/index.ctp:48
-#: Template/EvidenceItems/view.ctp:73
-#: Template/Files/index.ctp:38
+#: Template/EvidenceItems/index.ctp:50
+#: Template/EvidenceItems/view.ctp:80
+#: Template/Files/index.ctp:47
 #: Template/OfficerRanks/index.ctp:32
-#: Template/Officers/index.ctp:32
+#: Template/Officers/index.ctp:33
 #: Template/Users/index.ctp:41
 msgid "Edit"
 msgstr "Bearbeiten"
 
-#: Template/EvidenceItems/index.ctp:59
-#: Template/Files/index.ctp:47
+#: Template/EvidenceItems/index.ctp:61
+#: Template/Files/index.ctp:57
 #: Template/OfficerRanks/index.ctp:41
-#: Template/Officers/index.ctp:41
+#: Template/Officers/index.ctp:43
 #: Template/Users/index.ctp:51
 msgid "first"
 msgstr "zuerst"
 
-#: Template/EvidenceItems/index.ctp:60
-#: Template/Files/index.ctp:48
+#: Template/EvidenceItems/index.ctp:62
+#: Template/Files/index.ctp:58
 #: Template/OfficerRanks/index.ctp:42
-#: Template/Officers/index.ctp:42
+#: Template/Officers/index.ctp:44
 #: Template/Users/index.ctp:52
 msgid "previous"
 msgstr "bisherige"
 
-#: Template/EvidenceItems/index.ctp:62
-#: Template/Files/index.ctp:50
+#: Template/EvidenceItems/index.ctp:64
+#: Template/Files/index.ctp:60
 #: Template/OfficerRanks/index.ctp:44
-#: Template/Officers/index.ctp:44
+#: Template/Officers/index.ctp:46
 #: Template/Users/index.ctp:54
 msgid "next"
 msgstr "Nächster"
 
-#: Template/EvidenceItems/index.ctp:63
-#: Template/Files/index.ctp:51
+#: Template/EvidenceItems/index.ctp:65
+#: Template/Files/index.ctp:61
 #: Template/OfficerRanks/index.ctp:45
-#: Template/Officers/index.ctp:45
+#: Template/Officers/index.ctp:47
 #: Template/Users/index.ctp:55
 msgid "last"
 msgstr "letzte"
 
-#: Template/EvidenceItems/index.ctp:65
-#: Template/Files/index.ctp:53
+#: Template/EvidenceItems/index.ctp:67
+#: Template/Files/index.ctp:63
 #: Template/OfficerRanks/index.ctp:47
-#: Template/Officers/index.ctp:47
+#: Template/Officers/index.ctp:49
 #: Template/Users/index.ctp:57
 msgid "Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total"
 msgstr "Seite {{page}} von {{pages}}, zeigt {{current}} Datensatz (s) aus {{count}} total"
 
-#: Template/EvidenceItems/view.ctp:11
+#: Template/EvidenceItems/view.ctp:17
 msgid "Delete Evidence Item"
 msgstr "Löschen Sie den Nachweis"
 
-#: Template/EvidenceItems/view.ctp:20
+#: Template/EvidenceItems/view.ctp:26
 msgid "Description"
 msgstr "Beschreibung"
 
-#: Template/EvidenceItems/view.ctp:24
+#: Template/EvidenceItems/view.ctp:30
 msgid "Origin"
 msgstr "Herkunft"
 
-#: Template/EvidenceItems/view.ctp:28
+#: Template/EvidenceItems/view.ctp:34
 msgid "Id Officer"
 msgstr "Id Officer"
 
-#: Template/EvidenceItems/view.ctp:32;54
-#: Template/Files/view.ctp:36
+#: Template/EvidenceItems/view.ctp:38;60
+#: Template/Files/view.ctp:44
 msgid "Created"
 msgstr "Erstellt"
 
-#: Template/EvidenceItems/index.ctp:23
-#: Template/EvidenceItems/view.ctp:36
+#: Template/EvidenceItems/index.ctp:25
+#: Template/EvidenceItems/view.ctp:42
 msgid "Is Sealed"
 msgstr "Ist versiegelt"
 
-#: Template/EvidenceItems/index.ctp:19
-#: Template/EvidenceItems/view.ctp:41
+#: Template/EvidenceItems/index.ctp:21
+#: Template/EvidenceItems/view.ctp:47
 msgid "Is Deleted"
 msgstr "Ist gelöscht"
 
-#: Template/EvidenceItems/view.ctp:48
+#: Template/EvidenceItems/view.ctp:54
 msgid "Related Files"
 msgstr "Zugehörige Dateien"
 
-#: Template/EvidenceItems/view.ctp:51
-#: Template/Files/view.ctp:20
+#: Template/EvidenceItems/view.ctp:57
+#: Template/Files/view.ctp:26
 msgid "Name"
 msgstr "Name"
 
-#: Template/EvidenceItems/view.ctp:52
+#: Template/EvidenceItems/view.ctp:58
+#: Template/Files/index.ctp:21
+#: Template/Files/view.ctp:30
 msgid "Image"
 msgstr "Bild"
 
-#: Template/EvidenceItems/view.ctp:53
-#: Template/Files/view.ctp:28
+#: Template/EvidenceItems/view.ctp:59
+#: Template/Files/view.ctp:40
 msgid "Detail"
 msgstr "Detail"
 
-#: Template/EvidenceItems/view.ctp:55
-#: Template/Files/view.ctp:40
+#: Template/EvidenceItems/view.ctp:61
+#: Template/Files/view.ctp:48
 msgid "Modified"
 msgstr "Geändert"
 
 #: Template/Files/add.ctp:9
 #: Template/Files/edit.ctp:15
-#: Template/Files/view.ctp:12
+#: Template/Files/view.ctp:10
 msgid "List Files"
 msgstr "Dateien auflisten"
 
@@ -361,20 +363,21 @@ msgid "Add File"
 msgstr "Datei hinzufügen"
 
 #: Template/Files/edit.ctp:21
-#: Template/Files/view.ctp:10
+#: Template/Files/view.ctp:16
 msgid "Edit File"
 msgstr "Datei bearbeiten"
 
-#: Template/Files/index.ctp:10
+#: Template/Files/index.ctp:11
 #: Template/Files/view.ctp:13
 msgid "New File"
 msgstr "Neue Datei"
 
-#: Template/Files/index.ctp:14
+#: Template/Files/index.ctp:16
+#: Template/Layout/default.ctp:49
 msgid "Files"
 msgstr "Dateien"
 
-#: Template/Files/view.ctp:11
+#: Template/Files/view.ctp:17
 msgid "Delete File"
 msgstr "Datei löschen"
 
@@ -398,7 +401,7 @@ msgstr "Offiziere"
 msgid "Users"
 msgstr "Benutzer"
 
-#: Template/Layout/default.ctp:55
+#: Template/Layout/default.ctp:56
 msgid "ADMIN"
 msgstr "ADMINISTRATOR"
 
@@ -406,19 +409,20 @@ msgstr "ADMINISTRATOR"
 msgid "Logged in as %s"
 msgstr "Eingetragen als% s"
 
-#: Template/Layout/default.ctp:59
+#: Template/Layout/default.ctp:60
 msgid "Logout"
 msgstr "Ausloggen"
 
 #: Template/Home/index.ctp:44
-#: Template/Layout/default.ctp:61
+#: Template/Layout/default.ctp:62
 #: Template/Users/login.ctp:10
 msgid "Login"
 msgstr "Anmeldung"
 
-#: Template/Layout/default.ctp:62
+#: Template/Layout/default.ctp:63
 #: Template/Users/index.ctp:10
 #: Template/Users/register.ctp:15
+#: Template/Users/view.ctp:10
 msgid "Register"
 msgstr "Neu registrieren"
 
@@ -516,30 +520,30 @@ msgstr "Sind Sie sicher, dass Sie Ihr Konto löschen möchten?"
 
 #: Template/Users/edit.ctp:15
 #: Template/Users/register.ctp:9
-#: Template/Users/view.ctp:12
+#: Template/Users/view.ctp:11
 msgid "List Users"
 msgstr "Benutzer auflisten"
 
 #: Template/Users/edit.ctp:21
-#: Template/Users/view.ctp:10
+#: Template/Users/view.ctp:14
 msgid "Edit User"
 msgstr "Benutzer bearbeiten"
 
 #: Template/Users/edit.ctp:24
 #: Template/Users/index.ctp:19
-#: Template/Users/view.ctp:36
+#: Template/Users/view.ctp:24
 msgid "Is Admin"
 msgstr "Ist Admin"
 
 #: Template/Users/edit.ctp:26
 #: Template/Users/index.ctp:21
-#: Template/Users/view.ctp:20
+#: Template/Users/view.ctp:29
 msgid "First Name"
 msgstr "Vorname"
 
 #: Template/Users/edit.ctp:27
 #: Template/Users/index.ctp:22
-#: Template/Users/view.ctp:24
+#: Template/Users/view.ctp:33
 msgid "Last Name"
 msgstr "Familienname, Nachname"
 
@@ -548,7 +552,7 @@ msgid "New Password"
 msgstr "Neues Kennwort"
 
 #: Template/Users/index.ctp:24
-#: Template/Users/view.ctp:32
+#: Template/Users/view.ctp:41
 msgid "Joined On"
 msgstr "Schloss sich an"
 
@@ -556,7 +560,7 @@ msgstr "Schloss sich an"
 msgid "Please enter your username and password"
 msgstr "Bitte gib deinen Benutzernamen und dein Passwort ein"
 
-#: Template/Users/view.ctp:11
+#: Template/Users/view.ctp:15
 msgid "Delete User"
 msgstr "Benutzer löschen"
 
@@ -564,7 +568,7 @@ msgstr "Benutzer löschen"
 msgid "New User"
 msgstr "Neuer Benutzer"
 
-#: Template/Users/view.ctp:28
+#: Template/Users/view.ctp:37
 msgid "Username"
 msgstr "Benutzername"
 
@@ -572,7 +576,7 @@ msgstr "Benutzername"
 msgid "Home"
 msgstr "Zuhause"
 
-#: Template/EvidenceItems/index.ctp:25
+#: Template/EvidenceItems/index.ctp:27
 msgid "Created On"
 msgstr "Erstellt am"
 
@@ -589,7 +593,27 @@ msgstr "Halten Sie die Beweise unter Kontrolle."
 msgid "Welcome, {0}! Logout?"
 msgstr "Willkommen, {0}! Ausloggen?"
 
-#: Template/Layout/default.ctp:58
+#: Template/Layout/default.ctp:59
 msgid "Logged in as {0}"
 msgstr "Eingeloggt als {0}"
+
+#: Controller/FilesController.php:132
+msgid "File has been uploaded and modified successfully."
+msgstr "Datei wurde hochgeladen und erfolgreich geändert."
+
+#: Template/EvidenceItems/view.ctp:12
+#: Template/Files/view.ctp:12
+#: Template/Users/view.ctp:13
+msgid "User Actions"
+msgstr "Benutzeraktionen"
+
+#: Template/EvidenceItems/view.ctp:15
+#: Template/Files/view.ctp:15
+#: Template/Users/view.ctp:13
+msgid "Admin Actions"
+msgstr "Admin-Aktionen"
+
+#: Template/EvidenceItems/view.ctp:15
+msgid "Owner Actions"
+msgstr "Besitzeraktionen"
 
