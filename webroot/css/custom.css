@@ -1,3 +1,8 @@
 #actions-sidebar, #top-left-bar {
 	width: 15%;
 }
+
+
+div.header-image {
+	background: radial-gradient(#B4B4B4, #818181, #6E6E6E);
+}
