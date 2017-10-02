@@ -21,7 +21,7 @@ class EvidenceItemsController extends AppController
     public function index()
     {
         $this->paginate = [
-            'contain' => ['Officers', 'Files']
+            'contain' => ['Officers', 'Users', 'Files']
         ];
         $evidenceItems = $this->paginate($this->EvidenceItems);
         
@@ -39,7 +39,7 @@ class EvidenceItemsController extends AppController
     public function view($id = null)
     {
         $evidenceItem = $this->EvidenceItems->get($id, [
-            'contain' => ['Officers', 'Files']
+            'contain' => ['Officers', 'Users', 'Files']
         ]);
         
         $this->set('evidenceItem', $evidenceItem);
@@ -71,8 +71,10 @@ class EvidenceItemsController extends AppController
                 }
                 $this->Flash->error(__('The evidence item could not be saved. Please, try again.'));
             }
+            
             $officers = $this->EvidenceItems->Officers->find('list', ['limit' => 200])->contain(['Users']);
-            $this->set(compact('evidenceItem', 'officers'));
+            $users = $this->EvidenceItems->Users->find('list', ['limit' => 200]);
+            $this->set(compact('evidenceItem', 'officers', 'users'));
             $this->set('_serialize', ['evidenceItem']);
             
         }
@@ -101,7 +103,8 @@ class EvidenceItemsController extends AppController
             $this->Flash->error(__('The evidence item could not be saved. Please, try again.'));
         }
         $officers = $this->EvidenceItems->Officers->find('list', ['limit' => 200])->contain(['Users']);
-        $this->set(compact('evidenceItem', 'officers'));
+        $users = $this->EvidenceItems->Users->find('list', ['limit' => 200]);
+        $this->set(compact('evidenceItem', 'officers', 'users'));
         $this->set('_serialize', ['evidenceItem']);
     }
     
@@ -124,4 +127,5 @@ class EvidenceItemsController extends AppController
         
         return $this->redirect(['action' => 'index']);
     }
+    
 }
