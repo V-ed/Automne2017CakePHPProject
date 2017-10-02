@@ -43,13 +43,13 @@
                         <td><?= h($evidenceItem->description) ?></td>
                         <td><?= h($evidenceItem->origin) ?></td>
                         <td><?= $evidenceItem->isSealed ? __('Yes') : __('No') ?></td>
-                        <td><?= h($evidenceItem->officer->email) ?></td>
+                        <td><?= h($evidenceItem->officer->user->username) ?></td>
                         <td><?= h($evidenceItem->created) ?></td>
                         <td class="actions">
                             <?= $this->Html->link(__('View'), ['action' => 'view', $evidenceItem->id]) ?>
                             <?php if ($loggedUser['id'] == $evidenceItem->officer->user_id || $loggedUser['isAdmin']) : ?>
                                 <?= $this->Html->link(__('Edit'), ['action' => 'edit', $evidenceItem->id]) ?>
-                                <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $evidenceItem->id], ['confirm' => __('Are you sure you want to delete # {0}?', $evidenceItem->id)]) ?>
+                                <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $evidenceItem->id], ['confirm' => __('Are you sure you want to delete "{0}"?', $evidenceItem->description)]) ?>
                             <?php endif; ?>
                         </td>
                     </tr>
