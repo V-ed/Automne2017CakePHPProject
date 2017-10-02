@@ -4,12 +4,14 @@
 * @var \App\Model\Entity\EvidenceItem[]|\Cake\Collection\CollectionInterface $evidenceItems
 */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('New Evidence Item'), ['action' => 'add']) ?></li>
-    </ul>
-</nav>
+<?php if($loggedUser != null) : ?>
+    <nav class="large-3 medium-4 columns" id="actions-sidebar">
+        <ul class="side-nav">
+            <li class="heading"><?= __('Actions') ?></li>
+            <li><?= $this->Html->link(__('New Evidence Item'), ['action' => 'add']) ?></li>
+        </ul>
+    </nav>
+<?php endif; ?>
 <div class="evidenceItems index large-10 medium-8 columns content">
     <h3><?= __('Evidence Items') ?></h3>
     <table cellpadding="0" cellspacing="0">

@@ -7,10 +7,16 @@
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
         <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('Edit Evidence Item'), ['action' => 'edit', $evidenceItem->id]) ?> </li>
-        <li><?= $this->Form->postLink(__('Delete Evidence Item'), ['action' => 'delete', $evidenceItem->id], ['confirm' => __('Are you sure you want to delete # {0}?', $evidenceItem->id)]) ?> </li>
         <li><?= $this->Html->link(__('List Evidence Items'), ['action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Evidence Item'), ['action' => 'add']) ?> </li>
+        <?php if($loggedUser != null) : ?>
+            <li class="heading"><?= __('User Actions') ?></li>
+            <li><?= $this->Html->link(__('New Evidence Item'), ['action' => 'add']) ?> </li>
+            <?php if($loggedUser['id'] == $evidenceItem->officer->user_id || $loggedUser['isAdmin']) : ?>
+                <li class="heading"><?= $loggedUser['isAdmin'] ? __('Admin Actions') : __('Owner Actions') ?></li>
+                <li><?= $this->Html->link(__('Edit Evidence Item'), ['action' => 'edit', $evidenceItem->id]) ?> </li>
+                <li><?= $this->Form->postLink(__('Delete Evidence Item'), ['action' => 'delete', $evidenceItem->id], ['confirm' => __('Are you sure you want to delete # {0}?', $evidenceItem->id)]) ?> </li>
+            <?php endif; ?>
+        <?php endif; ?>
     </ul>
 </nav>
 <div class="evidenceItems view large-10 medium-8 columns content">
@@ -70,7 +76,7 @@
                         <td><?= h($file->modified) ?></td>
                         <td class="actions">
                             <?= $this->Html->link(__('View'), ['controller' => 'Files', 'action' => 'view', $file->id]) ?>
-                            <?php if($loggedUser['id'] == $evidenceItem['user_id'] || $loggedUser['isAdmin']) : ?>
+                            <?php if($loggedUser['id'] == $evidenceItem->officer->user_id || $loggedUser['isAdmin']) : ?>
                                 <?= $this->Html->link(__('Edit'), ['controller' => 'Files', 'action' => 'edit', $file->id]) ?>
                                 <?= $this->Form->postLink(__('Delete'), ['controller' => 'Files', 'action' => 'delete', $file->id], ['confirm' => __('Are you sure you want to delete # {0}?', $file->id)]) ?>
                             <?php endif; ?>

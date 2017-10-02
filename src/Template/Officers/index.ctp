@@ -25,12 +25,14 @@
             <?php foreach ($officers as $officer): ?>
                 <tr>
                     <td><?= h($officer->email) ?></td>
-                    <td><?= $this->Number->format($officer->officer_rank_id) ?></td>
+                    <td><?= h($officer->officer_rank->rank_name) ?></td>
                     <td><?= h($officer->user->username) ?></td>
                     <td class="actions">
                         <?= $this->Html->link(__('View'), ['action' => 'view', $officer->id]) ?>
-                        <?= $this->Html->link(__('Edit'), ['action' => 'edit', $officer->id]) ?>
-                        <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $officer->id], ['confirm' => __('Are you sure you want to delete # {0}?', $officer->id)]) ?>
+                        <?php if($loggedUser['id'] == $officer->user->id || $loggedUser['isAdmin']) : ?>
+                            <?= $this->Html->link(__('Edit'), ['action' => 'edit', $officer->id]) ?>
+                            <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $officer->id], ['confirm' => __('Are you sure you want to delete # {0}?', $officer->id)]) ?>
+                        <?php endif; ?>
                     </td>
                 </tr>
             <?php endforeach; ?>
