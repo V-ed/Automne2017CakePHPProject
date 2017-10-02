@@ -31,7 +31,7 @@
             <td><?= h($evidenceItem->origin) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Id Officer') ?></th>
+            <th scope="row"><?= __('Officer') ?></th>
             <td><?= h($evidenceItem->officer->email) ?></td>
         </tr>
         <tr>
