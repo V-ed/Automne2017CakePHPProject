@@ -46,7 +46,10 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                 <li><?= $this->Html->link(__('Evidence Items'), ['controller' => 'evidence_items']) ?></li>
                 <li><?= $this->Html->link(__('Officers'), ['controller' => 'officers']) ?></li>
                 <li><?= $this->Html->link(__('Users'), ['controller' => 'users']) ?></li>
-                <li><?php if($loggedUser['isAdmin']) echo $this->Html->link(__('Files'), ['controller' => 'files']) ?></li>
+                <?php if($loggedUser['isAdmin']) : ?>
+                    <li><?= $this->Html->link(__('Files'), ['controller' => 'files']) ?></li>
+                    <li><?= $this->Html->link(__('Ranks'), ['controller' => 'officer_ranks']) ?></li>
+                <?php endif; ?>
             </ul>
             <ul class="right">
                 <?php if( isset($loggedUser) ): ?>

@@ -18,13 +18,14 @@
     <table cellpadding="0" cellspacing="0">
         <thead>
             <tr>
-                <?php if($loggedUser['isAdmin']): ?>
+                <!-- <?php if($loggedUser['isAdmin']): ?>
                     <th scope="col"><?= $this->Paginator->sort('isDeleted', __('Is Deleted')) ?></th>
-                <?php endif; ?>
+                <?php endif; ?> -->
                 <th scope="col"><?= $this->Paginator->sort('description') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('origin') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('isSealed', __('Is Sealed')) ?></th>
                 <th scope="col"><?= $this->Paginator->sort('officer_id') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('files') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('created', __('Created On')) ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
@@ -37,13 +38,25 @@
                 if (!$isItemDeleted || $loggedUser['isAdmin']) :
                     ?>
                     <tr <?php if($isItemDeleted) echo 'style="background-color: #DEDEDE"'; ?> >
-                        <?php if($loggedUser['isAdmin']): ?>
+                        <!-- <?php if($loggedUser['isAdmin']): ?>
                             <td><?= $isItemDeleted ? __('Yes') : __('No'); ?></td>
-                        <?php endif; ?>
+                        <?php endif; ?> -->
                         <td><?= h($evidenceItem->description) ?></td>
                         <td><?= h($evidenceItem->origin) ?></td>
                         <td><?= $evidenceItem->isSealed ? __('Yes') : __('No') ?></td>
                         <td><?= h($evidenceItem->officer->user->username) ?></td>
+                        <td>
+                            <?php if($evidenceItem->files == null) : ?>
+                                <?= __('No files available for this item!') ?>
+                            <?php else : ?>
+                                <?=
+                                $this->Html->image($evidenceItem->files[0]->path . '/' . $evidenceItem->files[0]->name, [
+                                    "alt" => $evidenceItem->files[0]->name,
+                                    'width' => '200'
+                                ]);
+                                ?>
+                            <?php endif; ?>
+                        </td>
                         <td><?= h($evidenceItem->created) ?></td>
                         <td class="actions">
                             <?= $this->Html->link(__('View'), ['action' => 'view', $evidenceItem->id]) ?>

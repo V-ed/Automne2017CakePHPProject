@@ -142,10 +142,11 @@ class FilesController extends AppController
                 $this->Flash->error(__('Please choose a file to upload.'));
             }
             
-            $evidenceItems = $this->Files->EvidenceItems->find('list', ['limit' => 200]);
-            $this->set(compact('file', 'evidenceItems'));
-            $this->set('_serialize', ['file']);
         }
+        
+        $evidenceItems = $this->Files->EvidenceItems->find('list', ['limit' => 200]);
+        $this->set(compact('file', 'evidenceItems'));
+        $this->set('_serialize', ['file']);
         
     }
     
