@@ -228,9 +228,9 @@ return [
              * MySQL on MAMP uses port 8889, MAMP users will want to uncomment
              * the following line and set the port accordingly
              */
-            'port' => '8889',
+            // 'port' => '8889',
             'username' => 'root',
-            'password' => 'root',
+            'password' => '',
             'database' => 'cours_cakephp_evidenceitems',
             'encoding' => 'utf8',
             'timezone' => 'UTC',
@@ -269,8 +269,8 @@ return [
             'persistent' => false,
             'host' => 'localhost',
             //'port' => 'non_standard_port_number',
-            'username' => 'my_app',
-            'password' => 'secret',
+            'username' => 'root',
+            'password' => '',
             'database' => 'test_myapp',
             'encoding' => 'utf8',
             'timezone' => 'UTC',
