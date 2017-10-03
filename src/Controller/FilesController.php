@@ -129,7 +129,7 @@ class FilesController extends AppController
                     $file->path = $uploadPath;
                     
                     if ($this->Files->save($file)) {
-                        $this->redirect(['action' => index]);
+                        $this->redirect(['action' => 'index']);
                         $this->Flash->success(__('File has been uploaded and modified successfully.'));
                     } else {
                         $this->Flash->error(__('The file has been saved but there was a problem saving it in the database. Contact the administrator to seek some help.'));
