@@ -27,7 +27,7 @@
         </thead>
         <tbody>
             <?php foreach ($users as $user): ?>
-                <tr <?php if($loggedUser['id'] == $user['id']) echo 'style="background-color: #DEDEDE"' ?> >
+                <tr <?php if($loggedUser['id'] == $user['id']) echo 'id="rowIsUserConnected"' ?> >
                     <?php if($loggedUser['isAdmin']): ?>
                         <td><?= $user->isAdmin ? __('Yes') : __('No') ?></td>
                     <?php endif; ?>

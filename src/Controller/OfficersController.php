@@ -128,14 +128,24 @@ class OfficersController extends AppController
         return $this->redirect(['action' => 'index']);
     }
     
-    public function beforeFilter(Event $event){
-        parent::beforeFilter($event);
-        // $this->Auth->allow(['index', 'view', 'home', 'changelang']);
-        // if ($loggedUser['isAdmin']) {
-        //     # code...
-        // } else {
-        //     $this->Auth->deny();
-        // }
+    public function isAuthorized($user) {
+        $officers = $this->Officers->find('all')->toArray();
+        foreach ($officers as $officer) {
+            if ($user['id'] === $officer->user_id) {
+                return true;
+            }
+        }
+        return parent::isAuthorized($user);
     }
+    
+    // public function beforeFilter(Event $event){
+    //     parent::beforeFilter($event);
+    //     // $this->Auth->allow(['index', 'view', 'home', 'changelang']);
+    //     // if ($loggedUser['isAdmin']) {
+    //     //     # code...
+    //     // } else {
+    //     //     $this->Auth->deny();
+    //     // }
+    // }
     
 }

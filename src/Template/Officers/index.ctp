@@ -3,14 +3,13 @@
 * @var \App\View\AppView $this
 * @var \App\Model\Entity\Officer[]|\Cake\Collection\CollectionInterface $officers
 */
-function isUserOfficer(){
-    foreach ($officers as $officer) {
-        if($loggedUser['id'] == $officer->user_id){ return true; }
-    }
+function isUserOfficer($user, $officerList){
+    foreach ($officerList as $officer)
+    if($user['id'] == $officer->user_id){ return true; }
     return false;
 }
 ?>
-<?php if(isUserOfficer() || $loggedUser['isAdmin']) : ?>
+<?php if(isUserOfficer($loggedUser, $officers) || $loggedUser['isAdmin']) : ?>
     <nav class="large-3 medium-4 columns" id="actions-sidebar">
         <ul class="side-nav">
             <li class="heading"><?= __('Actions') ?></li>
@@ -31,7 +30,7 @@ function isUserOfficer(){
         </thead>
         <tbody>
             <?php foreach ($officers as $officer): ?>
-                <tr>
+                <tr <?php if($loggedUser['id'] == $officer->user->id) echo 'id="rowIsUserConnected"' ?> >
                     <td><?= h($officer->email) ?></td>
                     <td><?= h($officer->officer_rank->rank_name) ?></td>
                     <td><?= h($officer->user->username) ?></td>
