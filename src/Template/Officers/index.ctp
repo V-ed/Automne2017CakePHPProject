@@ -3,13 +3,21 @@
 * @var \App\View\AppView $this
 * @var \App\Model\Entity\Officer[]|\Cake\Collection\CollectionInterface $officers
 */
+function isUserOfficer(){
+    foreach ($officers as $officer) {
+        if($loggedUser['id'] == $officer->user_id){ return true; }
+    }
+    return false;
+}
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('New Officer'), ['action' => 'add']) ?></li>
-    </ul>
-</nav>
+<?php if(isUserOfficer() || $loggedUser['isAdmin']) : ?>
+    <nav class="large-3 medium-4 columns" id="actions-sidebar">
+        <ul class="side-nav">
+            <li class="heading"><?= __('Actions') ?></li>
+            <li><?= $this->Html->link(__('New Officer'), ['action' => 'add']) ?></li>
+        </ul>
+    </nav>
+<?php endif; ?>
 <div class="officers index large-10 medium-8 columns content">
     <h3><?= __('Officers') ?></h3>
     <table cellpadding="0" cellspacing="0">

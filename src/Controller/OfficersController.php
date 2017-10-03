@@ -128,12 +128,12 @@ class OfficersController extends AppController
         return $this->redirect(['action' => 'index']);
     }
     
-    public function beforeFilter(Event $event){
-        // if ($loggedUser['isAdmin']) {
-        //     # code...
-        // } else {
-        //     $this->Auth->deny();
-        // }
-    }
+    // public function beforeFilter(Event $event){
+    //     // if ($loggedUser['isAdmin']) {
+    //     //     # code...
+    //     // } else {
+    //     //     $this->Auth->deny();
+    //     // }
+    // }
     
 }

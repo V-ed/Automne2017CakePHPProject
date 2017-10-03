@@ -59,7 +59,9 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                     <li><?= $this->Html->link(__('Logged in as {0}', $user), ['controller' => 'users', 'action' => 'edit', $loggedUser['id']], ['escape' => false]) ?></li>
                     <li><?= $this->Html->link(__('Logout'), ['controller' => 'users', 'action' => 'logout']) ?></li>
                 <?php else: ?>
-                    <li><?= $this->Html->link(__('Login'), ['controller' => 'users', 'action' => 'login']) ?></li>
+                    <?php if( !($this->request->params['controller'] == 'Users' && $this->request->params['action'] == 'login') ) : ?>
+                        <li><?= $this->Html->link(__('Login'), ['controller' => 'users', 'action' => 'login']) ?></li>
+                    <?php endif; ?>
                     <li><?= $this->Html->link(__('Register'), ['controller' => 'users', 'action' => 'register']) ?></li>
                 <?php endif; ?>
                 

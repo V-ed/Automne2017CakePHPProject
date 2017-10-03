@@ -12,7 +12,7 @@
             <li class="heading"><?= __('User Actions') ?></li>
             <li><?= $this->Html->link(__('New Evidence Item'), ['action' => 'add']) ?> </li>
             <?php if($loggedUser['id'] == $evidenceItem->officer->user_id || $loggedUser['isAdmin']) : ?>
-                <li class="heading"><?= $loggedUser['isAdmin'] ? __('Admin Actions') : __('Owner Actions') ?></li>
+                <li class="heading"><?= $loggedUser['id'] == $evidenceItem->officer->user_id ? __('Owner Actions') : __('Admin Actions') ?></li>
                 <li><?= $this->Html->link(__('Edit Evidence Item'), ['action' => 'edit', $evidenceItem->id]) ?> </li>
                 <li><?= $this->Form->postLink(__('Delete Evidence Item'), ['action' => 'delete', $evidenceItem->id], ['confirm' => __('Are you sure you want to delete # {0}?', $evidenceItem->id)]) ?> </li>
             <?php endif; ?>
@@ -32,7 +32,7 @@
         </tr>
         <tr>
             <th scope="row"><?= __('Officer') ?></th>
-            <td><?= h($evidenceItem->officer->email) ?></td>
+            <td><?= h($evidenceItem->officer->user->username) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Created') ?></th>
