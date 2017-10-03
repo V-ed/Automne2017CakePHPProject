@@ -121,6 +121,7 @@ class UsersController extends AppController
     
     public function login()
     {
+        
         if ($this->request->is('post')) {
             $user = $this->Auth->identify();
             if ($user) {
@@ -140,6 +141,7 @@ class UsersController extends AppController
             $referer = Router::parse($refer_url);
             $this->set(compact('referer'));
         }
+        
     }
     
     public function logout()

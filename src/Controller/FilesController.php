@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\Event\Event;
 
 /**
 * Files Controller
@@ -167,4 +168,9 @@ class FilesController extends AppController
         
         return $this->redirect(['action' => 'index']);
     }
+    
+    public function beforeFilter(Event $event) {
+        return null;
+    }
+    
 }
