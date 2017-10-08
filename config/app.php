@@ -88,7 +88,7 @@ return [
             'path' => CACHE,
             'url' => env('CACHE_DEFAULT_URL', null),
         ],
-
+        
         /**
          * Configure the cache used for general framework caching.
          * Translation cache files are stored with this configuration.
@@ -304,15 +304,15 @@ return [
         /**
          * The test connection is used during the test suite.
          */
-        'test' => [
+        'test_sqlite' => [
             'className' => 'Cake\Database\Connection',
-            'driver' => 'Cake\Database\Driver\Mysql',
+            'driver' => 'Cake\Database\Driver\Sqlite',
             'persistent' => false,
             'host' => 'localhost',
             //'port' => 'non_standard_port_number',
-            'username' => 'root',
-            'password' => '',
-            'database' => 'test_myapp',
+            // 'username' => 'root',
+            // 'password' => '',
+            'database' => ROOT . DS . 'bd' . DS . 'test.sqlite',
             'encoding' => 'utf8',
             'timezone' => 'UTC',
             'cacheMetadata' => true,
