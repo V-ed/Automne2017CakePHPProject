@@ -59,7 +59,15 @@ class OfficersTableTest extends TestCase
      */
     public function testInitialize()
     {
-        $this->markTestIncomplete('Not implemented yet.');
+		$data = [
+			'email' => 'noij@jowe.bo',
+			'officer_rank_id' => '1',
+			'user_id' => '2'
+		];
+		
+		$officer = $this->Officers->newEntity($data);
+		
+		$this->assertEmpty($officer->errors());
     }
 
     /**

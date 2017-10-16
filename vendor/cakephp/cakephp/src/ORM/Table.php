@@ -304,7 +304,7 @@ class Table implements RepositoryInterface, EventListenerInterface, EventDispatc
      */
     public static function defaultConnectionName()
     {
-        return env('DATABASE_SOURCE', 'default');
+        return 'default';
     }
 
     /**

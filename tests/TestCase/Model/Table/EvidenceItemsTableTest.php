@@ -62,7 +62,17 @@ class EvidenceItemsTableTest extends TestCase
      */
     public function testInitialize()
     {
-        $this->markTestIncomplete('Not implemented yet.');
+		$data = [
+			'description' => 'Ifu',
+			'origin' => 'TestOrigin',
+			'isSealed' => '1',
+			'officer_id' => '1',
+			'user_id' => '3'
+		];
+		
+		$evidenceItem = $this->EvidenceItems->newEntity($data);
+		
+		$this->assertEmpty($evidenceItem->errors());
     }
 
     /**

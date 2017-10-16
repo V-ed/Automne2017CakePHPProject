@@ -58,7 +58,16 @@ class UsersTableTest extends TestCase
      */
     public function testInitialize()
     {
-        $this->markTestIncomplete('Not implemented yet.');
+        $data = [
+			'firstName' => 'Isabel',
+			'lastName' => 'Morrison',
+			'username' => 'newibpimel',
+			'password' => 'wEd?P4cU'
+		];
+		
+		$user = $this->Users->newEntity($data);
+		
+		$this->assertEmpty($user->errors());
     }
 
     /**

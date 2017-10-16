@@ -58,7 +58,15 @@ class OfficerRanksTableTest extends TestCase
      */
     public function testInitialize()
     {
-        $this->markTestIncomplete('Not implemented yet.');
+		$data = [
+			'rank_code' => 'sgt',
+			'rank_name' => 'Sergant',
+			'rank_description' => 'This is a standart sergant'
+		];
+		
+		$officerRank = $this->OfficerRanks->newEntity($data);
+		
+		$this->assertEmpty($officerRank->errors());
     }
 
     /**

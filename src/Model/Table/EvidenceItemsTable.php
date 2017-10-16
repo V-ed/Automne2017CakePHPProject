@@ -83,11 +83,6 @@ class EvidenceItemsTable extends Table
             ->requirePresence('isSealed', 'create')
             ->notEmpty('isSealed');
 
-        $validator
-            ->boolean('isDeleted')
-            ->requirePresence('isDeleted', 'create')
-            ->notEmpty('isDeleted');
-
         return $validator;
     }
 

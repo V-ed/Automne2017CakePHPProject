@@ -58,7 +58,16 @@ class FilesTableTest extends TestCase
      */
     public function testInitialize()
     {
-        $this->markTestIncomplete('Not implemented yet.');
+		$data = [
+			'name' => 'muurenod',
+			'path' => 'test',
+			'detail' => 'This is a test image',
+			'evidence_item_id' => '2'
+		];
+		
+		$file = $this->Files->newEntity($data);
+		
+		$this->assertEmpty($file->errors());
     }
 
     /**
