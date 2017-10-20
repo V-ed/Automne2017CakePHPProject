@@ -86,12 +86,14 @@ class UsersController extends AppController
                 if ($user['id'] == $loggedUser['id']) {
                     $this->Flash->success(__('Your data has been saved!'));
                     $this->Auth->setUser($user);
+			        $this->set('loggedUser', $user);
                 }
                 else{
                     $this->Flash->success(sprintf(__('%s\'s data has been saved!'), $user['username']));
                 }
                 
                 return $this->redirect(['action' => 'index']);
+				
             }
             $this->Flash->error(__('The user could not be saved. Please, try again.'));
         }

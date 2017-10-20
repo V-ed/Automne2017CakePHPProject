@@ -95,7 +95,7 @@ class AppController extends Controller
         return false;
     }
     
-    public function getLoggedUser(){
+    protected function getLoggedUser(){
         return $this->Auth->user();
     }
     

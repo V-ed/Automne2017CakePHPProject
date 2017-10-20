@@ -2,6 +2,7 @@
 namespace App\Test\TestCase\Controller;
 
 use App\Controller\UsersController;
+use Cake\Routing\Router;
 use Cake\TestSuite\IntegrationTestCase;
 
 /**
@@ -30,7 +31,13 @@ class UsersControllerTest extends IntegrationTestCase
      */
     public function testIndex()
     {
-        $this->markTestIncomplete('Not implemented yet.');
+		$this->get('/Users');
+
+        $this->assertResponseOk();
+		
+		$this->get('/Users/index');
+
+        $this->assertResponseOk();
     }
 
     /**
@@ -44,14 +51,35 @@ class UsersControllerTest extends IntegrationTestCase
     }
 
     /**
-     * Test add method
+     * Test register (add) method
      *
      * @return void
      */
-    public function testAdd()
+    public function testRegister()
     {
-        $this->markTestIncomplete('Not implemented yet.');
+		$this->get('/Users/register');
+
+        $this->assertResponseOk();
     }
+	
+	public function testRegisterWithData(){
+		$data = [
+			'firstName' => 'Mina',
+			'lastName' => 'Larson',
+			'username' => 'docmuziz',
+			'password' => 'BA9tW+bT'
+		];
+		
+		$this->post(Router::url(
+			[
+				'controller' => 'users',
+				'action' => 'register'
+			]
+		), $data);
+		
+		$expected = "Flash/success";
+		$this->assertSession($expected, 'Flash.flash.0.element');
+	}
 
     /**
      * Test edit method
@@ -60,8 +88,28 @@ class UsersControllerTest extends IntegrationTestCase
      */
     public function testEdit()
     {
-        $this->markTestIncomplete('Not implemented yet.');
+		$link = '/Users/edit/1';
+		$this->get($link);
+
+    	$this->assertRedirect('/users/login?redirect=' . urlencode($link));
     }
+	
+	public function testEditLoggedIn()
+	{
+		$this->session([
+	        'Auth' => [
+	            'User' => [
+	                'id' => 1,
+					'isAdmin' => 0,
+	                'username' => 'testing'
+	            ]
+	        ]
+	    ]);
+		
+		$this->get('/Users/edit/1');
+		
+    	$this->assertResponseOk();
+	}
 
     /**
      * Test delete method
