@@ -44,10 +44,10 @@ class UsersFixture extends TestFixture
         [
             'id' => 1,
             'isAdmin' => 1,
-            'firstName' => 'Lorem ipsum dolor sit amet',
-            'lastName' => 'Lorem ipsum dolor sit amet',
-            'username' => 'Lorem ipsum dolor sit amet',
-            'password' => 'Lorem ipsum dolor sit amet',
+            'firstName' => 'Winifred',
+            'lastName' => 'Warren',
+            'username' => 'acisa',
+            'password' => 'RXwc||$Y',
             'created' => '2017-10-13 13:57:45',
             'modified' => '2017-10-13 13:57:45'
         ],

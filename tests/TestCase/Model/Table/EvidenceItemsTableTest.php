@@ -62,17 +62,23 @@ class EvidenceItemsTableTest extends TestCase
      */
     public function testInitialize()
     {
-		$data = [
-			'description' => 'Ifu',
-			'origin' => 'TestOrigin',
-			'isSealed' => '1',
-			'officer_id' => '1',
-			'user_id' => '3'
+		// Table name
+		$expected = 'evidence_items';
+		$result = $this->EvidenceItems->table();
+		$this->assertEquals($expected, $result);
+		
+		// Associations
+		$expected = [
+			'officers',
+			'users',
+			'files'
 		];
+		$result = $this->EvidenceItems->associations()->keys();
+		$this->assertEquals($expected, $result);
 		
-		$evidenceItem = $this->EvidenceItems->newEntity($data);
-		
-		$this->assertEmpty($evidenceItem->errors());
+		// Timestamp Behavior
+		$result = $this->EvidenceItems->behaviors()->has('Timestamp');
+		$this->assertTrue($result);
     }
 
     /**
@@ -82,7 +88,17 @@ class EvidenceItemsTableTest extends TestCase
      */
     public function testValidationDefault()
     {
-        $this->markTestIncomplete('Not implemented yet.');
+		$data = [
+			'description' => 'Ifu',
+			'origin' => 'TestOrigin',
+			'isSealed' => 1,
+			'officer_id' => 1,
+			'user_id' => 3
+		];
+		
+		$evidenceItem = $this->EvidenceItems->newEntity($data);
+		
+		$this->assertEmpty($evidenceItem->errors());
     }
 
     /**
@@ -92,6 +108,24 @@ class EvidenceItemsTableTest extends TestCase
      */
     public function testBuildRules()
     {
-        $this->markTestIncomplete('Not implemented yet.');
+		$data = [
+			'description' => 'Ifu',
+			'origin' => 'TestOrigin',
+			'isSealed' => 1,
+			'officer_id' => 234,
+			'user_id' => 567
+		];
+		
+		$badEvidenceItem = $this->EvidenceItems->newEntity($data);
+		
+		$result = $this->EvidenceItems->checkRules($badEvidenceItem);
+        $this->assertFalse($result);
+
+        $expected = [
+            'officer_id' => 234,
+            'user_id' => 567
+        ];
+
+        $this->assertEquals($expected, $badEvidenceItem->invalid());
     }
 }

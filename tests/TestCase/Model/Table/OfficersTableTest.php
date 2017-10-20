@@ -59,15 +59,19 @@ class OfficersTableTest extends TestCase
      */
     public function testInitialize()
     {
-		$data = [
-			'email' => 'noij@jowe.bo',
-			'officer_rank_id' => '1',
-			'user_id' => '2'
+		// Table name
+		$expected = 'officers';
+		$result = $this->Officers->table();
+		$this->assertEquals($expected, $result);
+		
+		// Associations
+		$expected = [
+			'officerranks',
+			'users',
+			'evidenceitems'
 		];
-		
-		$officer = $this->Officers->newEntity($data);
-		
-		$this->assertEmpty($officer->errors());
+		$result = $this->Officers->associations()->keys();
+		$this->assertEquals($expected, $result);
     }
 
     /**
@@ -77,7 +81,15 @@ class OfficersTableTest extends TestCase
      */
     public function testValidationDefault()
     {
-        $this->markTestIncomplete('Not implemented yet.');
+		$data = [
+			'email' => 'noij@jowe.bo',
+			'officer_rank_id' => 1,
+			'user_id' => 2
+		];
+		
+		$officer = $this->Officers->newEntity($data);
+		
+		$this->assertEmpty($officer->errors());
     }
 
     /**
@@ -87,6 +99,23 @@ class OfficersTableTest extends TestCase
      */
     public function testBuildRules()
     {
-        $this->markTestIncomplete('Not implemented yet.');
+		$data = [
+			'email' => 'noij@jowe.bo',
+			'officer_rank_id' => 234,
+			'user_id' => 567
+		];
+		
+		$badOfficer = $this->Officers->newEntity($data);
+		
+		$result = $this->Officers->checkRules($badOfficer);
+        $this->assertFalse($result);
+
+        $expected = [
+			'email' => 'noij@jowe.bo',
+            'officer_rank_id' => 234,
+            'user_id' => 567
+        ];
+
+        $this->assertEquals($expected, $badOfficer->invalid());
     }
 }

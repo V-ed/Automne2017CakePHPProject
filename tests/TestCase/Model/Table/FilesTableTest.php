@@ -58,16 +58,21 @@ class FilesTableTest extends TestCase
      */
     public function testInitialize()
     {
-		$data = [
-			'name' => 'muurenod',
-			'path' => 'test',
-			'detail' => 'This is a test image',
-			'evidence_item_id' => '2'
+		// Table name
+		$expected = 'files';
+		$result = $this->Files->table();
+		$this->assertEquals($expected, $result);
+		
+		// Associations
+		$expected = [
+			'evidenceitems'
 		];
+		$result = $this->Files->associations()->keys();
+		$this->assertEquals($expected, $result);
 		
-		$file = $this->Files->newEntity($data);
-		
-		$this->assertEmpty($file->errors());
+		// Timestamp Behavior
+		$result = $this->Files->behaviors()->has('Timestamp');
+		$this->assertTrue($result);
     }
 
     /**
@@ -77,6 +82,15 @@ class FilesTableTest extends TestCase
      */
     public function testValidationDefault()
     {
-        $this->markTestIncomplete('Not implemented yet.');
+		$data = [
+			'name' => 'muurenod',
+			'path' => 'test',
+			'detail' => 'This is a test image',
+			'evidence_item_id' => 2
+		];
+		
+		$file = $this->Files->newEntity($data);
+		
+		$this->assertEmpty($file->errors());
     }
 }

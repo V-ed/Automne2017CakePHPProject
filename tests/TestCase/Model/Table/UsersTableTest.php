@@ -58,6 +58,31 @@ class UsersTableTest extends TestCase
      */
     public function testInitialize()
     {
+		// Table name
+		$expected = 'users';
+		$result = $this->Users->table();
+		$this->assertEquals($expected, $result);
+		
+		// Associations
+		$expected = [
+			'evidenceitems',
+			'officers'
+		];
+		$result = $this->Users->associations()->keys();
+		$this->assertEquals($expected, $result);
+		
+		// Timestamp Behavior
+		$result = $this->Users->behaviors()->has('Timestamp');
+		$this->assertTrue($result);
+    }
+
+    /**
+     * Test validationDefault method
+     *
+     * @return void
+     */
+    public function testValidationDefault()
+    {
         $data = [
 			'firstName' => 'Isabel',
 			'lastName' => 'Morrison',
@@ -71,22 +96,28 @@ class UsersTableTest extends TestCase
     }
 
     /**
-     * Test validationDefault method
-     *
-     * @return void
-     */
-    public function testValidationDefault()
-    {
-        $this->markTestIncomplete('Not implemented yet.');
-    }
-
-    /**
      * Test buildRules method
      *
      * @return void
      */
     public function testBuildRules()
     {
-        $this->markTestIncomplete('Not implemented yet.');
+		$data = [
+			'firstName' => 'Isabel',
+			'lastName' => 'Morrison',
+			'username' => 'acisa',
+			'password' => 'wEd?P4cU'
+		];
+		
+		$badUser = $this->Users->newEntity($data);
+		
+		$result = $this->Users->checkRules($badUser);
+        $this->assertFalse($result);
+
+        $expected = [
+			'username' => 'acisa',
+        ];
+
+        $this->assertEquals($expected, $badUser->invalid());
     }
 }

@@ -45,7 +45,7 @@ class OfficersFixture extends TestFixture
     public $records = [
         [
             'id' => 1,
-            'email' => 'Lorem ipsum dolor sit amet',
+            'email' => 'noij@jowe.bo',
             'officer_rank_id' => 1,
             'user_id' => 1
         ],

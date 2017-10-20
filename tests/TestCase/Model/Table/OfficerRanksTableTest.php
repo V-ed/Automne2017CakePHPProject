@@ -58,15 +58,10 @@ class OfficerRanksTableTest extends TestCase
      */
     public function testInitialize()
     {
-		$data = [
-			'rank_code' => 'sgt',
-			'rank_name' => 'Sergant',
-			'rank_description' => 'This is a standart sergant'
-		];
-		
-		$officerRank = $this->OfficerRanks->newEntity($data);
-		
-		$this->assertEmpty($officerRank->errors());
+		// Table name
+		$expected = 'officer_ranks';
+		$result = $this->OfficerRanks->table();
+		$this->assertEquals($expected, $result);
     }
 
     /**
@@ -76,6 +71,14 @@ class OfficerRanksTableTest extends TestCase
      */
     public function testValidationDefault()
     {
-        $this->markTestIncomplete('Not implemented yet.');
+		$data = [
+			'rank_code' => 'sgt',
+			'rank_name' => 'Sergant',
+			'rank_description' => 'This is a standart sergant'
+		];
+		
+		$officerRank = $this->OfficerRanks->newEntity($data);
+		
+		$this->assertEmpty($officerRank->errors());
     }
 }
