@@ -31,11 +31,20 @@ class UsersControllerTest extends IntegrationTestCase
      */
     public function testIndex()
     {
-		$this->get('/Users');
+		$this->get(Router::url(
+			[
+				'controller' => 'users'
+			]
+		));
 
         $this->assertResponseOk();
 		
-		$this->get('/Users/index');
+		$this->get(Router::url(
+			[
+				'controller' => 'users',
+				'action' => 'index'
+			]
+		));
 
         $this->assertResponseOk();
     }
@@ -47,7 +56,15 @@ class UsersControllerTest extends IntegrationTestCase
      */
     public function testView()
     {
-        $this->markTestIncomplete('Not implemented yet.');
+		$this->get(Router::url(
+			[
+				'controller' => 'users',
+				'action' => 'view',
+				1
+			]
+		));
+
+        $this->assertResponseOk();
     }
 
     /**
@@ -57,7 +74,12 @@ class UsersControllerTest extends IntegrationTestCase
      */
     public function testRegister()
     {
-		$this->get('/Users/register');
+		$this->get(Router::url(
+			[
+				'controller' => 'users',
+				'action' => 'register'
+			]
+		));
 
         $this->assertResponseOk();
     }
@@ -86,29 +108,155 @@ class UsersControllerTest extends IntegrationTestCase
      *
      * @return void
      */
-    public function testEdit()
+    public function testEditNoAuth()
     {
-		$link = '/Users/edit/1';
-		$this->get($link);
+		$this->get(Router::url(
+			[
+				'controller' => 'Users',
+				'action' => 'edit',
+				1
+			]
+		));
 
-    	$this->assertRedirect('/users/login?redirect=' . urlencode($link));
+    	$this->assertRedirect('/users/login?redirect=' . urlencode('/users/edit/1'));
     }
 	
-	public function testEditLoggedIn()
+	public function testEditLoggedInAsWrongUser()
 	{
 		$this->session([
 	        'Auth' => [
 	            'User' => [
-	                'id' => 1,
-					'isAdmin' => 0,
-	                'username' => 'testing'
+					'id' => 1,
+					'isAdmin' => false,
+		            'username' => 'loznogin',
+		            'lastName' => 'Dean',
+		            'firstName' => 'Marcus'
 	            ]
 	        ]
 	    ]);
 		
-		$this->get('/Users/edit/1');
+		$this->get(Router::url(
+			[
+				'controller' => 'users',
+				'action' => 'edit',
+				1
+			]
+		));
+		
+		$this->markTestSkipped('Please visit https://github.com/V-ed/Automne2017CakePHPProject/issues/2#issuecomment-338435067 for more information on why this test is skipped.');
+		$expected = "Flash/error";
+		$this->assertSession($expected, 'Flash.flash.0.element');
+		$this->assertRedirect(['controller' => 'Users', 'action' => 'index']);
+	}
+	
+	public function testEditLoggedInAsAdmin()
+	{
+		$this->session([
+	        'Auth' => [
+	            'User' => [
+					'id' => 2,
+					'isAdmin' => true,
+		            'username' => 'loznogin',
+		            'lastName' => 'Dean',
+		            'firstName' => 'Marcus'
+	            ]
+	        ]
+	    ]);
+		
+		$this->get(Router::url(
+			[
+				'controller' => 'users',
+				'action' => 'edit',
+				1
+			]
+		));
 		
     	$this->assertResponseOk();
+	}
+	
+	public function testEditChangeAsAdmin()
+	{
+		$this->session([
+	        'Auth' => [
+	            'User' => [
+					'id' => 1,
+					'isAdmin' => true,
+					'firstName' => 'Marcus',
+		            'lastName' => 'Dean',
+					'username' => 'loznogin',
+	            ]
+	        ]
+	    ]);
+		
+		$this->get(Router::url(
+			[
+				'controller' => 'users',
+				'action' => 'register'
+			]
+		));
+		$this->assertResponseOk();
+		
+		$data = [
+			'firstName' => 'Mina',
+			'lastName' => 'Larson',
+			'username' => 'docmuziz',
+			'password' => 'BA9tW+bT'
+		];
+		
+		$this->post(Router::url(
+			[
+				'controller' => 'users',
+				'action' => 'edit',
+				1
+			]
+		), $data);
+		
+		$expected = "Flash/success";
+		$this->assertSession($expected, 'Flash.flash.0.element');
+		$this->assertRedirect(['controller' => 'Users', 'action' => 'index']);
+	}
+	
+	public function testEditChangeAsLoggedUser()
+	{
+		$this->session([
+	        'Auth' => [
+	            'User' => [
+					'id' => 1,
+					'isAdmin' => false,
+					'firstName' => 'Marcus',
+		            'lastName' => 'Dean',
+					'username' => 'loznogin',
+	            ]
+	        ]
+	    ]);
+		
+		$this->get(Router::url(
+			[
+				'controller' => 'users',
+				'action' => 'edit',
+				1
+			]
+		));
+		$this->assertResponseOk();
+		
+		$data = [
+			'firstName' => 'Mina',
+			'lastName' => 'Larson',
+			'username' => 'docmuziz',
+			'password' => 'BA9tW+bT'
+		];
+		
+		$this->post(Router::url(
+			[
+				'controller' => 'users',
+				'action' => 'edit',
+				1
+			]
+		), $data);
+		
+		$expected = "Flash/success";
+		$this->assertSession($expected, 'Flash.flash.0.element');
+		$this->assertRedirect(['controller' => 'Users', 'action' => 'index']);
 	}
 
     /**
@@ -116,8 +264,99 @@ class UsersControllerTest extends IntegrationTestCase
      *
      * @return void
      */
-    public function testDelete()
+    public function testDeleteNoAuth()
     {
-        $this->markTestIncomplete('Not implemented yet.');
+		$this->get(Router::url(
+			[
+				'controller' => 'users',
+				'action' => 'delete',
+				1
+			]
+		));
+
+    	$this->assertRedirect('/users/login?redirect=' . urlencode('/users/delete/1'));
     }
+	
+	public function testDeleteAsWrongUser()
+	{
+		$this->session([
+			'Auth' => [
+				'User' => [
+					'id' => 1,
+					'isAdmin' => false,
+					'firstName' => 'Marcus',
+					'lastName' => 'Dean',
+					'username' => 'loznogin',
+				]
+			]
+		]);
+		
+		$this->post(Router::url(
+			[
+				'controller' => 'users',
+				'action' => 'delete',
+				666
+			]
+		));
+		
+		$this->markTestSkipped('Please visit https://github.com/V-ed/Automne2017CakePHPProject/issues/2#issuecomment-338435067 for more information on why this test is skipped.');
+		$expected = "Flash/error";
+		$this->assertSession($expected, 'Flash.flash.0.element');
+		$this->assertRedirect(['controller' => 'Users', 'action' => 'index']);
+	}
+	
+	public function testDeleteAsAdmin()
+	{
+		$this->session([
+	        'Auth' => [
+	            'User' => [
+					'id' => 1,
+					'isAdmin' => true,
+					'firstName' => 'Marcus',
+		            'lastName' => 'Dean',
+					'username' => 'loznogin',
+	            ]
+	        ]
+	    ]);
+		
+		$this->post(Router::url(
+			[
+				'controller' => 'users',
+				'action' => 'delete',
+				666
+			]
+		));
+		
+		$expected = "Flash/success";
+		$this->assertSession($expected, 'Flash.flash.0.element');
+		$this->assertRedirect(['controller' => 'Users', 'action' => 'index']);
+	}
+	
+	public function testDeleteAsLoggedUser()
+	{
+		$this->session([
+	        'Auth' => [
+	            'User' => [
+					'id' => 666,
+					'isAdmin' => false,
+					'firstName' => 'Marcus',
+		            'lastName' => 'Dean',
+					'username' => 'loznogin',
+	            ]
+	        ]
+	    ]);
+		
+		$this->post(Router::url(
+			[
+				'controller' => 'users',
+				'action' => 'delete',
+				666
+			]
+		));
+		
+		$expected = "Flash/success";
+		$this->assertSession($expected, 'Flash.flash.0.element');
+		$this->assertRedirect(['controller' => 'Users', 'action' => 'index']);
+	}
+	
 }

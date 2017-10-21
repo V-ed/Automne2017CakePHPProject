@@ -157,5 +157,19 @@ class UsersController extends AppController
         parent::beforeFilter($event);
         $this->Auth->allow(['register', 'logout', 'login']);
     }
+	
+	public function isAuthorized($user) {
+		
+		if (in_array($this->request->getParam('action'), ['edit', 'delete'])) {
+            $userId = (int)$this->request->getParam('pass.0');
+            if ($userId == $user['id']) {
+                return true;
+            }
+        }
+		
+		$debug = $this->referer();
+		
+        return parent::isAuthorized($user);
+    }
     
 }

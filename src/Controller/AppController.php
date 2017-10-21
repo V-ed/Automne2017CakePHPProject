@@ -42,11 +42,14 @@ class AppController extends Controller
     public function initialize()
     {
         parent::initialize();
-        
+		
+		$debug = $this->referer('/', true);
+		
         $this->loadComponent('RequestHandler');
         $this->loadComponent('Flash');
         $this->loadComponent('Auth', [
-            'authorize' => ['Controller']
+            'authorize' => ['Controller'],
+			'unauthorizedRedirect' => $this->referer('/', true)
         ]);
         
         I18n::locale($this->request->session()->read('Config.language'));

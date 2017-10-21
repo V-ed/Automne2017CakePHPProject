@@ -43,13 +43,33 @@ class UsersFixture extends TestFixture
     public $records = [
         [
             'id' => 1,
-            'isAdmin' => 1,
-            'firstName' => 'Winifred',
-            'lastName' => 'Warren',
-            'username' => 'acisa',
-            'password' => 'RXwc||$Y',
+            'isAdmin' => true,
+            'firstName' => 'AdminFirst',
+            'lastName' => 'AdminLast',
+            'username' => 'admin',
+            'password' => 'admin',
             'created' => '2017-10-13 13:57:45',
             'modified' => '2017-10-13 13:57:45'
+        ],
+		[
+            'id' => 2,
+            'isAdmin' => false,
+            'firstName' => 'userFirst',
+            'lastName' => 'userLast',
+            'username' => 'user',
+            'password' => 'user',
+            'created' => '2017-10-14 13:57:45',
+            'modified' => '2017-10-14 13:57:45'
+        ],
+        [
+            'id' => 666,
+            'isAdmin' => false,
+            'firstName' => 'Delete',
+            'lastName' => 'Me Please',
+            'username' => 'goodbye',
+            'password' => 'IloveLASAGNA',
+            'created' => '2017-10-15 13:57:45',
+            'modified' => '2017-10-15 13:57:45'
         ],
     ];
 }
