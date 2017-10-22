@@ -13,6 +13,8 @@
 * @license       https://opensource.org/licenses/mit-license.php MIT License
 */
 
+use Cake\Routing\Router;
+
 $cakeDescription = 'CakePHP: the rapid development php framework';
 ?>
 <!DOCTYPE html>
@@ -42,7 +44,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         </ul>
         <div class="top-bar-section">
             <ul class="left">
-                <li><a href="<?= $appRoot ?>"><?= __('Home') ?></a></li>
+                <li><a href="<?= Router::url('/', true) ?>"><?= __('Home') ?></a></li>
                 <li><?= $this->Html->link(__('Evidence Items'), ['controller' => 'evidence_items']) ?></li>
                 <li><?= $this->Html->link(__('Officers'), ['controller' => 'officers']) ?></li>
                 <li><?= $this->Html->link(__('Users'), ['controller' => 'users']) ?></li>

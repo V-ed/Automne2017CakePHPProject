@@ -16,7 +16,6 @@ namespace App\Controller;
 
 use Cake\Controller\Controller;
 use Cake\Event\Event;
-use Cake\Routing\Router;
 use Cake\I18n\I18n;
 
 /**
@@ -63,9 +62,6 @@ class AppController extends Controller
         
         $loggedUser = $this->getLoggedUser();
         $this->set(compact('loggedUser'));
-        
-        $this->set('appRoot', Router::url('/', true));
-        
     }
     
     /**
