@@ -105,7 +105,7 @@ class UsersTableTest extends TestCase
 		$data = [
 			'firstName' => 'Isabel',
 			'lastName' => 'Morrison',
-			'username' => 'acisa',
+			'username' => 'user',
 			'password' => 'wEd?P4cU'
 		];
 		
@@ -115,7 +115,7 @@ class UsersTableTest extends TestCase
         $this->assertFalse($result);
 
         $expected = [
-			'username' => 'acisa',
+			'username' => 'user',
         ];
 
         $this->assertEquals($expected, $badUser->invalid());
