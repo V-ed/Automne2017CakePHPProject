@@ -139,7 +139,7 @@ class UsersControllerTest extends IntegrationTestCase
 			[
 				'controller' => 'users',
 				'action' => 'edit',
-				1
+				2
 			]
 		));
 		
