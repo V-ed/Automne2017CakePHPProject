@@ -191,7 +191,8 @@ class UsersControllerTest extends IntegrationTestCase
 		$this->get(Router::url(
 			[
 				'controller' => 'users',
-				'action' => 'register'
+				'action' => 'edit',
+                1
 			]
 		));
 		$this->assertResponseOk();

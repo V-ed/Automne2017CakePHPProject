@@ -42,13 +42,15 @@ class AppController extends Controller
     {
         parent::initialize();
 		
-		$debug = $this->referer('/', true);
+		$dReferer = $this->referer('/', true);
+		$dRequestReferer = $this->request->referer('/', true);
+		$dEnvReferer = env('HTTP_REFERER');
 		
         $this->loadComponent('RequestHandler');
         $this->loadComponent('Flash');
         $this->loadComponent('Auth', [
             'authorize' => ['Controller'],
-			'unauthorizedRedirect' => $this->referer('/', true)
+			// 'unauthorizedRedirect' => true
         ]);
         
         I18n::locale($this->request->session()->read('Config.language'));
