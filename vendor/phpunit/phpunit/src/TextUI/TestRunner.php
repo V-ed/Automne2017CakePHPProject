@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /*
  * This file is part of PHPUnit.
  *
@@ -279,7 +279,7 @@ class TestRunner extends BaseTestRunner
                 }
 
                 $this->printer = new $printerClass(
-                    isset($arguments['stderr']) ? 'php://stderr' : null,
+                    (isset($arguments['stderr']) && $arguments['stderr'] === true) ? 'php://stderr' : null,
                     $arguments['verbose'],
                     $arguments['colors'],
                     $arguments['debug'],
@@ -435,10 +435,6 @@ class TestRunner extends BaseTestRunner
             );
 
             $codeCoverage->setCheckForMissingCoversAnnotation(
-                $arguments['strictCoverage']
-            );
-
-            $codeCoverage->setCheckForUnexecutedCoveredCode(
                 $arguments['strictCoverage']
             );
 
