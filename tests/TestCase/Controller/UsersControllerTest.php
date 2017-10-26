@@ -31,20 +31,12 @@ class UsersControllerTest extends IntegrationTestCase
     */
     public function testIndex()
     {
-        $this->get(Router::url(
-            [
-                'controller' => 'users'
-            ]
-        ));
+        $url = Router::url(['controller' => 'users']);
+        $urlWithAction = Router::url(['controller' => 'users', 'action' => 'index']);
         
-        $this->assertResponseOk();
+        $this->assertEquals($url, $urlWithAction);
         
-        $this->get(Router::url(
-            [
-                'controller' => 'users',
-                'action' => 'index'
-            ]
-        ));
+        $this->get($url);
         
         $this->assertResponseOk();
     }
@@ -56,31 +48,22 @@ class UsersControllerTest extends IntegrationTestCase
     */
     public function testView()
     {
-        $this->get(Router::url(
-            [
-                'controller' => 'users',
-                'action' => 'view',
-                1
-            ]
-        ));
+        $url = Router::url(['controller' => 'users', 'action' => 'view', 1]);
+        
+        $this->get($url);
         
         $this->assertResponseOk();
     }
     
     public function testViewNotExisting()
     {
-        $this->get(Router::url(
-            [
-                'controller' => 'users',
-                'action' => 'view',
-                23
-            ]
-        ));
+        $url = Router::url(['controller' => 'users', 'action' => 'view', 1000]);
+        $this->get($url);
         
         $this->markTestSkipped('Please visit https://github.com/V-ed/Automne2017CakePHPProject/issues/2#issuecomment-338435067 for more information on why this test is skipped.');
         $expected = "Flash/error";
         $this->assertSession($expected, 'Flash.flash.0.element');
-        $this->assertRedirect(['controller' => 'Users', 'action' => 'index']);
+        $this->assertRedirect(['controller' => 'users', 'action' => 'index']);
     }
     
     /**
@@ -90,12 +73,9 @@ class UsersControllerTest extends IntegrationTestCase
     */
     public function testRegister()
     {
-        $this->get(Router::url(
-            [
-                'controller' => 'users',
-                'action' => 'register'
-            ]
-        ));
+        $url = Router::url(['controller' => 'users', 'action' => 'register']);
+        
+        $this->get($url);
         
         $this->assertResponseOk();
     }
@@ -108,12 +88,9 @@ class UsersControllerTest extends IntegrationTestCase
             'password' => 'BA9tW+bT'
         ];
         
-        $this->post(Router::url(
-            [
-                'controller' => 'users',
-                'action' => 'register'
-            ]
-        ), $data);
+        $url = Router::url(['controller' => 'users', 'action' => 'register']);
+        
+        $this->post($url, $data);
         
         $expected = "Flash/success";
         $this->assertSession($expected, 'Flash.flash.0.element');
@@ -126,15 +103,11 @@ class UsersControllerTest extends IntegrationTestCase
     */
     public function testEditNoAuth()
     {
-        $this->get(Router::url(
-            [
-                'controller' => 'Users',
-                'action' => 'edit',
-                1
-            ]
-        ));
+        $url = Router::url(['controller' => 'users', 'action' => 'edit', 1]);
         
-        $this->assertRedirect('/users/login?redirect=' . urlencode('/users/edit/1'));
+        $this->get($url);
+        
+        $this->assertRedirect(Router::url(['controller' => 'users', 'action' => 'login', '?' => ['redirect' => $url]]));
     }
     
     public function testEditLoggedInAsWrongUser()
@@ -151,18 +124,17 @@ class UsersControllerTest extends IntegrationTestCase
             ]
         ]);
         
-        $this->get(Router::url(
-            [
-                'controller' => 'users',
-                'action' => 'edit',
-                2
-            ]
-        ));
+        $urlIndex = Router::url(['controller' => 'users']);
+        $this->get($urlIndex);
+        
+        $url = Router::url(['controller' => 'users', 'action' => 'edit', 2]);
+        
+        $this->get($url);
         
         $this->markTestSkipped('Please visit https://github.com/V-ed/Automne2017CakePHPProject/issues/2#issuecomment-338435067 for more information on why this test is skipped.');
         $expected = "Flash/error";
         $this->assertSession($expected, 'Flash.flash.0.element');
-        $this->assertRedirect(['controller' => 'Users', 'action' => 'index']);
+        $this->assertRedirect(['controller' => 'users', 'action' => 'index']);
     }
     
     public function testEditLoggedInAsAdmin()
@@ -179,13 +151,9 @@ class UsersControllerTest extends IntegrationTestCase
             ]
         ]);
         
-        $this->get(Router::url(
-            [
-                'controller' => 'users',
-                'action' => 'edit',
-                1
-            ]
-        ));
+        $url = Router::url(['controller' => 'users', 'action' => 'edit', 1]);
+        
+        $this->get($url);
         
         $this->assertResponseOk();
     }
@@ -204,13 +172,9 @@ class UsersControllerTest extends IntegrationTestCase
             ]
         ]);
         
-        $this->get(Router::url(
-            [
-                'controller' => 'users',
-                'action' => 'edit',
-                1
-            ]
-        ));
+        $url = Router::url(['controller' => 'users', 'action' => 'edit', 1]);
+        
+        $this->get($url);
         $this->assertResponseOk();
         
         $data = [
@@ -220,17 +184,11 @@ class UsersControllerTest extends IntegrationTestCase
             'password' => 'BA9tW+bT'
         ];
         
-        $this->post(Router::url(
-            [
-                'controller' => 'users',
-                'action' => 'edit',
-                1
-            ]
-        ), $data);
+        $this->post($url, $data);
         
         $expected = "Flash/success";
         $this->assertSession($expected, 'Flash.flash.0.element');
-        $this->assertRedirect(['controller' => 'Users', 'action' => 'index']);
+        $this->assertRedirect(['controller' => 'users', 'action' => 'index']);
     }
     
     public function testEditChangeAsLoggedUser()
@@ -247,13 +205,9 @@ class UsersControllerTest extends IntegrationTestCase
             ]
         ]);
         
-        $this->get(Router::url(
-            [
-                'controller' => 'users',
-                'action' => 'edit',
-                1
-            ]
-        ));
+        $url = Router::url(['controller' => 'users', 'action' => 'edit', 1]);
+        
+        $this->get($url);
         $this->assertResponseOk();
         
         $data = [
@@ -263,17 +217,11 @@ class UsersControllerTest extends IntegrationTestCase
             'password' => 'BA9tW+bT'
         ];
         
-        $this->post(Router::url(
-            [
-                'controller' => 'users',
-                'action' => 'edit',
-                1
-            ]
-        ), $data);
+        $this->post($url, $data);
         
         $expected = "Flash/success";
         $this->assertSession($expected, 'Flash.flash.0.element');
-        $this->assertRedirect(['controller' => 'Users', 'action' => 'index']);
+        $this->assertRedirect(['controller' => 'users', 'action' => 'index']);
     }
     
     /**
@@ -283,15 +231,11 @@ class UsersControllerTest extends IntegrationTestCase
     */
     public function testDeleteNoAuth()
     {
-        $this->get(Router::url(
-            [
-                'controller' => 'users',
-                'action' => 'delete',
-                1
-            ]
-        ));
+        $url = Router::url(['controller' => 'users', 'action' => 'delete', 1]);
         
-        $this->assertRedirect('/users/login?redirect=' . urlencode('/users/delete/1'));
+        $this->get($url);
+        
+        $this->assertRedirect(Router::url(['controller' => 'users', 'action' => 'login', '?' => ['redirect' => $url]]));
     }
     
     public function testDeleteAsWrongUser()
@@ -308,18 +252,14 @@ class UsersControllerTest extends IntegrationTestCase
             ]
         ]);
         
-        $this->post(Router::url(
-            [
-                'controller' => 'users',
-                'action' => 'delete',
-                666
-            ]
-        ));
+        $url = Router::url(['controller' => 'users', 'action' => 'delete', 666]);
+        
+        $this->post($url);
         
         $this->markTestSkipped('Please visit https://github.com/V-ed/Automne2017CakePHPProject/issues/2#issuecomment-338435067 for more information on why this test is skipped.');
         $expected = "Flash/error";
         $this->assertSession($expected, 'Flash.flash.0.element');
-        $this->assertRedirect(['controller' => 'Users', 'action' => 'index']);
+        $this->assertRedirect(['controller' => 'users', 'action' => 'index']);
     }
     
     public function testDeleteAsAdmin()
@@ -336,17 +276,13 @@ class UsersControllerTest extends IntegrationTestCase
             ]
         ]);
         
-        $this->post(Router::url(
-            [
-                'controller' => 'users',
-                'action' => 'delete',
-                666
-            ]
-        ));
+        $url = Router::url(['controller' => 'users', 'action' => 'delete', 666]);
+        
+        $this->post($url);
         
         $expected = "Flash/success";
         $this->assertSession($expected, 'Flash.flash.0.element');
-        $this->assertRedirect(['controller' => 'Users', 'action' => 'index']);
+        $this->assertRedirect(['controller' => 'users', 'action' => 'index']);
     }
     
     public function testDeleteAsLoggedUser()
@@ -363,17 +299,13 @@ class UsersControllerTest extends IntegrationTestCase
             ]
         ]);
         
-        $this->post(Router::url(
-            [
-                'controller' => 'users',
-                'action' => 'delete',
-                666
-            ]
-        ));
+        $url = Router::url(['controller' => 'users', 'action' => 'delete', 666]);
+        
+        $this->post($url);
         
         $expected = "Flash/success";
         $this->assertSession($expected, 'Flash.flash.0.element');
-        $this->assertRedirect(['controller' => 'Users', 'action' => 'index']);
+        $this->assertRedirect(['controller' => 'users', 'action' => 'index']);
     }
     
 }
