@@ -10,7 +10,7 @@ use Cake\Validation\Validator;
  * EvidenceItems Model
  *
  * @property \App\Model\Table\OfficersTable|\Cake\ORM\Association\BelongsTo $Officers
- * @property |\Cake\ORM\Association\BelongsTo $Users
+ * @property \App\Model\Table\UsersTable|\Cake\ORM\Association\BelongsTo $Users
  * @property \App\Model\Table\FilesTable|\Cake\ORM\Association\HasMany $Files
  *
  * @method \App\Model\Entity\EvidenceItem get($primaryKey, $options = [])
@@ -79,9 +79,12 @@ class EvidenceItemsTable extends Table
             ->notEmpty('origin');
 
         $validator
-            ->boolean('isSealed')
-            ->requirePresence('isSealed', 'create')
-            ->notEmpty('isSealed');
+            ->boolean('is_sealed')
+            ->requirePresence('is_sealed', 'create')
+            ->notEmpty('is_sealed');
+
+        $validator
+            ->boolean('is_deleted');
 
         return $validator;
     }

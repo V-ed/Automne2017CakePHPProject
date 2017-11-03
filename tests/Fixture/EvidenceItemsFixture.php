@@ -20,8 +20,8 @@ class EvidenceItemsFixture extends TestFixture
         'id' => ['type' => 'integer', 'length' => 11, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'autoIncrement' => true, 'precision' => null],
         'description' => ['type' => 'string', 'length' => 255, 'null' => false, 'default' => null, 'collate' => 'utf8_unicode_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
         'origin' => ['type' => 'string', 'length' => 255, 'null' => false, 'default' => null, 'collate' => 'utf8_unicode_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
-        'isSealed' => ['type' => 'boolean', 'length' => null, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null],
-        'isDeleted' => ['type' => 'boolean', 'length' => null, 'null' => false, 'default' => '0', 'comment' => '', 'precision' => null],
+        'is_sealed' => ['type' => 'boolean', 'length' => null, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null],
+        'is_deleted' => ['type' => 'boolean', 'length' => null, 'null' => false, 'default' => '0', 'comment' => '', 'precision' => null],
         'officer_id' => ['type' => 'integer', 'length' => 11, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
         'user_id' => ['type' => 'integer', 'length' => 11, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
         'created' => ['type' => 'datetime', 'length' => null, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null],
@@ -52,12 +52,12 @@ class EvidenceItemsFixture extends TestFixture
             'id' => 1,
             'description' => 'Lorem ipsum dolor sit amet',
             'origin' => 'Lorem ipsum dolor sit amet',
-            'isSealed' => 1,
-            'isDeleted' => 1,
+            'is_sealed' => 1,
+            'is_deleted' => 1,
             'officer_id' => 1,
             'user_id' => 1,
-            'created' => '2017-10-13 13:57:01',
-            'modified' => '2017-10-13 13:57:01'
+            'created' => '2017-11-03 14:24:40',
+            'modified' => '2017-11-03 14:24:40'
         ],
     ];
 }

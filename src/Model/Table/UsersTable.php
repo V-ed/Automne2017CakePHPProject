@@ -9,8 +9,8 @@ use Cake\Validation\Validator;
 /**
  * Users Model
  *
- * @property |\Cake\ORM\Association\HasMany $EvidenceItems
- * @property |\Cake\ORM\Association\HasMany $Officers
+ * @property \App\Model\Table\EvidenceItemsTable|\Cake\ORM\Association\HasMany $EvidenceItems
+ * @property \App\Model\Table\OfficersTable|\Cake\ORM\Association\HasMany $Officers
  *
  * @method \App\Model\Entity\User get($primaryKey, $options = [])
  * @method \App\Model\Entity\User newEntity($data = null, array $options = [])
@@ -62,14 +62,17 @@ class UsersTable extends Table
             ->allowEmpty('id', 'create');
 
         $validator
-            ->scalar('firstName')
-            ->requirePresence('firstName', 'create')
-            ->notEmpty('firstName');
+            ->boolean('is_admin');
 
         $validator
-            ->scalar('lastName')
-            ->requirePresence('lastName', 'create')
-            ->notEmpty('lastName');
+            ->scalar('first_name')
+            ->requirePresence('first_name', 'create')
+            ->notEmpty('first_name');
+
+        $validator
+            ->scalar('last_name')
+            ->requirePresence('last_name', 'create')
+            ->notEmpty('last_name');
 
         $validator
             ->scalar('username')

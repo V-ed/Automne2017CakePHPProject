@@ -91,7 +91,7 @@ class EvidenceItemsTableTest extends TestCase
 		$data = [
 			'description' => 'Ifu',
 			'origin' => 'TestOrigin',
-			'isSealed' => 1,
+			'is_sealed' => 1,
 			'officer_id' => 1,
 			'user_id' => 3
 		];
@@ -111,7 +111,7 @@ class EvidenceItemsTableTest extends TestCase
 		$data = [
 			'description' => 'Ifu',
 			'origin' => 'TestOrigin',
-			'isSealed' => 1,
+			'is_sealed' => 1,
 			'officer_id' => 234,
 			'user_id' => 567
 		];

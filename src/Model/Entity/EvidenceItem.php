@@ -9,14 +9,15 @@ use Cake\ORM\Entity;
  * @property int $id
  * @property string $description
  * @property string $origin
- * @property bool $isSealed
- * @property bool $isDeleted
+ * @property bool $is_sealed
+ * @property bool $is_deleted
  * @property int $officer_id
  * @property int $user_id
  * @property \Cake\I18n\FrozenTime $created
  * @property \Cake\I18n\FrozenTime $modified
  *
  * @property \App\Model\Entity\Officer $officer
+ * @property \App\Model\Entity\User $user
  * @property \App\Model\Entity\File[] $files
  */
 class EvidenceItem extends Entity

@@ -8,13 +8,16 @@ use Cake\Auth\DefaultPasswordHasher;
  * User Entity
  *
  * @property int $id
- * @property bool $isAdmin
- * @property string $firstName
- * @property string $lastName
+ * @property bool $is_admin
+ * @property string $first_name
+ * @property string $last_name
  * @property string $username
  * @property string $password
  * @property \Cake\I18n\FrozenTime $created
  * @property \Cake\I18n\FrozenTime $modified
+ *
+ * @property \App\Model\Entity\EvidenceItem[] $evidence_items
+ * @property \App\Model\Entity\Officer[] $officers
  */
 class User extends Entity
 {
