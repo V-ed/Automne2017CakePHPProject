@@ -89,6 +89,10 @@ class AppController extends Controller
 	}
 	
 	public function isAuthorized($user) {
+		// Non-users can't access content requiring authorization.
+		if($user == null){
+			return false;
+		}
 		// Admin can access every action, others can't.
 		return $user->isAdmin;
 	}
