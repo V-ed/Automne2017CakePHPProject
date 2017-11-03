@@ -29,7 +29,7 @@ $this->layout = false;
 </head>
 
 <body class="home">
-	
+	<?= $this->Flash->render() ?>
 	<header class="row">
 		<div class="header-image"><?= $this->Html->image('logo.png', ['width' => '400']) ?></div>
 		<div class="header-title">
@@ -48,11 +48,12 @@ $this->layout = false;
 			<?= $this->Html->link('<h1>' . __('Evidence Items') . '</h1>', ['controller' => 'evidence_items'], ['escape' => false]) ?>
 			<?= $this->Html->link('<h1>' . __('Officers') . '</h1>', ['controller' => 'officers'], ['escape' => false]) ?>
 			<?= $this->Html->link('<h1>' . __('Users') . '</h1>', ['controller' => 'users'], ['escape' => false]) ?>
-			<h1><?= $this->Html->link('Français', ['action' => 'changeLang', 'fr_CA'], ['escape' => false]) ?>
+			<h1>
+				<?= $this->Html->link('Français', ['action' => 'changeLang', 'fr_CA'], ['escape' => false]) ?>
 				<?= $this->Html->link('English', ['action' => 'changeLang', 'en_US'], ['escape' => false]) ?>
-				<?= $this->Html->link('Deutsch', ['action' => 'changeLang', 'de_DE'], ['escape' => false]) ?></h1>
-			</div>
-		</header>
-		
-	</body>
-	</html>
+				<?= $this->Html->link('Deutsch', ['action' => 'changeLang', 'de_DE'], ['escape' => false]) ?>
+			</h1>
+		</div>
+	</header>
+</body>
+</html>

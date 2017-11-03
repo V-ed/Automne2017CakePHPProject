@@ -30,6 +30,11 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <?= $this->Html->css('base.css') ?>
     <?= $this->Html->css('cake.css') ?>
     <?= $this->Html->css('custom.css') ?>
+	
+	<?php
+		// In case a view request to load another css file
+		$this->fetch('viewStyle');
+	?>
     
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
