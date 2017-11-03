@@ -141,7 +141,7 @@ class OfficersController extends AppController
     // public function beforeFilter(Event $event){
     //     parent::beforeFilter($event);
     //     // $this->Auth->allow(['index', 'view', 'home', 'changelang']);
-    //     // if ($loggedUser['isAdmin']) {
+    //     // if ($loggedUser['is_admin']) {
     //     //     # code...
     //     // } else {
     //     //     $this->Auth->deny();

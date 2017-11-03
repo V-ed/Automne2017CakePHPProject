@@ -112,7 +112,7 @@ class OfficerRanksController extends AppController
     
     public function beforeFilter(Event $event)
     {
-        if ($this->Auth->user('isAdmin')) {
+        if ($this->Auth->user('is_admin')) {
             $this->Auth->allow();
         }
         else {

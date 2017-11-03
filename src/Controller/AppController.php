@@ -94,7 +94,7 @@ class AppController extends Controller
 			return false;
 		}
 		// Admin can access every action, others can't.
-		return $user->isAdmin;
+		return $user->is_admin;
 	}
 	
 	protected function getLoggedUser(){

@@ -40,10 +40,10 @@ $this->layout = false;
 	<header class="row">
 		<div class="header-title">
 			
-			<?php if($loggedUser == null): ?>
+			<?php if($loggedUser == null) : ?>
 				<?= $this->Html->link('<h1>' . __('Login') . '</h1>', ['controller' => 'users', 'action' => 'login'], ['escape' => false]) ?>
 			<?php else: ?>
-				<?= $this->Html->link('<h1>' . __('Welcome, {0}! Logout?', h($loggedUser['firstName']) . ' ' . h($loggedUser['lastName'])) . '</h1>', ['controller' => 'users', 'action' => 'logout'], ['escape' => false]) ?>
+				<?= $this->Html->link('<h1>' . __('Welcome, {0}! Logout?', h($loggedUser['first_name']) . ' ' . h($loggedUser['last_name'])) . '</h1>', ['controller' => 'users', 'action' => 'logout'], ['escape' => false]) ?>
 			<?php endif; ?>
 			<?= $this->Html->link('<h1>' . __('Evidence Items') . '</h1>', ['controller' => 'evidence_items'], ['escape' => false]) ?>
 			<?= $this->Html->link('<h1>' . __('Officers') . '</h1>', ['controller' => 'officers'], ['escape' => false]) ?>
