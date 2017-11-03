@@ -105,8 +105,13 @@ class AppController extends Controller
 		}
 		else{
 			$users = TableRegistry::get('Users');
+			$loggedUser = $users->get($authUserID);
 			
-			return $users->get($authUserID);
+			if($this->Auth->user() != $loggedUser){
+				$this->Auth->setUser($loggedUser);
+			}
+			
+			return $loggedUser;
 		}
 	}
 	
