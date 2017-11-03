@@ -34,3 +34,8 @@ nbproject/* # NetBeans
 .vscode/*
 .sass-cache/ # Sass preprocessor
 .imdone/*
+
+# Other files #
+###############
+
+/bd/test*
