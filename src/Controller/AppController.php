@@ -17,6 +17,7 @@ namespace App\Controller;
 use Cake\Controller\Controller;
 use Cake\Event\Event;
 use Cake\I18n\I18n;
+use Cake\ORM\TableRegistry;
 
 /**
 * Application Controller
@@ -28,82 +29,87 @@ use Cake\I18n\I18n;
 */
 class AppController extends Controller
 {
-    
-    /**
-    * Initialization hook method.
-    *
-    * Use this method to add common initialization code like loading components.
-    *
-    * e.g. `$this->loadComponent('Security');`
-    *
-    * @return void
-    */
-    public function initialize()
-    {
-        parent::initialize();
+	
+	/**
+	* Initialization hook method.
+	*
+	* Use this method to add common initialization code like loading components.
+	*
+	* e.g. `$this->loadComponent('Security');`
+	*
+	* @return void
+	*/
+	public function initialize()
+	{
+		parent::initialize();
 		
 		$dReferer = $this->referer('/', true);
 		$dRequestReferer = $this->request->referer('/', true);
 		$dEnvReferer = env('HTTP_REFERER');
 		
-        $this->loadComponent('RequestHandler');
-        $this->loadComponent('Flash');
-        $this->loadComponent('Auth', [
-            'authorize' => ['Controller'],
+		$this->loadComponent('RequestHandler');
+		$this->loadComponent('Flash');
+		$this->loadComponent('Auth', [
+			'authorize' => ['Controller'],
 			// 'unauthorizedRedirect' => true
-        ]);
-        
-        I18n::locale($this->request->session()->read('Config.language'));
-        
-        /*
-        * Enable the following components for recommended CakePHP security settings.
-        * see https://book.cakephp.org/3.0/en/controllers/components/security.html
-        */
-        //$this->loadComponent('Security');
-        //$this->loadComponent('Csrf');
-        
-        $loggedUser = $this->getLoggedUser();
-        $this->set(compact('loggedUser'));
-    }
-    
-    /**
-    * Before render callback.
-    *
-    * @param \Cake\Event\Event $event The beforeRender event.
-    * @return \Cake\Http\Response|null|void
-    */
-    public function beforeRender(Event $event)
-    {
-        // Note: These defaults are just to get started quickly with development
-        // and should not be used in production. You should instead set "_serialize"
-        // in each action as required.
-        if (!array_key_exists('_serialize', $this->viewVars) &&
-        in_array($this->response->type(), ['application/json', 'application/xml']) ) {
-            $this->set('_serialize', true);
-        }
-    }
-    
-    public function beforeFilter(Event $event) {
-        $this->Auth->allow(['index', 'view', 'home', 'changelang']);
-    }
-    
-    public function isAuthorized($user) {
-        // Admin can access every action
-        if ($user['isAdmin'] === true) {
-            return true;
-        }
-        // Default deny
-        return false;
-    }
-    
-    protected function getLoggedUser(){
-        return $this->Auth->user();
-    }
-    
-    public function changeLang($lang = 'en_US') {
-        I18n::setLocale($lang);
-        $this->request->session()->write('Config.language', $lang);
-        return $this->redirect($this->request->referer());
-    }
-    
+		]);
+		
+		I18n::locale($this->request->session()->read('Config.language'));
+		
+		/*
+		* Enable the following components for recommended CakePHP security settings.
+		* see https://book.cakephp.org/3.0/en/controllers/components/security.html
+		*/
+		//$this->loadComponent('Security');
+		//$this->loadComponent('Csrf');
+		
+		$loggedUser = $this->getLoggedUser();
+		$this->set(compact('loggedUser'));
+	}
+	
+	/**
+	* Before render callback.
+	*
+	* @param \Cake\Event\Event $event The beforeRender event.
+	* @return \Cake\Http\Response|null|void
+	*/
+	public function beforeRender(Event $event)
+	{
+		// Note: These defaults are just to get started quickly with development
+		// and should not be used in production. You should instead set "_serialize"
+		// in each action as required.
+		if (!array_key_exists('_serialize', $this->viewVars) &&
+		in_array($this->response->type(), ['application/json', 'application/xml']) ) {
+			$this->set('_serialize', true);
+		}
+	}
+	
+	public function beforeFilter(Event $event) {
+		$this->Auth->allow(['index', 'view', 'home', 'changelang']);
+	}
+	
+	public function isAuthorized($user) {
+		// Admin can access every action, others can't.
+		return $user->isAdmin;
+	}
+	
+	protected function getLoggedUser(){
+		$authUserID = $this->Auth->user('id');
+		
+		if($authUserID == null){
+			return null;
+		}
+		else{
+			$users = TableRegistry::get('Users');
+			
+			return $users->get($authUserID);
+		}
+	}
+	
+	public function changeLang($lang = 'en_US') {
+		I18n::setLocale($lang);
+		$this->request->session()->write('Config.language', $lang);
+		return $this->redirect($this->request->referer());
+	}
+	
 }
