@@ -20,6 +20,7 @@
 		}
 		echo $this->Form->control('first_name', ['label' => __('First Name')]);
 		echo $this->Form->control('last_name', ['label' => __('Last Name')]);
+		echo $this->Form->control('email');
 		echo $this->Form->control('username');
 		echo $this->Form->control('password', ['value' => '', 'label' => __('New Password')]);
 		?>

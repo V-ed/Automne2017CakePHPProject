@@ -5,6 +5,8 @@ use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
+use Cake\Utility\Text;
+use Cake\Mailer\Email;
 
 /**
  * UserConfirmations Model
@@ -63,4 +65,33 @@ class UserConfirmationsTable extends Table
 
         return $validator;
     }
+	
+	public function newConfirmation($userData)
+	{
+		$newConfirmation = $this->newEntity();
+		
+		$confData = [
+			'uuid' => Text::uuid()
+		];
+		
+		$newConfirmation = $this->patchEntity($newConfirmation, $confData);
+		
+		$newConfirmation = $this->save($newConfirmation);
+		
+		$userData['uuid'] = $newConfirmation->uuid;
+		
+		$this->sendEmailToUser($userData);
+		
+		return $newConfirmation->id;
+	}
+	
+	private function sendEmailToUser($userData)
+	{
+		$email = new Email('default');
+        $email
+        ->setTo($userData['email'])
+        ->setSubject(__('Test mail'))
+        ->send(__('This is a test mail'));
+	}
+	
 }

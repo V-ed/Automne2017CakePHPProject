@@ -178,16 +178,16 @@ $config = [
 	*/
 	'EmailTransport' => [
 		'default' => [
-			'className' => 'Mail',
+			'className' => 'Smtp',
 			// The following keys are used in SMTP transports
-			'host' => 'localhost',
-			'port' => 25,
-			'timeout' => 30,
-			'username' => 'user',
-			'password' => 'secret',
+			'host' => 'smtp.gmail.com',
+			'port' => 465,
+			// 'timeout' => 30,
+			'username' => 'gullaumemarcoux@gmail.com',
+			'password' => 'guiwmrdprrywckxi',
 			'client' => null,
-			'tls' => null,
-			'url' => env('EMAIL_TRANSPORT_DEFAULT_URL', null),
+			'tls' => true
+			// 'url' => env('EMAIL_TRANSPORT_DEFAULT_URL', null),
 		],
 	],
 	

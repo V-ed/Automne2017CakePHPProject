@@ -90,7 +90,8 @@ class UsersTable extends Table
 
         $validator
             ->email('email')
-            ->allowEmpty('email');
+			->requirePresence('email', 'create')
+			->notEmpty('email');
 
         return $validator;
     }
@@ -110,4 +111,16 @@ class UsersTable extends Table
 
         return $rules;
     }
+	
+	public function newUser($user, $data)
+	{
+		$confId = $this->UserConfirmations->newConfirmation($data);
+		
+		$data['user_confirmation_id'] = $confId;
+		
+		$user = $this->patchEntity($user, $data);
+		
+		return $user;
+	}
+	
 }
