@@ -9,9 +9,9 @@ use Cake\Validation\Validator;
 /**
  * Officers Model
  *
- * @property |\Cake\ORM\Association\BelongsTo $OfficerRanks
+ * @property \App\Model\Table\OfficerRanksTable|\Cake\ORM\Association\BelongsTo $OfficerRanks
  * @property \App\Model\Table\UsersTable|\Cake\ORM\Association\BelongsTo $Users
- * @property |\Cake\ORM\Association\HasMany $EvidenceItems
+ * @property \App\Model\Table\EvidenceItemsTable|\Cake\ORM\Association\HasMany $EvidenceItems
  *
  * @method \App\Model\Entity\Officer get($primaryKey, $options = [])
  * @method \App\Model\Entity\Officer newEntity($data = null, array $options = [])
@@ -35,21 +35,18 @@ class OfficersTable extends Table
         parent::initialize($config);
 
         $this->setTable('officers');
+        $this->setDisplayField('email');
+        $this->setPrimaryKey('id');
 
         $this->belongsTo('OfficerRanks', [
-            'foreignKey' => 'officer_rank_id',
-            'joinType' => 'INNER'
+            'foreignKey' => 'officer_rank_id'
         ]);
         $this->belongsTo('Users', [
-            'foreignKey' => 'user_id',
-            'joinType' => 'INNER'
+            'foreignKey' => 'user_id'
         ]);
         $this->hasMany('EvidenceItems', [
             'foreignKey' => 'officer_id'
         ]);
-        
-        $this->setDisplayField('email');
-        $this->setPrimaryKey('id');
     }
 
     /**

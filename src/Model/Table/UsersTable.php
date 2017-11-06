@@ -9,6 +9,7 @@ use Cake\Validation\Validator;
 /**
  * Users Model
  *
+ * @property |\Cake\ORM\Association\BelongsTo $UserConfirmations
  * @property \App\Model\Table\EvidenceItemsTable|\Cake\ORM\Association\HasMany $EvidenceItems
  * @property \App\Model\Table\OfficersTable|\Cake\ORM\Association\HasMany $Officers
  *
@@ -41,6 +42,9 @@ class UsersTable extends Table
 
         $this->addBehavior('Timestamp');
 
+        $this->belongsTo('UserConfirmations', [
+            'foreignKey' => 'user_confirmation_id'
+        ]);
         $this->hasMany('EvidenceItems', [
             'foreignKey' => 'user_id'
         ]);
@@ -97,6 +101,7 @@ class UsersTable extends Table
     public function buildRules(RulesChecker $rules)
     {
         $rules->add($rules->isUnique(['username']));
+        $rules->add($rules->existsIn(['user_confirmation_id'], 'UserConfirmations'));
 
         return $rules;
     }

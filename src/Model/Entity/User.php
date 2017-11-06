@@ -15,6 +15,7 @@ use Cake\Auth\DefaultPasswordHasher;
  * @property string $password
  * @property \Cake\I18n\FrozenTime $created
  * @property \Cake\I18n\FrozenTime $modified
+ * @property int $user_confirmation_id
  *
  * @property \App\Model\Entity\EvidenceItem[] $evidence_items
  * @property \App\Model\Entity\Officer[] $officers

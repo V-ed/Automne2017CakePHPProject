@@ -25,7 +25,11 @@ class OfficersTableTest extends TestCase
      */
     public $fixtures = [
         'app.officers',
-        'app.users'
+        'app.officer_ranks',
+        'app.users',
+        'app.user_confirmations',
+        'app.evidence_items',
+        'app.files'
     ];
 
     /**

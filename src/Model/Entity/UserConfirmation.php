@@ -4,18 +4,15 @@ namespace App\Model\Entity;
 use Cake\ORM\Entity;
 
 /**
- * Officer Entity
+ * UserConfirmation Entity
  *
  * @property int $id
- * @property string $email
- * @property int $officer_rank_id
- * @property int $user_id
+ * @property string $uuid
+ * @property bool $is_confirmed
  *
- * @property \App\Model\Entity\OfficerRank $officer_rank
- * @property \App\Model\Entity\User $user
- * @property \App\Model\Entity\EvidenceItem[] $evidence_items
+ * @property \App\Model\Entity\User[] $users
  */
-class Officer extends Entity
+class UserConfirmation extends Entity
 {
 
     /**
