@@ -26,6 +26,7 @@ class UsersFixture extends TestFixture
         'created' => ['type' => 'datetime', 'length' => null, 'null' => true, 'default' => null, 'precision' => null, 'comment' => null],
         'modified' => ['type' => 'datetime', 'length' => null, 'null' => true, 'default' => null, 'precision' => null, 'comment' => null],
         'user_confirmation_id' => ['type' => 'integer', 'length' => null, 'unsigned' => false, 'null' => true, 'default' => null, 'precision' => null, 'comment' => null, 'autoIncrement' => null],
+        'email' => ['type' => 'string', 'length' => 200, 'null' => true, 'default' => null, 'precision' => null, 'comment' => null, 'fixed' => null, 'collate' => null],
     ];
     // @codingStandardsIgnoreEnd
 
@@ -44,7 +45,8 @@ class UsersFixture extends TestFixture
             'password' => 'admin',
             'created' => '2017-10-13 13:57:45',
             'modified' => '2017-10-13 13:57:45',
-            'user_confirmation_id' => 1
+            'user_confirmation_id' => 1,
+            'email' => 'zonjog@gum.gov'
         ],
 		[
             'id' => 2,
@@ -55,7 +57,8 @@ class UsersFixture extends TestFixture
             'password' => 'user',
             'created' => '2017-10-14 13:57:45',
             'modified' => '2017-10-14 13:57:45',
-            'user_confirmation_id' => 2
+            'user_confirmation_id' => 2,
+            'email' => 'zonjog@gum.gov'
         ],
         [
             'id' => 666,
@@ -66,7 +69,8 @@ class UsersFixture extends TestFixture
             'password' => 'IloveLASAGNA',
             'created' => '2017-10-15 13:57:45',
             'modified' => '2017-10-15 13:57:45',
-            'user_confirmation_id' => 3
+            'user_confirmation_id' => 3,
+            'email' => 'zonjog@gum.gov'
         ],
     ];
 }
