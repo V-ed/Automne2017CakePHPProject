@@ -9,6 +9,7 @@ use Cake\ORM\Entity;
  * @property int $id
  * @property string $uuid
  * @property bool $is_confirmed
+ * @property int $user_id
  *
  * @property \App\Model\Entity\User[] $users
  */

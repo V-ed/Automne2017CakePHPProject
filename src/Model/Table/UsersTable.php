@@ -9,9 +9,9 @@ use Cake\Validation\Validator;
 /**
  * Users Model
  *
- * @property \App\Model\Table\UserConfirmationsTable|\Cake\ORM\Association\BelongsTo $UserConfirmations
  * @property \App\Model\Table\EvidenceItemsTable|\Cake\ORM\Association\HasMany $EvidenceItems
  * @property \App\Model\Table\OfficersTable|\Cake\ORM\Association\HasMany $Officers
+ * @property \App\Model\Table\UserConfirmationsTable|\Cake\ORM\Association\HasMany $UserConfirmations
  *
  * @method \App\Model\Entity\User get($primaryKey, $options = [])
  * @method \App\Model\Entity\User newEntity($data = null, array $options = [])
@@ -42,13 +42,13 @@ class UsersTable extends Table
 
         $this->addBehavior('Timestamp');
 
-        $this->belongsTo('UserConfirmations', [
-            'foreignKey' => 'user_confirmation_id'
-        ]);
         $this->hasMany('EvidenceItems', [
             'foreignKey' => 'user_id'
         ]);
         $this->hasMany('Officers', [
+            'foreignKey' => 'user_id'
+        ]);
+        $this->hasMany('UserConfirmations', [
             'foreignKey' => 'user_id'
         ]);
     }
@@ -107,7 +107,6 @@ class UsersTable extends Table
     {
         $rules->add($rules->isUnique(['username']));
         $rules->add($rules->isUnique(['email']));
-        $rules->add($rules->existsIn(['user_confirmation_id'], 'UserConfirmations'));
 
         return $rules;
     }

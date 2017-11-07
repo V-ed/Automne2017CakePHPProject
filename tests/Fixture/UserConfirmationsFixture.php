@@ -17,12 +17,10 @@ class UserConfirmationsFixture extends TestFixture
      */
     // @codingStandardsIgnoreStart
     public $fields = [
-        'id' => ['type' => 'integer', 'length' => null, 'unsigned' => false, 'null' => false, 'default' => null, 'autoIncrement' => true, 'precision' => null, 'comment' => null],
+        'id' => ['type' => 'integer', 'length' => null, 'unsigned' => false, 'null' => true, 'default' => null, 'precision' => null, 'comment' => null, 'autoIncrement' => null],
         'uuid' => ['type' => 'string', 'length' => 40, 'null' => true, 'default' => null, 'precision' => null, 'comment' => null, 'fixed' => null, 'collate' => null],
         'is_confirmed' => ['type' => 'boolean', 'length' => null, 'null' => true, 'default' => null, 'precision' => null, 'comment' => null],
-        '_constraints' => [
-            'primary' => ['type' => 'primary', 'columns' => ['id'], 'length' => []],
-        ],
+        'user_id' => ['type' => 'integer', 'length' => null, 'unsigned' => false, 'null' => true, 'default' => null, 'precision' => null, 'comment' => null, 'autoIncrement' => null],
     ];
     // @codingStandardsIgnoreEnd
 
@@ -35,7 +33,8 @@ class UserConfirmationsFixture extends TestFixture
         [
             'id' => 1,
             'uuid' => 'Lorem ipsum dolor sit amet',
-            'is_confirmed' => 1
+            'is_confirmed' => 1,
+            'user_id' => 1
         ],
     ];
 }

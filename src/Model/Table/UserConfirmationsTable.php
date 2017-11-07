@@ -5,13 +5,11 @@ use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
-use Cake\Utility\Text;
-use Cake\Mailer\Email;
 
 /**
  * UserConfirmations Model
  *
- * @property \App\Model\Table\UsersTable|\Cake\ORM\Association\HasMany $Users
+ * @property \App\Model\Table\UsersTable|\Cake\ORM\Association\BelongsTo $Users
  *
  * @method \App\Model\Entity\UserConfirmation get($primaryKey, $options = [])
  * @method \App\Model\Entity\UserConfirmation newEntity($data = null, array $options = [])
@@ -38,8 +36,8 @@ class UserConfirmationsTable extends Table
         $this->setDisplayField('id');
         $this->setPrimaryKey('id');
 
-        $this->hasMany('Users', [
-            'foreignKey' => 'user_confirmation_id'
+        $this->belongsTo('Users', [
+            'foreignKey' => 'user_id'
         ]);
     }
 
@@ -53,7 +51,7 @@ class UserConfirmationsTable extends Table
     {
         $validator
             ->integer('id')
-            ->allowEmpty('id', 'create');
+            ->allowEmpty('id');
 
         $validator
             ->scalar('uuid')
@@ -64,6 +62,20 @@ class UserConfirmationsTable extends Table
             ->allowEmpty('is_confirmed');
 
         return $validator;
+    }
+	
+    /**
+     * Returns a rules checker object that will be used for validating
+     * application integrity.
+     *
+     * @param \Cake\ORM\RulesChecker $rules The rules object to be modified.
+     * @return \Cake\ORM\RulesChecker
+     */
+    public function buildRules(RulesChecker $rules)
+    {
+        $rules->add($rules->existsIn(['user_id'], 'Users'));
+
+        return $rules;
     }
 	
 	public function newConfirmation($userData)

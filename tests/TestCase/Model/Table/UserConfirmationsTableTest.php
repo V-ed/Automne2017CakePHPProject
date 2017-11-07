@@ -75,4 +75,14 @@ class UserConfirmationsTableTest extends TestCase
     {
         $this->markTestIncomplete('Not implemented yet.');
     }
+
+    /**
+     * Test newConfirmation method
+     *
+     * @return void
+     */
+    public function testNewConfirmation()
+    {
+        $this->markTestIncomplete('Not implemented yet.');
+    }
 }
