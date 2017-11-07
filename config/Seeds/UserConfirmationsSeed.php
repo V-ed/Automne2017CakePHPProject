@@ -23,21 +23,25 @@ class UserConfirmationsSeed extends AbstractSeed
                 'id' => '1',
                 'uuid' => '485fc381-e790-47a3-9794-1337c0a8fe68',
                 'is_confirmed' => '0',
+                'user_id' => '1',
             ],
             [
                 'id' => '2',
                 'uuid' => '485fc381-e790-47a3-9794-1337c0a8fe68',
                 'is_confirmed' => '0',
+                'user_id' => '2',
             ],
             [
                 'id' => '3',
                 'uuid' => '485fc381-e790-47a3-9794-1337c0a8fe68',
                 'is_confirmed' => '0',
+                'user_id' => '3',
             ],
             [
                 'id' => '4',
                 'uuid' => '485fc381-e790-47a3-9794-1337c0a8fe68',
                 'is_confirmed' => '0',
+                'user_id' => '4',
             ],
         ];
 
