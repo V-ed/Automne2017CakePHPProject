@@ -180,13 +180,14 @@ $config = [
 		'default' => [
 			'className' => 'Smtp',
 			// The following keys are used in SMTP transports
-			'host' => 'smtp.gmail.com',
+			'host' => 'ssl://smtp.gmail.com',
 			'port' => 465,
 			// 'timeout' => 30,
-			'username' => 'gullaumemarcoux@gmail.com',
-			'password' => 'guiwmrdprrywckxi',
-			'client' => null,
-			'tls' => true
+			'username' => 'guillaumemarcoux@gmail.com',
+			'password' => 'qdyaujqajgdgvuzu',
+            // 'auth' => 'false',
+			// 'client' => null,
+			// 'tls' => true
 			// 'url' => env('EMAIL_TRANSPORT_DEFAULT_URL', null),
 		],
 	],
@@ -203,7 +204,7 @@ $config = [
 	'Email' => [
 		'default' => [
 			'transport' => 'default',
-			'from' => 'you@localhost',
+			'from' => 'guillaumemarcoux@gmail.com',
 			//'charset' => 'utf-8',
 			//'headerCharset' => 'utf-8',
 		],
