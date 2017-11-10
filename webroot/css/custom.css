@@ -6,6 +6,13 @@
 	background: #DEDEDE;
 }
 
+.admin-text {
+	color: #FF5400;
+}
+.not-confirmed {
+	color: #CC6E00;
+}
+
 div.header-image {
 	background: radial-gradient(#B4B4B4, #818181, #6E6E6E);
 }

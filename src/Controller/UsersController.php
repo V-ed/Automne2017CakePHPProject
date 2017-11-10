@@ -5,6 +5,7 @@ use App\Controller\AppController;
 use Cake\Event\Event;
 use Cake\Routing\Router;
 use Cake\ORM\TableRegistry;
+use Cake\Network\Exception\NotFoundException;
 
 /**
 * Users Controller
@@ -62,14 +63,14 @@ class UsersController extends AppController
 			$user = $this->Users->patchEntity($user, $this->request->getData());
 			if ($this->Users->save($user)) {
 				
-				$loggedUser = parent::getLoggedUser();
-				if ($user['id'] == $loggedUser['id']) {
+				$loggedUser = $this->getLoggedUser();
+				if ($user['id'] == $loggedUser->id) {
 					$this->Flash->success(__('Your data has been saved!'));
 					$this->Auth->setUser($user);
 					$this->set('loggedUser', $user);
 				}
 				else{
-					$this->Flash->success(sprintf(__('%s\'s data has been saved!'), $user['username']));
+					$this->Flash->success(__('{0}\'s data has been saved!', $user->username)));
 				}
 				
 				return $this->redirect(['action' => 'index']);
@@ -112,7 +113,9 @@ class UsersController extends AppController
 		if ($this->request->is('post')) {
 			$user = $this->Users->newUser($user, $this->request->getData());
 			if ($user) {
-				$this->Flash->success(__('The user has been saved.'));
+				$this->sendEmailToUser($user, $user->confirmation);
+				
+				$this->Flash->success(__('The user has been saved. Go check under your email ({0}) to activate your account!', $user->email));
 				
 				return $this->redirect(['action' => 'index']);
 			}
@@ -122,25 +125,49 @@ class UsersController extends AppController
 		$this->set('_serialize', ['user']);
 	}
 	
+	private function sendEmailToUser($user, $userConfirmation)
+	{
+		$paragraph = '<br /><br />';
+		
+		$company = 'Evidocs';
+		
+		$emailSubject = $company . ' | ' . __('Please confirm your account!');
+		
+		$textHeader = __('Thank you for registering to {0}, {1}!', $company, $user->full_name);
+		
+		$confirmLink = Router::url(['controller' => 'Users', 'action' => 'confirm', $userConfirmation->uuid], true);
+		$confirmLink = '<a href="' . $confirmLink . '">' . __('activate your account!') . '</a>';
+		$textBody = __('To complete your account activation, please click on the following link to finish your account activation : {0}', $confirmLink);
+		
+		$textFooter = __('Thank you again for registering to our website and we hope you\'ll have a nice stay!');
+		
+		$mailContent = $textHeader . $paragraph . $textBody . $paragraph . $textFooter;
+		
+		$email = new Email('default');
+		$email
+		->to($user->email)
+		->subject($emailSubject)
+		->emailFormat('html')
+		->send($mailContent);
+	}
+	
 	public function confirm($uuid)
 	{
-		$userConfirmations = TableRegistry::get('UserConfirmations');
-		
-		$confirmation = $userConfirmations->find('all')->where(['uuid' => $uuid, 'is_confirmed' => false])->first();
+		$confirmation = $this->Users->UserConfirmations->find('all')->where(['uuid' => $uuid])->first();
 		
 		if ($confirmation == null) {
-			if($userConfirmations->exists(['uuid' => $uuid])) {
+			throw new NotFoundException(__('The unique identifier provided does not exists.'));
+		}
+		else {
+			if ($confirmation->is_confirmed) {
 				$this->Flash->error(__('You do not need to confirm again!'));
 			}
 			else {
-				$this->Flash->error(__('Please stop trying to break our website... :)'));
+				$confirmation = $userConfirmations->patchEntity($confirmation, ['is_confirmed' => true]);
+				$userConfirmations->save($confirmation);
+				
+				$this->Flash->success(__('Thank you for confirming your email! You can now access this website in it\'s entirety.'));
 			}
-		}
-		else {
-			$confirmation = $userConfirmations->patchEntity($confirmation, ['is_confirmed' => true]);
-			$userConfirmations->save($confirmation);
-			
-			$this->Flash->success(__('Thank you for confirming your email! You can now access this website in it\'s entirety.'));
 		}
 		
 		return $this->redirect(['controller' => 'Home']);

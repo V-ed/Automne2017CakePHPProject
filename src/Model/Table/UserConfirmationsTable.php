@@ -88,39 +88,15 @@ class UserConfirmationsTable extends Table
 		
 		$confData = [
 			'uuid' => Text::uuid(),
-			'user_id' => $user->id
+			'user_id' => $user->id,
+			'is_confirmed' => false
 		];
 		
 		$newConfirmation = $this->patchEntity($newConfirmation, $confData);
 		
 		$newConfirmation = $this->save($newConfirmation);
 		
-		$this->sendEmailToUser($user, $newConfirmation->uuid);
-		
 		return $newConfirmation;
-	}
-	
-	private function sendEmailToUser($user, $uuid)
-	{
-		$confirmLink = Router::url(['controller' => 'Users', 'action' => 'confirm', $uuid], true);
-		
-		$company = 'Evidocs';
-		
-		$emailSubject = $company . ' | ' . __('Please confirm your account!');
-		
-		$textHeader = __('Thank you for registering to {0}, {1}!', $company, $user->full_name);
-		
-		$textBody = __('To complete your account activation, please click on the following link to finish your account activation : {0}', $confirmLink);
-		
-		$textFooter = __('Thank you again for registering to our website and we hope you\'ll have a nice stay!');
-		
-		$mailContent = $textHeader . "\n\n" . $textBody . "\n\n" . $textFooter;
-		
-		$email = new Email('default');
-		$email
-		->to($user->email)
-		->subject($emailSubject)
-		->send($mailContent);
 	}
 	
 	public function confirmUUID($uuid)

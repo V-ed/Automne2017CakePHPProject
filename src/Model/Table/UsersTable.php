@@ -126,6 +126,8 @@ class UsersTable extends Table
 				return $user;
 			}
 			else {
+				$this->delete($user);
+				
 				return false;
 			}
 		}
@@ -137,9 +139,7 @@ class UsersTable extends Table
 	
 	public function getConfirmationOfUser($userId)
 	{
-		$userConfirmations = TableRegistry::get('UserConfirmations');
-		
-		$confirmation = $userConfirmations->find('all')->where(['user_id' => $userId])->first();
+		$confirmation = $this->UserConfirmations->find('all')->where(['user_id' => $userId])->first();
 		
 		return $confirmation;
 	}

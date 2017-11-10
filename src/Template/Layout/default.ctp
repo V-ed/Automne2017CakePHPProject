@@ -44,7 +44,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 	<nav class="top-bar expanded" data-topbar role="navigation">
 		<ul class="title-area large-3 medium-4 columns" id="top-left-bar">
 			<li class="name">
-				<h1><a href=""><?= $this->fetch('title') ?></a></h1>
+				<h1><?= $this->Html->link($this->fetch('title'), ['controller' => $this->request->controller, 'action' => 'index']) ?></h1>
 			</li>
 		</ul>
 		<div class="top-bar-section">
@@ -61,9 +61,12 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 			<ul class="right">
 				<?php if( isset($loggedUser) ) : ?>
 					<?php
-					$user = h($loggedUser['first_name']) . ' ' . h($loggedUser['last_name']);
-					if ($loggedUser['is_admin']) {
-						$user = $user . ' (<span style="color: #FF5400">' . __('ADMIN') . '</span>)';
+					$user = h($loggedUser->full_name);
+					if ($loggedUser->is_admin) {
+						$user .= ' (<span class="admin-text">' . __('ADMIN') . '</span>)';
+					}
+					if (!$loggedUser->is_confirmed) {
+						$user .= ' (<span class="not-confirmed">' . __('NOT CONFIRMED') . '</span>)';
 					}
 					?>
 					<li><?= $this->Html->link(__('Logged in as {0}', $user), ['controller' => 'users', 'action' => 'edit', $loggedUser['id']], ['escape' => false]) ?></li>
