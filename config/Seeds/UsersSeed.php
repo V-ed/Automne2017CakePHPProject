@@ -63,6 +63,28 @@ class UsersSeed extends AbstractSeed
                 'created' => '2017-10-03 20:52:17',
                 'modified' => '2017-10-03 20:52:38',
             ],
+            [
+                'id' => '24',
+                'is_admin' => '0',
+                'first_name' => 'Guillaume',
+                'last_name' => 'Marcoux',
+                'email' => 'guillaumemarcoux@gmail.com',
+                'username' => 'testingMail',
+                'password' => '$2y$10$wB.D03.40kDNqGQHY7V5ZuVctPCQYu20zcjb3wyaxtt0/j3QWihhy',
+                'created' => '2017-11-10 01:35:06',
+                'modified' => '2017-11-10 01:35:06',
+            ],
+            [
+                'id' => '25',
+                'is_admin' => '0',
+                'first_name' => 'Test',
+                'last_name' => 'Captcha',
+                'email' => 'no@gmail.con',
+                'username' => 'ok',
+                'password' => '$2y$10$kxm4OxOcAOcA5VHctW9L3.648TV7ewaPEJOHqO1OOLmQU5gcpe342',
+                'created' => '2017-11-10 03:09:02',
+                'modified' => '2017-11-10 03:09:02',
+            ],
         ];
 
         $table = $this->table('users');

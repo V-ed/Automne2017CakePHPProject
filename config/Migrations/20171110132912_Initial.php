@@ -133,8 +133,44 @@ class Initial extends AbstractMigration
             ])
             ->addIndex(
                 [
+                    'user_id',
+                ],
+                ['unique' => true]
+            )
+            ->addIndex(
+                [
                     'officer_rank_id',
                 ]
+            )
+            ->addIndex(
+                [
+                    'user_id',
+                ]
+            )
+            ->create();
+
+        $this->table('user_confirmations')
+            ->addColumn('uuid', 'string', [
+                'default' => null,
+                'limit' => 40,
+                'null' => false,
+            ])
+            ->addColumn('is_confirmed', 'boolean', [
+                'comment' => '0 : FALSE | 1 : TRUE',
+                'default' => null,
+                'limit' => null,
+                'null' => false,
+            ])
+            ->addColumn('user_id', 'integer', [
+                'default' => null,
+                'limit' => 11,
+                'null' => false,
+            ])
+            ->addIndex(
+                [
+                    'user_id',
+                ],
+                ['unique' => true]
             )
             ->addIndex(
                 [
@@ -158,6 +194,11 @@ class Initial extends AbstractMigration
             ->addColumn('last_name', 'string', [
                 'default' => null,
                 'limit' => 255,
+                'null' => false,
+            ])
+            ->addColumn('email', 'string', [
+                'default' => null,
+                'limit' => 200,
                 'null' => false,
             ])
             ->addColumn('username', 'string', [
@@ -235,6 +276,18 @@ class Initial extends AbstractMigration
                 ]
             )
             ->update();
+
+        $this->table('user_confirmations')
+            ->addForeignKey(
+                'user_id',
+                'users',
+                'id',
+                [
+                    'update' => 'CASCADE',
+                    'delete' => 'CASCADE'
+                ]
+            )
+            ->update();
     }
 
     public function down()
@@ -260,10 +313,16 @@ class Initial extends AbstractMigration
                 'user_id'
             );
 
+        $this->table('user_confirmations')
+            ->dropForeignKey(
+                'user_id'
+            );
+
         $this->dropTable('evidence_items');
         $this->dropTable('files');
         $this->dropTable('officer_ranks');
         $this->dropTable('officers');
+        $this->dropTable('user_confirmations');
         $this->dropTable('users');
     }
 }

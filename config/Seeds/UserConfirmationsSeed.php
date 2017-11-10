@@ -43,6 +43,18 @@ class UserConfirmationsSeed extends AbstractSeed
                 'is_confirmed' => '0',
                 'user_id' => '4',
             ],
+            [
+                'id' => '24',
+                'uuid' => '02df2b90-9dec-4465-a912-3e913f4a90a8',
+                'is_confirmed' => '1',
+                'user_id' => '24',
+            ],
+            [
+                'id' => '25',
+                'uuid' => '59cf2a5c-218a-4469-a3d0-d20088500efe',
+                'is_confirmed' => '0',
+                'user_id' => '25',
+            ],
         ];
 
         $table = $this->table('user_confirmations');
