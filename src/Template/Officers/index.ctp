@@ -3,13 +3,8 @@
 * @var \App\View\AppView $this
 * @var \App\Model\Entity\Officer[]|\Cake\Collection\CollectionInterface $officers
 */
-function isUserOfficer($user, $officerList){
-	foreach ($officerList as $officer)
-	if ($user->id == $officer->user_id) { return true; }
-	return false;
-}
 ?>
-<?php if($loggedUser != null && (isUserOfficer($loggedUser, $officers) || $loggedUser->is_admin)) : ?>
+<?php if($loggedUser != null && ($loggedUser->is_officer || $loggedUser->is_admin)) : ?>
 	<nav class="large-3 medium-4 columns" id="actions-sidebar">
 		<ul class="side-nav">
 			<li class="heading"><?= __('Actions') ?></li>
@@ -30,13 +25,13 @@ function isUserOfficer($user, $officerList){
 		</thead>
 		<tbody>
 			<?php foreach ($officers as $officer) : ?>
-				<tr <?php if($loggedUser != null && $loggedUser->id == $officer->user->id) echo 'id="rowIsUserConnected"' ?> >
+				<tr <?php if($loggedUser != null && $loggedUser->id == $officer->user_id) echo 'id="rowIsUserConnected"' ?> >
 					<td><?= h($officer->email) ?></td>
 					<td><?= h($officer->officer_rank->rank_name) ?></td>
 					<td><?= h($officer->user->username) ?></td>
 					<td class="actions">
 						<?= $this->Html->link(__('View'), ['action' => 'view', $officer->id]) ?>
-						<?php if($loggedUser != null && $loggedUser->id == $officer->user->id || $loggedUser->is_admin) : ?>
+						<?php if($loggedUser != null && ($loggedUser->id == $officer->user_id || $loggedUser->is_admin)) : ?>
 							<?= $this->Html->link(__('Edit'), ['action' => 'edit', $officer->id]) ?>
 							<?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $officer->id], ['confirm' => __('Are you sure you want to delete # {0}?', $officer->id)]) ?>
 						<?php endif; ?>
