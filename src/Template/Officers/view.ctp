@@ -11,8 +11,8 @@
 		<?php if($loggedUser != null) : ?>
 			<li class="heading"><?= __('User Actions') ?></li>
 			<li><?= $this->Html->link(__('New Officer'), ['action' => 'add']) ?> </li>
-			<?php if($loggedUser['id'] == $officer->user->id || $loggedUser['is_admin']) : ?>
-				<li class="heading"><?= $loggedUser['id'] == $officer->user->id ? __('Account Actions') : __('Admin Actions') ?></li>
+			<?php if($loggedUser->id == $officer->user->id || $loggedUser->is_admin) : ?>
+				<li class="heading"><?= $loggedUser->id == $officer->user->id ? __('Account Actions') : __('Admin Actions') ?></li>
 				<li><?= $this->Html->link(__('Edit Officer'), ['action' => 'edit', $officer->id]) ?> </li>
 				<li><?= $this->Form->postLink(__('Delete Officer'), ['action' => 'delete', $officer->id], ['confirm' => __('Are you sure you want to delete # {0}?', $officer->id)]) ?> </li>
 			<?php endif; ?>
@@ -20,9 +20,9 @@
 	</ul>
 </nav>
 <div class="officers view large-10 medium-8 columns content">
-	<h3><?= h($officer->officer_rank->rank_name . ' ' . $officer->user->first_name . ' ' . $officer->user->last_name) ?></h3>
+	<h3><?= h($officer->officer_rank->rank_name . ' ' . $officer->user->full_name) ?></h3>
 	<table class="vertical-table">
-		<?php if($loggedUser['is_admin']) : ?>
+		<?php if($loggedUser != null && $loggedUser->is_admin) : ?>
 			<tr>
 				<th scope="row"><?= __('Is Admin') ?></th>
 				<td><?= $officer->user->is_admin ? __('Yes') : __('No'); ?></td>

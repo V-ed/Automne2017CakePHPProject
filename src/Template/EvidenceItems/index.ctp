@@ -18,7 +18,7 @@
 	<table cellpadding="0" cellspacing="0">
 		<thead>
 			<tr>
-				<!-- <?php if($loggedUser['is_admin']) : ?>
+				<!-- <?php if($loggedUser != null && $loggedUser->is_admin) : ?>
 				<th scope="col"><?= $this->Paginator->sort('isDeleted', __('Is Deleted')) ?></th>
 			<?php endif; ?> -->
 			<th scope="col"><?= $this->Paginator->sort('description') ?></th>
@@ -35,10 +35,10 @@
 			<?php
 			$isItemDeleted = $evidenceItem->isDeleted;
 			
-			if (!$isItemDeleted || $loggedUser['is_admin']) :
+			if (!$isItemDeleted || ($loggedUser != null && $loggedUser->is_admin)) :
 				?>
 				<tr <?php if($isItemDeleted) echo 'style="background-color: #DEDEDE"'; ?> >
-					<!-- <?php if($loggedUser['is_admin']) : ?>
+					<!-- <?php if($loggedUser != null && $loggedUser->is_admin) : ?>
 					<td><?= $isItemDeleted ? __('Yes') : __('No') ?></td>
 				<?php endif; ?> -->
 				<td><?= h($evidenceItem->description) ?></td>
@@ -60,7 +60,7 @@
 				<td><?= h($evidenceItem->created) ?></td>
 				<td class="actions">
 					<?= $this->Html->link(__('View'), ['action' => 'view', $evidenceItem->id]) ?>
-					<?php if ($loggedUser['id'] == $evidenceItem->officer->user_id || $loggedUser['is_admin']) : ?>
+					<?php if ($loggedUser != null && ($loggedUser->id == $evidenceItem->officer->user_id || $loggedUser->is_admin)) : ?>
 						<?= $this->Html->link(__('Edit'), ['action' => 'edit', $evidenceItem->id]) ?>
 						<?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $evidenceItem->id], ['confirm' => __('Are you sure you want to delete "{0}"?', $evidenceItem->description)]) ?>
 					<?php endif; ?>

@@ -64,7 +64,7 @@ class UsersController extends AppController
 			if ($this->Users->save($user)) {
 				
 				$loggedUser = $this->getLoggedUser();
-				if ($user['id'] == $loggedUser->id) {
+				if ($user->id == $loggedUser->id) {
 					$this->Flash->success(__('Your data has been saved!'));
 					$this->Auth->setUser($user);
 					$this->set('loggedUser', $user);
@@ -214,7 +214,7 @@ class UsersController extends AppController
 		
 		if (in_array($this->request->getParam('action'), ['edit', 'delete'])) {
 			$userId = (int)$this->request->getParam('pass.0');
-			if ($userId == $user['id']) {
+			if ($userId == $user->id) {
 				return true;
 			}
 		}

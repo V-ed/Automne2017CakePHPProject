@@ -74,4 +74,10 @@ class User extends Entity
 		return $confirmation;
 	}
 	
+	protected function _getIsOfficer()
+	{
+		// TODO 
+		return false;
+	}
+	
 }

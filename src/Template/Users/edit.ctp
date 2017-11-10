@@ -15,7 +15,7 @@
 	<fieldset>
 		<legend><?= __('Edit User') ?></legend>
 		<?php
-		if ($loggedUser['is_admin']) {
+		if ($loggedUser != null && $loggedUser->is_admin) {
 			echo $this->Form->control('is_admin', ['label' => __('Is Admin')]);
 		}
 		echo $this->Form->control('first_name', ['label' => __('First Name')]);

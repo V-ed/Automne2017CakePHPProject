@@ -53,7 +53,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 				<li><?= $this->Html->link(__('Evidence Items'), ['controller' => 'evidence_items']) ?></li>
 				<li><?= $this->Html->link(__('Officers'), ['controller' => 'officers']) ?></li>
 				<li><?= $this->Html->link(__('Users'), ['controller' => 'users']) ?></li>
-				<?php if($loggedUser['is_admin']) : ?>
+				<?php if($loggedUser != null && $loggedUser->is_admin) : ?>
 					<li><?= $this->Html->link(__('Files'), ['controller' => 'files']) ?></li>
 					<li><?= $this->Html->link(__('Ranks'), ['controller' => 'officer_ranks']) ?></li>
 				<?php endif; ?>
@@ -69,13 +69,15 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 						$user .= ' (<span class="not-confirmed">' . __('NOT CONFIRMED') . '</span>)';
 					}
 					?>
-					<li><?= $this->Html->link(__('Logged in as {0}', $user), ['controller' => 'users', 'action' => 'edit', $loggedUser['id']], ['escape' => false]) ?></li>
+					<li><?= $this->Html->link(__('Logged in as {0}', $user), ['controller' => 'users', 'action' => 'edit', $loggedUser->id], ['escape' => false]) ?></li>
 					<li><?= $this->Html->link(__('Logout'), ['controller' => 'users', 'action' => 'logout']) ?></li>
 				<?php else: ?>
 					<?php if( !($this->request->params['controller'] == 'Users' && $this->request->params['action'] == 'login') ) : ?>
 						<li><?= $this->Html->link(__('Login'), ['controller' => 'users', 'action' => 'login']) ?></li>
 					<?php endif; ?>
-					<li><?= $this->Html->link(__('Register'), ['controller' => 'users', 'action' => 'register']) ?></li>
+					<?php if( !($this->request->params['controller'] == 'Users' && $this->request->params['action'] == 'register') ) : ?>
+						<li><?= $this->Html->link(__('Register'), ['controller' => 'users', 'action' => 'register']) ?></li>
+					<?php endif; ?>
 				<?php endif; ?>
 				
 				<ul class="dropdown-menu">

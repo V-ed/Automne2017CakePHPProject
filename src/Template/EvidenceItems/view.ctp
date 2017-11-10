@@ -11,8 +11,8 @@
 		<?php if($loggedUser != null) : ?>
 			<li class="heading"><?= __('User Actions') ?></li>
 			<li><?= $this->Html->link(__('New Evidence Item'), ['action' => 'add']) ?> </li>
-			<?php if($loggedUser['id'] == $evidenceItem->officer->user_id || $loggedUser['is_admin']) : ?>
-				<li class="heading"><?= $loggedUser['id'] == $evidenceItem->officer->user->id ? __('Owner Actions') : __('Admin Actions') ?></li>
+			<?php if($loggedUser->id == $evidenceItem->officer->user_id || $loggedUser->is_admin) : ?>
+				<li class="heading"><?= $loggedUser->id == $evidenceItem->officer->user->id ? __('Owner Actions') : __('Admin Actions') ?></li>
 				<li><?= $this->Html->link(__('Edit Evidence Item'), ['action' => 'edit', $evidenceItem->id]) ?> </li>
 				<li><?= $this->Form->postLink(__('Delete Evidence Item'), ['action' => 'delete', $evidenceItem->id], ['confirm' => __('Are you sure you want to delete # {0}?', $evidenceItem->id)]) ?> </li>
 			<?php endif; ?>
@@ -42,7 +42,7 @@
 			<th scope="row"><?= __('Created') ?></th>
 			<td><?= h($evidenceItem->created) ?></td>
 		</tr>
-		<?php if ($loggedUser['is_admin']) : ?>
+		<?php if ($loggedUser != null && $loggedUser->is_admin) : ?>
 			<tr>
 				<th scope="row"><?= __('Is Deleted') ?></th>
 				<td><?= $evidenceItem->isDeleted ? __('Yes') : __('No') ?></td>
@@ -76,7 +76,7 @@
 						<td><?= h($file->modified) ?></td>
 						<td class="actions">
 							<?= $this->Html->link(__('View'), ['controller' => 'Files', 'action' => 'view', $file->id]) ?>
-							<?php if($loggedUser['id'] == $evidenceItem->officer->user_id || $loggedUser['is_admin']) : ?>
+							<?php if($loggedUser != null && ($loggedUser->id == $evidenceItem->officer->user_id || $loggedUser->is_admin)) : ?>
 								<?= $this->Html->link(__('Edit'), ['controller' => 'Files', 'action' => 'edit', $file->id]) ?>
 								<?= $this->Form->postLink(__('Delete'), ['controller' => 'Files', 'action' => 'delete', $file->id], ['confirm' => __('Are you sure you want to delete # {0}?', $file->id)]) ?>
 							<?php endif; ?>

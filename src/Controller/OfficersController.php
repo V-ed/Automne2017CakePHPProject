@@ -131,7 +131,7 @@ class OfficersController extends AppController
     public function isAuthorized($user) {
         $officers = $this->Officers->find('all')->toArray();
         foreach ($officers as $officer) {
-            if ($user['id'] === $officer->user_id) {
+            if ($user->id === $officer->user_id) {
                 return true;
             }
         }
@@ -141,7 +141,7 @@ class OfficersController extends AppController
     // public function beforeFilter(Event $event){
     //     parent::beforeFilter($event);
     //     // $this->Auth->allow(['index', 'view', 'home', 'changelang']);
-    //     // if ($loggedUser['is_admin']) {
+    //     // if ($loggedUser != null && $loggedUser->is_admin) {
     //     //     # code...
     //     // } else {
     //     //     $this->Auth->deny();

@@ -9,17 +9,17 @@
 		<li class="heading"><?= __('Actions') ?></li>
 		<li><?= $this->Html->link(__('Register'), ['action' => 'add']) ?> </li>
 		<li><?= $this->Html->link(__('List Users'), ['action' => 'index']) ?> </li>
-		<?php if($loggedUser['id'] == $user->id || $loggedUser['is_admin']) : ?>
-			<li class="heading"><?= $loggedUser['is_admin'] ? __('Admin Actions') : __('User Actions') ?></li>
+		<?php if ($loggedUser != null && ($loggedUser->id == $user->id || $loggedUser->is_admin)) : ?>
+			<li class="heading"><?= $loggedUser->is_admin ? __('Admin Actions') : __('User Actions') ?></li>
 			<li><?= $this->Html->link(__('Edit User'), ['action' => 'edit', $user->id]) ?> </li>
 			<li><?= $this->Form->postLink(__('Delete User'), ['action' => 'delete', $user->id], ['confirm' => __('Are you sure you want to delete # {0}?', $user->id)]) ?> </li>
 		<?php endif; ?>
 	</ul>
 </nav>
 <div class="users view large-10 medium-8 columns content">
-	<h3><?= h($user->first_name) . ' ' . h($user->last_name) ?></h3>
+	<h3><?= h($user->full_name) ?></h3>
 	<table class="vertical-table">
-		<?php if($loggedUser['is_admin']) : ?>
+		<?php if($loggedUser != null && $loggedUser->is_admin) : ?>
 			<tr>
 				<th scope="row"><?= __('Is Admin') ?></th>
 				<td><?= $user->is_admin ? __('Yes') : __('No'); ?></td>
