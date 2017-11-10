@@ -39,10 +39,12 @@ class OfficersTable extends Table
 		$this->setPrimaryKey('id');
 		
 		$this->belongsTo('OfficerRanks', [
-			'foreignKey' => 'officer_rank_id'
+			'foreignKey' => 'officer_rank_id',
+			'joinType' => 'INNER'
 		]);
 		$this->belongsTo('Users', [
-			'foreignKey' => 'user_id'
+			'foreignKey' => 'user_id',
+			'joinType' => 'INNER'
 		]);
 		$this->hasMany('EvidenceItems', [
 			'foreignKey' => 'officer_id'
@@ -79,8 +81,8 @@ class OfficersTable extends Table
 	public function buildRules(RulesChecker $rules)
 	{
 		$rules->add($rules->isUnique(['email']));
-		$rules->add($rules->existsIn(['officer_rank_id'], 'OfficerRanks'));
 		$rules->add($rules->existsIn(['user_id'], 'Users'));
+		$rules->add($rules->existsIn(['officer_rank_id'], 'OfficerRanks'));
 		
 		return $rules;
 	}

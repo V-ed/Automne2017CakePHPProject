@@ -29,8 +29,12 @@ class Officer extends Entity
      * @var array
      */
     protected $_accessible = [
-        '*' => true,
-        'id' => false
+        'email' => true,
+        'officer_rank_id' => true,
+        'user_id' => true,
+        'officer_rank' => true,
+        'user' => true,
+        'evidence_items' => true
     ];
 	
 	protected function _getRank()

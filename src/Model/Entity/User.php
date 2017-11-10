@@ -12,15 +12,15 @@ use Cake\ORM\TableRegistry;
 * @property bool $is_admin
 * @property string $first_name
 * @property string $last_name
+* @property string $email
 * @property string $username
 * @property string $password
 * @property \Cake\I18n\FrozenTime $created
 * @property \Cake\I18n\FrozenTime $modified
-* @property string $email
 *
-* @property \App\Model\Entity\UserConfirmation $user_confirmation
 * @property \App\Model\Entity\EvidenceItem[] $evidence_items
 * @property \App\Model\Entity\Officer[] $officers
+* @property \App\Model\Entity\UserConfirmation[] $user_confirmations
 */
 class User extends Entity
 {
@@ -35,8 +35,17 @@ class User extends Entity
 	* @var array
 	*/
 	protected $_accessible = [
-		'*' => true,
-		'id' => false
+		'is_admin' => true,
+		'first_name' => true,
+		'last_name' => true,
+		'email' => true,
+		'username' => true,
+		'password' => true,
+		'created' => true,
+		'modified' => true,
+		'evidence_items' => true,
+		'officers' => true,
+		'user_confirmations' => true
 	];
 	
 	/**

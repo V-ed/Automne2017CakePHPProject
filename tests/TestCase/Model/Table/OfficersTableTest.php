@@ -27,9 +27,9 @@ class OfficersTableTest extends TestCase
         'app.officers',
         'app.officer_ranks',
         'app.users',
-        'app.user_confirmations',
         'app.evidence_items',
-        'app.files'
+        'app.files',
+        'app.user_confirmations'
     ];
 
     /**
