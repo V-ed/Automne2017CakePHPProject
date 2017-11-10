@@ -126,7 +126,7 @@ class UsersController extends AppController
 			if ($isHuman) {
 				$user = $this->Users->newUser($user, $this->request->getData());
 				if ($user) {
-					$this->sendEmailToUser($user, $user->confirmation);
+					$this->sendConfirmationMailToUser($user, $user->confirmation);
 					
 					$this->Flash->success(__('The user has been saved. Go check under your email ({0}) to activate your account!', $user->email));
 					
@@ -142,7 +142,7 @@ class UsersController extends AppController
 		$this->set('_serialize', ['user']);
 	}
 	
-	private function sendEmailToUser($user, $userConfirmation)
+	private function sendConfirmationMailToUser($user, $userConfirmation)
 	{
 		$paragraph = '<br /><br />';
 		
