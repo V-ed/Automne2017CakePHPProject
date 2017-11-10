@@ -91,6 +91,7 @@ use Zend\Diactoros\Uri;
  * specify which authentication strategy you want to use.
  * CakePHP comes with built-in support for basic authentication.
  *
+ * @mixin \Cake\Core\InstanceConfigTrait
  */
 class Client
 {
@@ -406,7 +407,8 @@ class Client
                 $locationUrl = $this->buildUrl($location, [], [
                     'host' => $url->getHost(),
                     'port' => $url->getPort(),
-                    'scheme' => $url->getScheme()
+                    'scheme' => $url->getScheme(),
+                    'protocolRelative' => true
                 ]);
 
                 $request = $request->withUri(new Uri($locationUrl));
@@ -452,15 +454,21 @@ class Client
             $url .= $q;
             $url .= is_string($query) ? $query : http_build_query($query);
         }
-        if (preg_match('#^https?://#', $url)) {
-            return $url;
-        }
         $defaults = [
             'host' => null,
             'port' => null,
             'scheme' => 'http',
+            'protocolRelative' => false
         ];
         $options += $defaults;
+
+        if ($options['protocolRelative'] && preg_match('#^//#', $url)) {
+            $url = $options['scheme'] . ':' . $url;
+        }
+        if (preg_match('#^https?://#', $url)) {
+            return $url;
+        }
+
         $defaultPorts = [
             'http' => 80,
             'https' => 443
