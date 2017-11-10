@@ -84,7 +84,8 @@ class EvidenceItemsTable extends Table
             ->notEmpty('is_sealed');
 
         $validator
-            ->boolean('is_deleted');
+            ->boolean('is_deleted')
+			->allowEmpty('is_deleted');
 
         return $validator;
     }

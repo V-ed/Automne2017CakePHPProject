@@ -38,7 +38,8 @@ class UserConfirmationsTable extends Table
 		$this->setPrimaryKey('id');
 		
 		$this->belongsTo('Users', [
-			'foreignKey' => 'user_id'
+			'foreignKey' => 'user_id',
+			'joinType' => 'INNER'
 		]);
 	}
 	
@@ -52,7 +53,7 @@ class UserConfirmationsTable extends Table
 	{
 		$validator
 		->integer('id')
-		->allowEmpty('id');
+		->allowEmpty('id', 'create');
 		
 		$validator
 		->scalar('uuid')
@@ -60,7 +61,8 @@ class UserConfirmationsTable extends Table
 		
 		$validator
 		->boolean('is_confirmed')
-		->allowEmpty('is_confirmed');
+		->requirePresence('is_confirmed', 'create')
+		->notEmpty('is_confirmed');
 		
 		return $validator;
 	}

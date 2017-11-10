@@ -9,6 +9,8 @@ use Cake\Validation\Validator;
 /**
  * OfficerRanks Model
  *
+ * @property |\Cake\ORM\Association\HasMany $Officers
+ *
  * @method \App\Model\Entity\OfficerRank get($primaryKey, $options = [])
  * @method \App\Model\Entity\OfficerRank newEntity($data = null, array $options = [])
  * @method \App\Model\Entity\OfficerRank[] newEntities(array $data, array $options = [])
@@ -33,6 +35,10 @@ class OfficerRanksTable extends Table
         $this->setTable('officer_ranks');
         $this->setDisplayField('rank_name');
         $this->setPrimaryKey('id');
+
+        $this->hasMany('Officers', [
+            'foreignKey' => 'officer_rank_id'
+        ]);
     }
 
     /**

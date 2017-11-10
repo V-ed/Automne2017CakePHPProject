@@ -9,7 +9,7 @@ use Cake\Validation\Validator;
 /**
  * Files Model
  *
- * @property |\Cake\ORM\Association\BelongsTo $EvidenceItems
+ * @property \App\Model\Table\EvidenceItemsTable|\Cake\ORM\Association\BelongsTo $EvidenceItems
  *
  * @method \App\Model\Entity\File get($primaryKey, $options = [])
  * @method \App\Model\Entity\File newEntity($data = null, array $options = [])

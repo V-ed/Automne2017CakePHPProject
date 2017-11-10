@@ -13,6 +13,8 @@ use Cake\ORM\Entity;
  * @property int $evidence_item_id
  * @property \Cake\I18n\FrozenTime $created
  * @property \Cake\I18n\FrozenTime $modified
+ *
+ * @property \App\Model\Entity\EvidenceItem $evidence_item
  */
 class File extends Entity
 {
@@ -27,7 +29,12 @@ class File extends Entity
      * @var array
      */
     protected $_accessible = [
-        '*' => true,
-        'id' => false
+        'name' => true,
+        'path' => true,
+        'detail' => true,
+        'evidence_item_id' => true,
+        'created' => true,
+        'modified' => true,
+        'evidence_item' => true
     ];
 }

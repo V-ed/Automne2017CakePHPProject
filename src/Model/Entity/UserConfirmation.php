@@ -11,7 +11,7 @@ use Cake\ORM\Entity;
  * @property bool $is_confirmed
  * @property int $user_id
  *
- * @property \App\Model\Entity\User[] $users
+ * @property \App\Model\Entity\User $user
  */
 class UserConfirmation extends Entity
 {
@@ -26,7 +26,9 @@ class UserConfirmation extends Entity
      * @var array
      */
     protected $_accessible = [
-        '*' => true,
-        'id' => false
+        'uuid' => true,
+        'is_confirmed' => true,
+        'user_id' => true,
+        'user' => true
     ];
 }

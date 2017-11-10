@@ -56,8 +56,8 @@ class EvidenceItemsFixture extends TestFixture
             'is_deleted' => 1,
             'officer_id' => 1,
             'user_id' => 1,
-            'created' => '2017-11-03 14:24:40',
-            'modified' => '2017-11-03 14:24:40'
+            'created' => '2017-11-10 13:55:36',
+            'modified' => '2017-11-10 13:55:36'
         ],
     ];
 }

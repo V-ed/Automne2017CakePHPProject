@@ -28,6 +28,7 @@ class EvidenceItemsTableTest extends TestCase
         'app.officers',
         'app.officer_ranks',
         'app.users',
+        'app.user_confirmations',
         'app.files'
     ];
 

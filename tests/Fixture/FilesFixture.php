@@ -50,8 +50,8 @@ class FilesFixture extends TestFixture
             'path' => 'Lorem ipsum dolor sit amet',
             'detail' => 'Lorem ipsum dolor sit amet',
             'evidence_item_id' => 1,
-            'created' => '2017-10-13 13:57:10',
-            'modified' => '2017-10-13 13:57:10'
+            'created' => '2017-11-10 13:57:06',
+            'modified' => '2017-11-10 13:57:06'
         ],
     ];
 }

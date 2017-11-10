@@ -33,7 +33,16 @@ class EvidenceItem extends Entity
      * @var array
      */
     protected $_accessible = [
-        '*' => true,
-        'id' => false
+        'description' => true,
+        'origin' => true,
+        'is_sealed' => true,
+        'is_deleted' => true,
+        'officer_id' => true,
+        'user_id' => true,
+        'created' => true,
+        'modified' => true,
+        'officer' => true,
+        'user' => true,
+        'files' => true
     ];
 }
