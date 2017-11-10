@@ -76,8 +76,12 @@ class User extends Entity
 	
 	protected function _getIsOfficer()
 	{
-		// TODO 
-		return false;
+		return TableRegistry::get('Users')->isUserAnOfficer($this->_properties['id']);
+	}
+	
+	protected function _getAssociatedOfficer()
+	{
+		return TableRegistry::get('Users')->getAssociatedOfficerOfUser($this->_properties['id']);
 	}
 	
 }

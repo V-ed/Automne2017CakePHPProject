@@ -156,4 +156,14 @@ class UsersTable extends Table
 		}
 	}
 	
+	public function isUserAnOfficer($userId)
+	{
+		return $this->Officers->exists(['user_id' => $userId]);
+	}
+	
+	public function getAssociatedOfficerOfUser($userId)
+	{
+		return $this->Officers->find('all')->where(['user_id' => $userId])->first();
+	}
+	
 }

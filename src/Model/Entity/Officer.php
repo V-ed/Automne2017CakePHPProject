@@ -2,6 +2,7 @@
 namespace App\Model\Entity;
 
 use Cake\ORM\Entity;
+use Cake\ORM\TableRegistry;
 
 /**
  * Officer Entity
@@ -31,4 +32,10 @@ class Officer extends Entity
         '*' => true,
         'id' => false
     ];
+	
+	protected function _getRank()
+	{
+		return TableRegistry::get('Officers')->getRankOfOfficer($this->_properties['id']);
+	}
+	
 }

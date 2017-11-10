@@ -22,6 +22,7 @@
 				<th scope="col"><?= $this->Paginator->sort('last_name', __('Last Name')) ?></th>
 				<th scope="col"><?= $this->Paginator->sort('username') ?></th>
 				<th scope="col"><?= $this->Paginator->sort('created', __('Joined On')) ?></th>
+				<th scope="col"><?= $this->Paginator->sort('officer') ?></th>
 				<th scope="col" class="actions"><?= __('Actions') ?></th>
 			</tr>
 		</thead>
@@ -35,6 +36,17 @@
 					<td><?= h($user->last_name) ?></td>
 					<td><?= h($user->username) ?></td>
 					<td><?= h($user->created) ?></td>
+					<td>
+						<?php
+						if ($user->is_officer) {
+							$officerOfUser = $user->associated_officer;
+							echo $this->Html->link(__('{0} {1}', $officerOfUser->rank->rank_name, $user->last_name), ['controller' => 'Officers', 'action' => 'view', $officerOfUser->id]);
+						}
+						else {
+							echo '---';
+						}
+						?>
+					</td>
 					<td class="actions">
 						<?= $this->Html->link(__('View'), ['action' => 'view', $user->id]) ?>
 						<?php if($loggedUser != null && ($loggedUser->id == $user->id || $loggedUser->is_admin)) : ?>

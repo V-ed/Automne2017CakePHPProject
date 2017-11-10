@@ -5,10 +5,7 @@ use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
-use Cake\Routing\Router;
 use Cake\Utility\Text;
-use Cake\Mailer\Email;
-// use Cake\View\Helper\HtmlHelper;
 
 /**
 * UserConfirmations Model
