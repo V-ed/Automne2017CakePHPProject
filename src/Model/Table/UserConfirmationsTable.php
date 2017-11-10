@@ -96,9 +96,4 @@ class UserConfirmationsTable extends Table
 		return $newConfirmation;
 	}
 	
-	public function confirmUUID($uuid)
-	{
-		// $this->get
-	}
-	
 }
