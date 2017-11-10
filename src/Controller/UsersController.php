@@ -157,7 +157,7 @@ class UsersController extends AppController
 		$confirmation = $this->Users->UserConfirmations->find('all')->where(['uuid' => $uuid])->first();
 		
 		if ($confirmation == null) {
-			throw new NotFoundException(__('The unique identifier provided does not exists.'));
+			throw new NotFoundException(__('The unique identifier provided ({0}) does not exist.', $uuid));
 		}
 		else {
 			if ($confirmation->is_confirmed) {
