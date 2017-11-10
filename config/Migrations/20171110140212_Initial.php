@@ -142,11 +142,6 @@ class Initial extends AbstractMigration
                     'officer_rank_id',
                 ]
             )
-            ->addIndex(
-                [
-                    'user_id',
-                ]
-            )
             ->create();
 
         $this->table('user_confirmations')
@@ -171,11 +166,6 @@ class Initial extends AbstractMigration
                     'user_id',
                 ],
                 ['unique' => true]
-            )
-            ->addIndex(
-                [
-                    'user_id',
-                ]
             )
             ->create();
 
