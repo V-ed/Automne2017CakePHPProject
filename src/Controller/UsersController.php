@@ -154,7 +154,7 @@ class UsersController extends AppController
 		
 		$confirmLink = Router::url(['controller' => 'Users', 'action' => 'confirm', $userConfirmation->uuid], true);
 		$confirmLink = '<a href="' . $confirmLink . '">' . __('activate your account!') . '</a>';
-		$textBody = __('To complete your account activation, please click on the following link to finish your account activation : {0}', $confirmLink);
+		$textBody = __('To complete your account activation, please click on the following link : {0}', $confirmLink);
 		
 		$textFooter = __('Thank you again for registering to our website and we hope you\'ll have a nice stay!');
 		
