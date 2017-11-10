@@ -110,17 +110,33 @@ class UsersController extends AppController
 	*/
 	public function register()
 	{
+		$this->loadComponent('CakeCaptcha.Captcha', [
+			'captchaConfig' => 'ExampleCaptcha'
+		]);
+		
 		$user = $this->Users->newEntity();
 		if ($this->request->is('post')) {
-			$user = $this->Users->newUser($user, $this->request->getData());
-			if ($user) {
-				$this->sendEmailToUser($user, $user->confirmation);
-				
-				$this->Flash->success(__('The user has been saved. Go check under your email ({0}) to activate your account!', $user->email));
-				
-				return $this->redirect(['action' => 'index']);
+			
+			// validate the user-entered Captcha code
+			$isHuman = captcha_validate($this->request->data['CaptchaCode']);
+			
+			// clear previous user input, since each Captcha code can only be validated once
+			unset($this->request->data['CaptchaCode']);
+			
+			if ($isHuman) {
+				$user = $this->Users->newUser($user, $this->request->getData());
+				if ($user) {
+					$this->sendEmailToUser($user, $user->confirmation);
+					
+					$this->Flash->success(__('The user has been saved. Go check under your email ({0}) to activate your account!', $user->email));
+					
+					return $this->redirect(['action' => 'index']);
+				}
+				$this->Flash->error(__('The user could not be saved. Please, try again.'));
+			} else {
+				$this->Flash->error(__('Captcha test failed. Please try again.'));
 			}
-			$this->Flash->error(__('The user could not be saved. Please, try again.'));
+			
 		}
 		$this->set(compact('user'));
 		$this->set('_serialize', ['user']);

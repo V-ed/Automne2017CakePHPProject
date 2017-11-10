@@ -2,6 +2,7 @@
 /**
 * @var \App\View\AppView $this
 */
+$this->Html->css(captcha_layout_stylesheet_url(), ['inline' => false]);
 ?>
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
 	<ul class="side-nav">
@@ -20,6 +21,10 @@
 		echo $this->Form->control('username');
 		echo $this->Form->control('password');
 		?>
+		<div class="captcha">
+			<?= captcha_image_html() ?>
+			<?= $this->Form->input('CaptchaCode', ['label' => '', 'maxlength' => '10', 'style' => 'width: 270px;margin-left: 30px;', 'id' => 'CaptchaCode']) ?>
+		</div>
 	</fieldset>
 	<?= $this->Form->button(__('Submit')) ?>
 	<?= $this->Form->end() ?>
