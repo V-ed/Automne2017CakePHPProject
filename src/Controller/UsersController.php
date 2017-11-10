@@ -6,6 +6,7 @@ use Cake\Event\Event;
 use Cake\Routing\Router;
 use Cake\ORM\TableRegistry;
 use Cake\Network\Exception\NotFoundException;
+use Cake\Mailer\Email;
 
 /**
 * Users Controller
@@ -70,7 +71,7 @@ class UsersController extends AppController
 					$this->set('loggedUser', $user);
 				}
 				else{
-					$this->Flash->success(__('{0}\'s data has been saved!', $user->username)));
+					$this->Flash->success(__('{0}\'s data has been saved!', $user->username));
 				}
 				
 				return $this->redirect(['action' => 'index']);
@@ -163,8 +164,8 @@ class UsersController extends AppController
 				$this->Flash->error(__('You do not need to confirm again!'));
 			}
 			else {
-				$confirmation = $userConfirmations->patchEntity($confirmation, ['is_confirmed' => true]);
-				$userConfirmations->save($confirmation);
+				$confirmation = $this->Users->UserConfirmations->patchEntity($confirmation, ['is_confirmed' => true]);
+				$this->Users->UserConfirmations->save($confirmation);
 				
 				$this->Flash->success(__('Thank you for confirming your email! You can now access this website in it\'s entirety.'));
 			}
@@ -181,8 +182,8 @@ class UsersController extends AppController
 			if ($user) {
 				$this->Auth->setUser($user);
 				
-				if(isset($this->request->query['redirect'])){
-					return $this->redirect($this->request->query['redirect']); //TODO fix query redirect
+				if (isset($this->request->query['redirect'])) {
+					return $this->redirect($this->request->query('redirect')); //TODO fix query redirect
 				}
 				else {
 					return $this->redirect(['controller' => $this->request->data['controller'], 'action' => $this->request->data['action']]);

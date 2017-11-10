@@ -28,7 +28,7 @@
 		<tbody>
 			<?php foreach ($users as $user) : ?>
 				<tr <?php if($loggedUser != null && $loggedUser->id == $user->id) echo 'id="rowIsUserConnected"' ?> >
-					<?php if($loggedUser->is_admin) : ?>
+					<?php if($loggedUser != null && $loggedUser->is_admin) : ?>
 						<td><?= $user->is_admin ? __('Yes') : __('No') ?></td>
 					<?php endif; ?>
 					<td><?= h($user->first_name) ?></td>
@@ -37,7 +37,7 @@
 					<td><?= h($user->created) ?></td>
 					<td class="actions">
 						<?= $this->Html->link(__('View'), ['action' => 'view', $user->id]) ?>
-						<?php if($loggedUser->id == $user->id || $loggedUser->is_admin) : ?>
+						<?php if($loggedUser != null && ($loggedUser->id == $user->id || $loggedUser->is_admin)) : ?>
 							<?= $this->Html->link(__('Edit'), ['action' => 'edit', $user->id]) ?>
 							<?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $user->id], ['confirm' => __('Are you sure you want to delete # {0}?', $user->id)]) ?>
 						<?php endif; ?>
