@@ -11,7 +11,8 @@
         "cakephp/migrations": "@stable",
         "cakephp/plugin-installer": "~1.0",
         "josegonzalez/dotenv": "2.*",
-        "friendsofcake/cakepdf": "^3.2"
+        "friendsofcake/cakepdf": "^3.2",
+        "captcha-com/cakephp-captcha": "4.*"
     },
     "require-dev": {
         "psy/psysh": "@stable",

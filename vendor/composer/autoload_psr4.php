@@ -44,6 +44,7 @@ return array(
     'Cake\\' => array($vendorDir . '/cakephp/cakephp/src'),
     'CakePdf\\' => array($vendorDir . '/friendsofcake/cakepdf/src'),
     'CakePHP\\' => array($vendorDir . '/cakephp/cakephp-codesniffer/CakePHP'),
+    'CakeCaptcha\\' => array($vendorDir . '/captcha-com/cakephp-captcha/src'),
     'Bake\\' => array($vendorDir . '/cakephp/bake/src'),
     'Aura\\Intl\\' => array($vendorDir . '/aura/intl/src'),
     'App\\Test\\' => array($baseDir . '/tests'),
