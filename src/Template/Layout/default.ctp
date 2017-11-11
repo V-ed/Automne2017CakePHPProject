@@ -31,6 +31,8 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 	<?= $this->Html->css('cake.css') ?>
 	<?= $this->Html->css('custom.css') ?>
 	
+	<?= $this->Html->script('https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js') ?>
+	
 	<?php
 	// In case a view request to load another css file
 	$this->fetch('viewStyle');
@@ -39,8 +41,6 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 	<?= $this->fetch('meta') ?>
 	<?= $this->fetch('css') ?>
 	<?= $this->fetch('script') ?>
-	
-	<?= $this->Html->script('https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js') ?>
 </head>
 <body>
 	<nav class="top-bar expanded" data-topbar role="navigation">

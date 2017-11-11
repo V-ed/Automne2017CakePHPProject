@@ -3,17 +3,20 @@
 * @var \App\View\AppView $this
 * @var \App\Model\Entity\EvidenceItem[]|\Cake\Collection\CollectionInterface $evidenceItems
 */
+
+$this->Html->script('EvidenceItems/app', ['block' => true]);
+
 ?>
 <?php if($loggedUser != null) : ?>
 	<nav class="large-3 medium-4 columns" id="actions-sidebar">
 		<ul class="side-nav">
 			<li class="heading"><?= __('Actions') ?></li>
 			
-			<li><?= $this->Html->link(__('New Evidence Item'), ['action' => 'add']) ?></li>
+			<li><?= $this->Html->link(__('New Evidence Item'), ['action' => 'add'], ['id' => 'add-button']) ?></li>
 		</ul>
 	</nav>
 <?php endif; ?>
-<div class="evidenceItems index large-10 medium-8 columns content">
+<div class="evidenceItems index large-10 medium-8 columns content" id="viewport">
 	<h3><?= __('Evidence Items') ?></h3>
 	<table cellpadding="0" cellspacing="0">
 		<thead>
@@ -61,8 +64,8 @@
 				<td class="actions">
 					<?= $this->Html->link(__('View'), ['action' => 'view', $evidenceItem->id]) ?>
 					<?php if ($loggedUser != null && ($loggedUser->id == $evidenceItem->officer->user_id || $loggedUser->is_admin)) : ?>
-						<?= $this->Html->link(__('Edit'), ['action' => 'edit', $evidenceItem->id]) ?>
-						<?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $evidenceItem->id], ['confirm' => __('Are you sure you want to delete "{0}"?', $evidenceItem->description)]) ?>
+						<?= $this->Html->link(__('Edit'), ['action' => 'edit', $evidenceItem->id], ['class' => 'edit-button', 'id' => "edit-button-$evidenceItem->id"]) ?>
+						<?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $evidenceItem->id], ['confirm' => __('Are you sure you want to delete "{0}"?', $evidenceItem->description), 'class' => 'delete-button', 'id' => "delete-button-$evidenceItem->id"]) ?>
 					<?php endif; ?>
 				</td>
 			</tr>
