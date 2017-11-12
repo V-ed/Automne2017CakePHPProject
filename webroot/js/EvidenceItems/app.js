@@ -4,10 +4,6 @@ $(document).ready(function(){
 	var editButtons = $('[id^="edit-button-"]');
 	var deleteButtons = $('[id^="delete-button-"]');
 	
-	console.log(addButton.parent().serialize());
-	console.log(editButtons.parent().serialize());
-	console.log(deleteButtons.parent().serialize());
-	
 	addButton.click(function(event){
 		event.preventDefault();
 		
