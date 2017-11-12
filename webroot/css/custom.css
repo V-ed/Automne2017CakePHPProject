@@ -6,6 +6,10 @@
 	background: #DEDEDE;
 }
 
+.deleted-item {
+	background-color: #DEDEDE;
+}
+
 .admin-text {
 	color: #FF5400;
 }

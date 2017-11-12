@@ -4,9 +4,6 @@ $(document).ready(function(){
 	var editButtons = $('[id^="edit-button-"]');
 	var deleteButtons = $('[id^="delete-button-"]');
 	
-	// var addButton = $('#add');
-	// var editButton = $('#edit');
-	
 	console.log(addButton.parent().serialize());
 	console.log(editButtons.parent().serialize());
 	console.log(deleteButtons.parent().serialize());
@@ -14,12 +11,19 @@ $(document).ready(function(){
 	addButton.click(function(event){
 		event.preventDefault();
 		
+		var button = $(this);
+		
 		$.ajax({
-			url: $(this).attr('href'), method: 'POST', data: addButton.parent().serialize()
-		}).fail(function(){
-			console.log('fail');
-		}).done(function(){
-			console.log('success');
+			url: button.attr('href'),
+		})
+		.done(function() {
+			console.log("success");
+		})
+		.fail(function() {
+			console.log("error");
+		})
+		.always(function() {
+			console.log("complete");
 		});
 		
 	});
@@ -34,8 +38,6 @@ $(document).ready(function(){
 			
 			$.ajax({
 				url: button.attr('href'),
-				// type: 'POST',
-				// data: button.parent().serialize(),
 			})
 			.done(function(data) {
 				console.log("success");
@@ -50,18 +52,5 @@ $(document).ready(function(){
 			
 		});
 	});
-	
-	// editButton.click(function(event){
-	// 	event.preventDefault();
-		
-	// 	$.ajax({
-	// 		url: $(this).attr('href'), method: 'POST', data: editButton.parent().serialize()
-	// 	}).fail(function(){
-	// 		console.log('fail');
-	// 	}).done(function(){
-	// 		console.log('success');
-	// 	});
-		
-	// });
 	
 });
