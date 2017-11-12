@@ -2,7 +2,7 @@
 	
 	<?= $this->Html->image('ajax-loader.gif', ['id' => 'ajax-loading-icon', 'style' => 'display: none']) ?>
 	
-	<?= $this->Form->create($evidenceItem) ?>
+	<?= $this->Form->create($evidenceItem, ['id' => 'form-add']) ?>
 	<fieldset>
 		<legend><?= __('Add Evidence Item') ?></legend>
 		<?php
@@ -12,7 +12,7 @@
 		echo $this->Form->control('officer_id');
 		?>
 	</fieldset>
-	<?= $this->Form->button(__('Submit'), ['id' => 'submit-button',]) ?>
+	<?= $this->Form->button(__('Submit')) ?>
 	<?= $this->Form->end() ?>
 	
 </div>

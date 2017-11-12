@@ -6,19 +6,19 @@ $(document).ready(function(){
 
 function init_index() {
 	
-	var addButton = $('#add-button');
-	var editButtons = $('[id^="edit-button-"]');
-	var deleteButtons = $('[id^="delete-button-"]');
+	$addButton = $('#add-button');
+	$editButtons = $('[id^="edit-button-"]');
+	$deleteButtons = $('[id^="delete-button-"]');
 	
-	addButton.click(function(event){
+	$addButton.click(function(event){
 		event.preventDefault();
 		
 		load_icon()
 		
-		var button = $(this);
+		$button = $(this);
 		
 		$.ajax({
-			url: button.attr('href'),
+			url: $button.attr('href'),
 		})
 		.done(function(data) {
 			console.log("success");
@@ -34,16 +34,16 @@ function init_index() {
 		
 	});
 	
-	$.each(editButtons, function() {
+	$.each($editButtons, function() {
 		$(this).click(function(event) {
 			event.preventDefault();
 			
 			load_icon();
 			
-			var button = $(this);
+			$button = $(this);
 			
 			$.ajax({
-				url: button.attr('href'),
+				url: $button.attr('href'),
 			})
 			.done(function(data) {
 				console.log("success");
@@ -66,15 +66,17 @@ function init_add(data) {
 	
 	$('#viewport').empty().append(data);
 	
-	var submitButton = $('#submit-button');
+	$addForm = $('#form-add');
 	
-	submitButton.click(function(event){
+	$addForm.submit(function(event){
 		event.preventDefault();
 		
-		var button = $(this);
+		$form = $(this);
 		
 		$.ajax({
-			url: button.attr('href'),
+			url: $form.attr('action'),
+			type: 'POST',
+			data: $form.serialize()
 		})
 		.done(function(data) {
 			console.log("success");
@@ -95,15 +97,15 @@ function init_edit(data) {
 	
 	$('#viewport').empty().append(data);
 	
-	var submitButton = $('#submit-button');
+	$editForm = $('#form-edit');
 	
-	submitButton.click(function(event){
+	$editForm.submit(function(event){
 		event.preventDefault();
 		
-		var button = $(this);
+		$form = $(this);
 		
 		$.ajax({
-			url: button.attr('href'),
+			url: $form.attr('action'),
 		})
 		.done(function(data) {
 			console.log("success");

@@ -2,7 +2,7 @@
 	
 	<?= $this->Html->image('ajax-loader.gif', ['id' => 'ajax-loading-icon', 'style' => 'display: none']) ?>
 	
-	<?= $this->Form->create($evidenceItem) ?>
+	<?= $this->Form->create($evidenceItem, ['id' => 'form-edit',]) ?>
 	<fieldset>
 		<legend><?= __('Edit Evidence Item') ?></legend>
 		<?php

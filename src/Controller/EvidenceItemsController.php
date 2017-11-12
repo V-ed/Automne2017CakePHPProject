@@ -55,6 +55,10 @@ class EvidenceItemsController extends AppController
     public function add()
     {
         
+        if ($this->request->is('ajax') && $this->request->is('post')) {
+            $this->Flash->success('lol');
+        }
+        
         $officers = $this->EvidenceItems->Officers->find('list', ['limit' => 1])->toArray();
         
         if (count($officers) == 0) {
