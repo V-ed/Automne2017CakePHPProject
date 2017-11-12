@@ -23,7 +23,7 @@ $this->Html->script('EvidenceItems/app', ['block' => true]);
 			<tr>
 				<th scope="col"><?= $this->Paginator->sort('description') ?></th>
 				<th scope="col"><?= $this->Paginator->sort('origin') ?></th>
-				<th scope="col"><?= $this->Paginator->sort('isSealed', __('Is Sealed')) ?></th>
+				<th scope="col"><?= $this->Paginator->sort('is_sealed', __('Is Sealed')) ?></th>
 				<th scope="col"><?= $this->Paginator->sort('officer_id') ?></th>
 				<th scope="col"><?= $this->Paginator->sort('files') ?></th>
 				<th scope="col"><?= $this->Paginator->sort('created', __('Created On')) ?></th>
@@ -36,7 +36,7 @@ $this->Html->script('EvidenceItems/app', ['block' => true]);
 					<tr <?php if ($evidenceItem->is_deleted) echo 'class="deleted-item"'; ?> >
 						<td><?= h($evidenceItem->description) ?></td>
 						<td><?= h($evidenceItem->origin) ?></td>
-						<td><?= $evidenceItem->isSealed ? __('Yes') : __('No') ?></td>
+						<td><?= $evidenceItem->is_sealed ? __('Yes') : __('No') ?></td>
 						<td><?= h($evidenceItem->officer->user->username) ?></td>
 						<td>
 							<?php if($evidenceItem->files == null) : ?>

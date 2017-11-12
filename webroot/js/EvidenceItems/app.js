@@ -1,5 +1,11 @@
 $(document).ready(function(){
 	
+	init_index();
+	
+});
+
+function init_index() {
+	
 	var addButton = $('#add-button');
 	var editButtons = $('[id^="edit-button-"]');
 	var deleteButtons = $('[id^="delete-button-"]');
@@ -14,7 +20,7 @@ $(document).ready(function(){
 		})
 		.done(function(data) {
 			console.log("success");
-			$('#viewport').empty().append(data);
+			init_add(data);
 		})
 		.fail(function(data) {
 			console.log("error");
@@ -50,4 +56,33 @@ $(document).ready(function(){
 		});
 	});
 	
-});
+}
+
+function init_add(data) {
+	
+	$('#viewport').empty().append(data);
+	
+	var submitButton = $('#submit-button');
+	
+	submitButton.click(function(event){
+		event.preventDefault();
+		
+		var button = $(this);
+		
+		$.ajax({
+			url: button.attr('href'),
+		})
+		.done(function(data) {
+			console.log("success");
+			$('#viewport').empty().append(data);
+		})
+		.fail(function(data) {
+			console.log("error");
+		})
+		.always(function(data) {
+			console.log("complete");
+		});
+		
+	});
+	
+}
