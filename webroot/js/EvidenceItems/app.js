@@ -71,6 +71,8 @@ function init_add(data) {
 	$addForm.submit(function(event){
 		event.preventDefault();
 		
+		load_icon();
+		
 		$form = $(this);
 		
 		$.ajax({
@@ -87,6 +89,7 @@ function init_add(data) {
 		})
 		.always(function(data) {
 			console.log("complete");
+			unload_icon();
 		});
 		
 	});
