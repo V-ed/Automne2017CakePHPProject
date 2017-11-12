@@ -13,6 +13,8 @@ function init_index() {
 	addButton.click(function(event){
 		event.preventDefault();
 		
+		load_icon()
+		
 		var button = $(this);
 		
 		$.ajax({
@@ -27,6 +29,7 @@ function init_index() {
 		})
 		.always(function(data) {
 			console.log("complete");
+			unload_icon();
 		});
 		
 	});
@@ -35,22 +38,23 @@ function init_index() {
 		$(this).click(function(event) {
 			event.preventDefault();
 			
-			var button = $(this);
+			load_icon();
 			
-			console.log(button.parent().serialize());
+			var button = $(this);
 			
 			$.ajax({
 				url: button.attr('href'),
 			})
 			.done(function(data) {
 				console.log("success");
-				console.log(data);
+				init_edit(data);
 			})
 			.fail(function(data) {
 				console.log("error");
 			})
 			.always(function(data) {
 				console.log("complete");
+				unload_icon();
 			});
 			
 		});
@@ -74,7 +78,7 @@ function init_add(data) {
 		})
 		.done(function(data) {
 			console.log("success");
-			$('#viewport').empty().append(data);
+			set_viewport(data);
 		})
 		.fail(function(data) {
 			console.log("error");
@@ -85,4 +89,45 @@ function init_add(data) {
 		
 	});
 	
+}
+
+function init_edit(data) {
+	
+	$('#viewport').empty().append(data);
+	
+	var submitButton = $('#submit-button');
+	
+	submitButton.click(function(event){
+		event.preventDefault();
+		
+		var button = $(this);
+		
+		$.ajax({
+			url: button.attr('href'),
+		})
+		.done(function(data) {
+			console.log("success");
+			set_viewport(data);
+		})
+		.fail(function(data) {
+			console.log("error");
+		})
+		.always(function(data) {
+			console.log("complete");
+		});
+		
+	});
+	
+}
+
+function set_viewport(data) {
+	$('#viewport').empty().append(data);
+}
+
+function load_icon() {
+	$('#ajax-loading-icon').show();
+}
+
+function unload_icon() {
+	$('#ajax-loading-icon').hide();
 }
