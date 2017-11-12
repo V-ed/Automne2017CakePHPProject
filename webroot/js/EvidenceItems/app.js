@@ -16,13 +16,14 @@ $(document).ready(function(){
 		$.ajax({
 			url: button.attr('href'),
 		})
-		.done(function() {
+		.done(function(data) {
 			console.log("success");
+			$('#viewport').empty().append(data);
 		})
-		.fail(function() {
+		.fail(function(data) {
 			console.log("error");
 		})
-		.always(function() {
+		.always(function(data) {
 			console.log("complete");
 		});
 		
