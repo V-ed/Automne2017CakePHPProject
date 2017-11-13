@@ -13,9 +13,9 @@ function init_index() {
 	$addButton.click(function(event){
 		event.preventDefault();
 		
-		load_icon();
-		
 		$button = $(this);
+		
+		load_icon();
 		
 		$.ajax({
 			url: $button.attr('href'),
@@ -38,9 +38,9 @@ function init_index() {
 		$(this).click(function(event) {
 			event.preventDefault();
 			
-			load_icon();
-			
 			$button = $(this);
+			
+			load_icon();
 			
 			$.ajax({
 				url: $button.attr('href'),
@@ -64,24 +64,30 @@ function init_index() {
 		$(this).click(function(event) {
 			event.preventDefault();
 			
-			load_icon();
-			
 			$button = $(this);
 			
-			$.ajax({
-				url: $button.attr('href'),
-			})
-			.done(function(data) {
-				console.log("success");
-				init_delete(data);
-			})
-			.fail(function(data) {
-				console.log("error");
-			})
-			.always(function(data) {
-				console.log("complete");
-				unload_icon();
-			});
+			var is_confirmed = confirm($button.attr('data-confirm-text'));
+			
+			if (is_confirmed) {
+				
+				load_icon();
+				
+				$.ajax({
+					url: $button.attr('href'),
+				})
+				.done(function(data) {
+					console.log("success");
+					init_delete(data);
+				})
+				.fail(function(data) {
+					console.log("error");
+				})
+				.always(function(data) {
+					console.log("complete");
+					unload_icon();
+				});
+				
+			}
 			
 		});
 	});
@@ -97,9 +103,9 @@ function init_add(data) {
 	$addForm.submit(function(event){
 		event.preventDefault();
 		
-		load_icon();
-		
 		$form = $(this);
+		
+		load_icon();
 		
 		$.ajax({
 			url: $form.attr('action'),
@@ -132,9 +138,9 @@ function init_edit(data) {
 	$editForm.submit(function(event){
 		event.preventDefault();
 		
-		load_icon();
-		
 		$form = $(this);
+		
+		load_icon();
 		
 		$.ajax({
 			url: $form.attr('action'),
