@@ -31,6 +31,8 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 	<?= $this->Html->css('cake.css') ?>
 	<?= $this->Html->css('custom.css') ?>
 	
+	<?= $this->Html->script('https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js') ?>
+	
 	<?php
 	// In case a view request to load another css file
 	$this->fetch('viewStyle');
@@ -49,7 +51,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 		</ul>
 		<div class="top-bar-section">
 			<ul class="left">
-				<li><a href="<?= Router::url('/', true) ?>"><?= __('Home') ?></a></li>
+				<li><?= $this->Html->link(__('Home'), Router::url('/', true)) ?></li>
 				<li><?= $this->Html->link(__('Evidence Items'), ['controller' => 'evidence_items']) ?></li>
 				<li><?= $this->Html->link(__('Officers'), ['controller' => 'officers']) ?></li>
 				<li><?= $this->Html->link(__('Users'), ['controller' => 'users']) ?></li>

@@ -4,8 +4,8 @@ CREATE TABLE `evidence_items` (
   `id` INTEGER NOT NULL,
   `description` TEXT NOT NULL,
   `origin` TEXT NOT NULL,
-  `isSealed` BOOLEAN NOT NULL,
-  `isDeleted` BOOLEAN NOT NULL DEFAULT '0',
+  `is_sealed` BOOLEAN NOT NULL,
+  `is_deleted` BOOLEAN NOT NULL DEFAULT '0',
   `officer_id` INTEGER NOT NULL,
   `user_id` INTEGER NOT NULL,
   `created` DATETIME NOT NULL,
@@ -65,7 +65,7 @@ INSERT INTO `officers` (`id`, `email`, `officer_rank_id`, `user_id`) VALUES
 (1, 'guillaumemarcoux@gmail.com', 1, 1),
 (2, 'officer@gmail.com', 2, 3);
 
-INSERT INTO `evidence_items` (`id`, `description`, `origin`, `isSealed`, `isDeleted`, `officer_id`, `user_id`, `created`, `modified`) VALUES
+INSERT INTO `evidence_items` (`id`, `description`, `origin`, `is_sealed`, `is_deleted`, `officer_id`, `user_id`, `created`, `modified`) VALUES
 (1, 'Hammer', 'Tool', 1, 0, 1, 1, '2017-10-01 09:52:44', '2017-10-03 03:01:03');
 
 INSERT INTO `files` (`id`, `name`, `path`, `detail`, `evidence_item_id`, `created`, `modified`) VALUES

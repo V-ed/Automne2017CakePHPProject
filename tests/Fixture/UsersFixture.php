@@ -47,7 +47,7 @@ class UsersFixture extends TestFixture
             'is_admin' => true,
             'first_name' => 'AdminFirst',
             'last_name' => 'AdminLast',
-			'email' => 'zonjog@gum.gov'
+			'email' => 'furrowlike@kulanapan.edu'
             'username' => 'admin',
             'password' => 'admin',
             'created' => '2017-10-13 13:57:45',
@@ -58,7 +58,7 @@ class UsersFixture extends TestFixture
             'is_admin' => false,
             'first_name' => 'userFirst',
             'last_name' => 'userLast',
-			'email' => 'zonjog@gum.gov'
+			'email' => 'derivational@donatism.com'
             'username' => 'user',
             'password' => 'user',
             'created' => '2017-10-14 13:57:45',
@@ -69,7 +69,7 @@ class UsersFixture extends TestFixture
             'is_admin' => false,
             'first_name' => 'Delete',
             'last_name' => 'Me Please',
-			'email' => 'zonjog@gum.gov'
+			'email' => 'hontish@augh.co.uk'
             'username' => 'goodbye',
             'password' => 'IloveLASAGNA',
             'created' => '2017-10-15 13:57:45',

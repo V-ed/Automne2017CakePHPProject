@@ -132,7 +132,7 @@ class UsersController extends AppController
 					
 					return $this->redirect(['action' => 'index']);
 				}
-				$this->Flash->error(__('The user could not be saved. Please, try again.'));
+				$this->Flash->error(__('The user could not be saved. Please try again.'));
 			} else {
 				$this->Flash->error(__('Captcha test failed. Please try again.'));
 			}
@@ -228,15 +228,12 @@ class UsersController extends AppController
 	}
 	
 	public function isAuthorized($user) {
-		
 		if (in_array($this->request->getParam('action'), ['edit', 'delete'])) {
 			$userId = (int)$this->request->getParam('pass.0');
 			if ($userId == $user->id) {
 				return true;
 			}
 		}
-		
-		$debug = $this->referer();
 		
 		return parent::isAuthorized($user);
 	}

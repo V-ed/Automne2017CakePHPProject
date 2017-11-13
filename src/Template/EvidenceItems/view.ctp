@@ -36,7 +36,7 @@
 		</tr>
 		<tr>
 			<th scope="row"><?= __('Is Sealed') ?></th>
-			<td><?= $evidenceItem->isSealed ? __('Yes') : __('No') ?></td>
+			<td><?= $evidenceItem->is_sealed ? __('Yes') : __('No') ?></td>
 		</tr>
 		<tr>
 			<th scope="row"><?= __('Created') ?></th>
@@ -45,7 +45,7 @@
 		<?php if ($loggedUser != null && $loggedUser->is_admin) : ?>
 			<tr>
 				<th scope="row"><?= __('Is Deleted') ?></th>
-				<td><?= $evidenceItem->isDeleted ? __('Yes') : __('No') ?></td>
+				<td><?= $evidenceItem->is_deleted ? __('Yes') : __('No') ?></td>
 			</tr>
 		<?php endif; ?>
 	</table>

@@ -35,8 +35,8 @@ CREATE TABLE `evidence_items` (
   `id` int(11) NOT NULL,
   `description` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `origin` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `isSealed` tinyint(1) NOT NULL,
-  `isDeleted` tinyint(1) NOT NULL DEFAULT '0',
+  `is_sealed` tinyint(1) NOT NULL,
+  `is_deleted` tinyint(1) NOT NULL DEFAULT '0',
   `officer_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `created` datetime NOT NULL,
@@ -47,7 +47,7 @@ CREATE TABLE `evidence_items` (
 -- Dumping data for table `evidence_items`
 --
 
-INSERT INTO `evidence_items` (`id`, `description`, `origin`, `isSealed`, `isDeleted`, `officer_id`, `user_id`, `created`, `modified`) VALUES
+INSERT INTO `evidence_items` (`id`, `description`, `origin`, `is_sealed`, `is_deleted`, `officer_id`, `user_id`, `created`, `modified`) VALUES
 (1, 'Hammer', 'Tool', 1, 0, 1, 1, '2017-10-01 09:52:44', '2017-10-03 03:01:03');
 
 -- --------------------------------------------------------

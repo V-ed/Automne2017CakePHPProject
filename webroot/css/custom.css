@@ -1,9 +1,11 @@
-#actions-sidebar, #top-left-bar {
-	width: 15%;
-}
+/* CUSTOM CSS */
 
 #rowIsUserConnected {
 	background: #DEDEDE;
+}
+
+.deleted-item {
+	background-color: #DEDEDE;
 }
 
 .admin-text {
@@ -19,6 +21,18 @@ div.header-image {
 
 body.home {
 	background: linear-gradient(#6E6E6E, #606060);
+}
+
+#ajax-loading-icon {
+	display: block;
+	margin: auto;
+/*	width: 40%;*/
+}
+
+/* OVERRIDING BOOTSTRAP CSS */
+
+#actions-sidebar, #top-left-bar {
+	width: 15%;
 }
 
 .top-bar.expanded, .top-bar, .top-bar-section ul li, .top-bar-section li:not(.has-form) a:not(.button) {
