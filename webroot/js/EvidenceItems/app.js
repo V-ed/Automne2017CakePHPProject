@@ -13,7 +13,7 @@ function init_index() {
 	$addButton.click(function(event){
 		event.preventDefault();
 		
-		load_icon()
+		load_icon();
 		
 		$button = $(this);
 		
@@ -83,6 +83,7 @@ function init_add(data) {
 		.done(function(data) {
 			console.log("success");
 			set_viewport(data);
+			init_index();
 		})
 		.fail(function(data) {
 			console.log("error");
@@ -105,20 +106,26 @@ function init_edit(data) {
 	$editForm.submit(function(event){
 		event.preventDefault();
 		
+		load_icon();
+		
 		$form = $(this);
 		
 		$.ajax({
 			url: $form.attr('action'),
+			type: 'POST',
+			data: $form.serialize()
 		})
 		.done(function(data) {
 			console.log("success");
 			set_viewport(data);
+			init_index();
 		})
 		.fail(function(data) {
 			console.log("error");
 		})
 		.always(function(data) {
 			console.log("complete");
+			unload_icon();
 		});
 		
 	});
