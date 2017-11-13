@@ -60,6 +60,32 @@ function init_index() {
 		});
 	});
 	
+	$.each($deleteButtons, function() {
+		$(this).click(function(event) {
+			event.preventDefault();
+			
+			load_icon();
+			
+			$button = $(this);
+			
+			$.ajax({
+				url: $button.attr('href'),
+			})
+			.done(function(data) {
+				console.log("success");
+				init_delete(data);
+			})
+			.fail(function(data) {
+				console.log("error");
+			})
+			.always(function(data) {
+				console.log("complete");
+				unload_icon();
+			});
+			
+		});
+	});
+	
 }
 
 function init_add(data) {
@@ -130,6 +156,11 @@ function init_edit(data) {
 		
 	});
 	
+}
+
+function init_delete(data) {
+	console.log(data);
+	// $('#evidence-item-' + data);
 }
 
 function set_viewport(data) {

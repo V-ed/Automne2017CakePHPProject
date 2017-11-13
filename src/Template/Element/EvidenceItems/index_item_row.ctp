@@ -1,5 +1,5 @@
 <?php if (!$evidenceItem->is_deleted || ($loggedUser != null && $loggedUser->is_admin)) : ?>
-	<tr <?php if ($evidenceItem->is_deleted) echo 'class="deleted-item"'; ?> >
+	<tr <?php if ($evidenceItem->is_deleted) echo 'class="deleted-item"'; ?> <?= 'id="evidence-item-' . $evidenceItem->id . '"' ?>>
 		<td><?= h($evidenceItem->description) ?></td>
 		<td><?= h($evidenceItem->origin) ?></td>
 		<td><?= $evidenceItem->is_sealed ? __('Yes') : __('No') ?></td>
@@ -21,7 +21,7 @@
 			<?= $this->Html->link(__('View'), ['action' => 'view', $evidenceItem->id]) ?>
 			<?php if ($loggedUser != null && ($loggedUser->id == $evidenceItem->officer->user_id || $loggedUser->is_admin)) : ?>
 				<?= $this->Html->link(__('Edit'), ['action' => 'edit', $evidenceItem->id], ['class' => 'edit-button', 'id' => "edit-button-$evidenceItem->id"]) ?>
-				<?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $evidenceItem->id], ['confirm' => __('Are you sure you want to delete "{0}"?', $evidenceItem->description), 'class' => 'delete-button', 'id' => "delete-button-$evidenceItem->id"]) ?>
+				<?= $this->Html->link(__('Delete'), ['action' => 'delete', $evidenceItem->id], ['confirm' => __('Are you sure you want to delete "{0}"?', $evidenceItem->description), 'class' => 'delete-button', 'id' => "delete-button-$evidenceItem->id"]) ?>
 			<?php endif; ?>
 		</td>
 	</tr>

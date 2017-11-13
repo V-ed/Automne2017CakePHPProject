@@ -136,7 +136,7 @@ class EvidenceItemsController extends AppController
 	*/
 	public function delete($id = null)
 	{
-		$this->request->allowMethod(['post', 'delete']);
+		$this->request->allowMethod(['post', 'delete', 'ajax']);
 		$evidenceItem = $this->EvidenceItems->get($id);
 		if ($this->EvidenceItems->delete($evidenceItem)) {
 			$this->Flash->success(__('The evidence item has been deleted.'));
@@ -144,7 +144,12 @@ class EvidenceItemsController extends AppController
 			$this->Flash->error(__('The evidence item could not be deleted. Please, try again.'));
 		}
 		
-		return $this->redirect(['action' => 'index']);
+		if ($this->request->is('ajax')) {
+			return null;
+		}
+		else {
+			return $this->redirect(['action' => 'index']);
+		}
 	}
 	
 	public function beforeFilter(Event $event) {
