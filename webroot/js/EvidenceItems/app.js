@@ -96,7 +96,7 @@ function init_index() {
 
 function init_add(data) {
 	
-	$('#viewport').empty().append(data);
+	set_viewport(data);
 	
 	$addForm = $('#form-add');
 	
@@ -131,7 +131,7 @@ function init_add(data) {
 
 function init_edit(data) {
 	
-	$('#viewport').empty().append(data);
+	set_viewport(data);
 	
 	$editForm = $('#form-edit');
 	
@@ -165,8 +165,8 @@ function init_edit(data) {
 }
 
 function init_delete(data) {
-	console.log(data);
-	// $('#evidence-item-' + data);
+	set_viewport(data);
+	init_index();
 }
 
 function set_viewport(data) {

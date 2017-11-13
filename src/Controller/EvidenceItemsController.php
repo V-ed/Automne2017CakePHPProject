@@ -145,7 +145,9 @@ class EvidenceItemsController extends AppController
 		}
 		
 		if ($this->request->is('ajax')) {
-			return null;
+			$this->index();
+			
+			return $this->render('/Element/EvidenceItems/index_viewport');
 		}
 		else {
 			return $this->redirect(['action' => 'index']);
