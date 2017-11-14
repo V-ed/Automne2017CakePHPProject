@@ -1,22 +1,22 @@
 <?php
 namespace App\Test\TestCase\Model\Table;
 
-use App\Model\Table\OfficerRanksTable;
+use App\Model\Table\DepartmentsTable;
 use Cake\ORM\TableRegistry;
 use Cake\TestSuite\TestCase;
 
 /**
- * App\Model\Table\OfficerRanksTable Test Case
+ * App\Model\Table\DepartmentsTable Test Case
  */
-class OfficerRanksTableTest extends TestCase
+class DepartmentsTableTest extends TestCase
 {
 
     /**
      * Test subject
      *
-     * @var \App\Model\Table\OfficerRanksTable
+     * @var \App\Model\Table\DepartmentsTable
      */
-    public $OfficerRanks;
+    public $Departments;
 
     /**
      * Fixtures
@@ -24,6 +24,7 @@ class OfficerRanksTableTest extends TestCase
      * @var array
      */
     public $fixtures = [
+        'app.departments',
         'app.officer_ranks',
         'app.officers',
         'app.users',
@@ -40,8 +41,8 @@ class OfficerRanksTableTest extends TestCase
     public function setUp()
     {
         parent::setUp();
-        $config = TableRegistry::exists('OfficerRanks') ? [] : ['className' => OfficerRanksTable::class];
-        $this->OfficerRanks = TableRegistry::get('OfficerRanks', $config);
+        $config = TableRegistry::exists('Departments') ? [] : ['className' => DepartmentsTable::class];
+        $this->Departments = TableRegistry::get('Departments', $config);
     }
 
     /**
@@ -51,7 +52,7 @@ class OfficerRanksTableTest extends TestCase
      */
     public function tearDown()
     {
-        unset($this->OfficerRanks);
+        unset($this->Departments);
 
         parent::tearDown();
     }
@@ -63,10 +64,7 @@ class OfficerRanksTableTest extends TestCase
      */
     public function testInitialize()
     {
-		// Table name
-		$expected = 'officer_ranks';
-		$result = $this->OfficerRanks->table();
-		$this->assertEquals($expected, $result);
+        $this->markTestIncomplete('Not implemented yet.');
     }
 
     /**
@@ -76,14 +74,6 @@ class OfficerRanksTableTest extends TestCase
      */
     public function testValidationDefault()
     {
-		$data = [
-			'rank_code' => 'sgt',
-			'rank_name' => 'Sergant',
-			'rank_description' => 'This is a standart sergant'
-		];
-		
-		$officerRank = $this->OfficerRanks->newEntity($data);
-		
-		$this->assertEmpty($officerRank->errors());
+        $this->markTestIncomplete('Not implemented yet.');
     }
 }

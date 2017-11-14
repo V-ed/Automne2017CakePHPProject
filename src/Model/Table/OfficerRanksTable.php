@@ -9,7 +9,8 @@ use Cake\Validation\Validator;
 /**
  * OfficerRanks Model
  *
- * @property |\Cake\ORM\Association\HasMany $Officers
+ * @property |\Cake\ORM\Association\BelongsTo $Departments
+ * @property \App\Model\Table\OfficersTable|\Cake\ORM\Association\HasMany $Officers
  *
  * @method \App\Model\Entity\OfficerRank get($primaryKey, $options = [])
  * @method \App\Model\Entity\OfficerRank newEntity($data = null, array $options = [])
@@ -36,6 +37,10 @@ class OfficerRanksTable extends Table
         $this->setDisplayField('rank_name');
         $this->setPrimaryKey('id');
 
+        $this->belongsTo('Departments', [
+            'foreignKey' => 'department_id',
+            'joinType' => 'INNER'
+        ]);
         $this->hasMany('Officers', [
             'foreignKey' => 'officer_rank_id'
         ]);
@@ -68,5 +73,19 @@ class OfficerRanksTable extends Table
             ->allowEmpty('rank_description');
 
         return $validator;
+    }
+
+    /**
+     * Returns a rules checker object that will be used for validating
+     * application integrity.
+     *
+     * @param \Cake\ORM\RulesChecker $rules The rules object to be modified.
+     * @return \Cake\ORM\RulesChecker
+     */
+    public function buildRules(RulesChecker $rules)
+    {
+        $rules->add($rules->existsIn(['department_id'], 'Departments'));
+
+        return $rules;
     }
 }

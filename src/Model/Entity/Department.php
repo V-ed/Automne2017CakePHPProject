@@ -4,17 +4,15 @@ namespace App\Model\Entity;
 use Cake\ORM\Entity;
 
 /**
- * OfficerRank Entity
+ * Department Entity
  *
  * @property int $id
- * @property string $rank_code
- * @property string $rank_name
- * @property string $rank_description
- * @property int $department_id
+ * @property string $name
+ * @property int $description
  *
- * @property \App\Model\Entity\Officer[] $officers
+ * @property \App\Model\Entity\OfficerRank[] $officer_ranks
  */
-class OfficerRank extends Entity
+class Department extends Entity
 {
 
     /**
@@ -27,10 +25,8 @@ class OfficerRank extends Entity
      * @var array
      */
     protected $_accessible = [
-        'rank_code' => true,
-        'rank_name' => true,
-        'rank_description' => true,
-        'department_id' => true,
-        'officers' => true
+        'name' => true,
+        'description' => true,
+        'officer_ranks' => true
     ];
 }
