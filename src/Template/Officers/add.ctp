@@ -13,6 +13,9 @@ $this->Html->script('Officers/app', ['block' => true]);
 	</ul>
 </nav>
 <div class="officers form large-10 medium-8 columns content">
+	
+	<?= $this->element('ajax_loading_image') ?>
+	
 	<?= $this->Form->create($officer) ?>
 	<fieldset>
 		<legend><?= __('Add Officer') ?></legend>
@@ -25,4 +28,5 @@ $this->Html->script('Officers/app', ['block' => true]);
 	</fieldset>
 	<?= $this->Form->button(__('Submit')) ?>
 	<?= $this->Form->end() ?>
+	
 </div>

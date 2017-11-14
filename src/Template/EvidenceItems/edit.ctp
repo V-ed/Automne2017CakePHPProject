@@ -1,6 +1,6 @@
 <div class="evidenceItems form large-10 medium-8 columns content">
 	
-	<?= $this->Html->image('ajax-loader.gif', ['id' => 'ajax-loading-icon', 'style' => 'display: none']) ?>
+	<?= $this->element('ajax_loading_image') ?>
 	
 	<?= $this->Form->create($evidenceItem, ['id' => 'form-edit']) ?>
 	<fieldset>

@@ -1,6 +1,6 @@
 <div class="evidenceItems index large-10 medium-8 columns content">
 	
-	<?= $this->Html->image('ajax-loader.gif', ['id' => 'ajax-loading-icon', 'style' => 'display: none']) ?>
+	<?= $this->element('ajax_loading_image') ?>
 	
 	<h3><?= __('Evidence Items') ?></h3>
 	<table cellpadding="0" cellspacing="0">
