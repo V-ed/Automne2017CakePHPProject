@@ -3,6 +3,13 @@
 * @var \App\View\AppView $this
 */
 
+$urlToLinkedListFilter = $this->Url->build([
+	"controller" => "OfficerRanks",
+	"action" => "getByDepartment",
+	"_ext" => "json"
+]);
+$this->Html->scriptBlock('var urlToLinkedListFilter = "' . $urlToLinkedListFilter . '";', ['block' => true]);
+
 $this->Html->script('Officers/app', ['block' => true]);
 
 ?>

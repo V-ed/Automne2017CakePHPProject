@@ -3,6 +3,7 @@ namespace App\Controller;
 
 use App\Controller\AppController;
 use Cake\Event\Event;
+use Cake\Network\Exception\NotFoundException;
 
 /**
  * OfficerRanks Controller
@@ -13,6 +14,23 @@ use Cake\Event\Event;
  */
 class OfficerRanksController extends AppController
 {
+	
+	public function getByDepartment() {
+		
+		if (!$this->request->is('ajax')) {
+			throw new NotFoundException();
+		}
+		else {
+			
+			$departmentId = $this->request->query('department_id');
+
+			$officerRanks = $this->OfficerRanks->find('all', [
+				'conditions' => ['OfficerRanks.department_id' => $departmentId],
+			]);
+			$this->set(compact('officerRanks'));
+			
+		}
+	}
 
     /**
      * Index method

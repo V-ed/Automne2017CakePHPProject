@@ -10,19 +10,16 @@ $(document).ready(function () {
 			
 			$.ajax({
 				url: urlToLinkedListFilter,
-				data: 'category_id=' + departmentId,
+				data: 'department_id=' + departmentId,
 			})
 			.done(function(ranks) {
 				console.log("success");
 				
 				$rankField.find('option').remove();
 				
-				$.each(ranks, function (key, value)
-				{
-					$.each(value, function (childKey, childValue) {
-						$rankField.append('<option value=' + childValue.id + '>' + childValue.name + '</option>');
-					});
-				});
+				for (var i = 0; i < ranks.officerRanks.length; i++) {
+					$rankField.append('<option value=' + ranks.officerRanks[i].id + '>' + ranks.officerRanks[i].rank_name + '</option>');
+				}
 				
 			})
 			.fail(function() {
@@ -34,7 +31,7 @@ $(document).ready(function () {
 			
 			
 		} else {
-			$('#subcategory-id').html('<option value="">Select Category first</option>');
+			$rankField.html('<option value="">Select Category first</option>');
 		}
 		
 	});
