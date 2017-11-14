@@ -232,9 +232,9 @@ class AddedDepartments extends AbstractMigration
                 'limit' => 255,
                 'null' => false,
             ])
-            ->addColumn('description', 'integer', [
+            ->addColumn('description', 'string', [
                 'default' => null,
-                'limit' => 11,
+                'limit' => 512,
                 'null' => true,
             ])
             ->create();
