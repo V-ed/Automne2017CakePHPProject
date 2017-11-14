@@ -46,10 +46,10 @@ class UsersTable extends Table
 		$this->hasMany('EvidenceItems', [
 			'foreignKey' => 'user_id'
 		]);
-		$this->hasMany('Officers', [
+		$this->hasOne('Officers', [
 			'foreignKey' => 'user_id'
 		]);
-		$this->hasMany('UserConfirmations', [
+		$this->hasOne('UserConfirmations', [
 			'foreignKey' => 'user_id'
 		]);
 	}

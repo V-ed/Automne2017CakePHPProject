@@ -16,7 +16,7 @@
 		<?php
 		echo $this->Form->control('email');
 		echo $this->Form->control('officer_rank_id');
-		echo $this->Form->control('user_id');
+		echo $this->Form->control('user_id', ['label' => __('Available Users')]);
 		?>
 	</fieldset>
 	<?= $this->Form->button(__('Submit')) ?>

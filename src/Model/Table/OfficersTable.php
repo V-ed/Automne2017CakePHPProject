@@ -44,7 +44,7 @@ class OfficersTable extends Table
 		]);
 		$this->belongsTo('Users', [
 			'foreignKey' => 'user_id',
-			'joinType' => 'INNER'
+			'joinType' => 'LEFT'
 		]);
 		$this->hasMany('EvidenceItems', [
 			'foreignKey' => 'officer_id'
@@ -67,6 +67,16 @@ class OfficersTable extends Table
 		->email('email')
 		->requirePresence('email', 'create')
 		->notEmpty('email');
+		
+		$validator
+		->integer('officer_rank_id')
+		->requirePresence('officer_rank_id')
+		->notEmpty('officer_rank_id');
+		
+		$validator
+		->integer('user_id')
+		->requirePresence('user_id')
+		->notEmpty('user_id');
 		
 		return $validator;
 	}
