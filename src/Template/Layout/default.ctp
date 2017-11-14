@@ -59,6 +59,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 					<li><?= $this->Html->link(__('Files'), ['controller' => 'files']) ?></li>
 					<li><?= $this->Html->link(__('Ranks'), ['controller' => 'officer_ranks']) ?></li>
 				<?php endif; ?>
+				<li><?= $this->Html->link(__('About us'), ['controller' => 'about']) ?></li>
 			</ul>
 			<ul class="right">
 				<?php if( isset($loggedUser) ) : ?>
