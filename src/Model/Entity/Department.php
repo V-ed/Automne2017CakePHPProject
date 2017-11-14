@@ -8,7 +8,7 @@ use Cake\ORM\Entity;
  *
  * @property int $id
  * @property string $name
- * @property int $description
+ * @property string $description
  *
  * @property \App\Model\Entity\OfficerRank[] $officer_ranks
  */

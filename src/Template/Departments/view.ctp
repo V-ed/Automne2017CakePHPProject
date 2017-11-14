@@ -23,12 +23,12 @@
             <td><?= h($department->name) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Id') ?></th>
-            <td><?= $this->Number->format($department->id) ?></td>
+            <th scope="row"><?= __('Description') ?></th>
+            <td><?= h($department->description) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Description') ?></th>
-            <td><?= $this->Number->format($department->description) ?></td>
+            <th scope="row"><?= __('Id') ?></th>
+            <td><?= $this->Number->format($department->id) ?></td>
         </tr>
     </table>
     <div class="related">

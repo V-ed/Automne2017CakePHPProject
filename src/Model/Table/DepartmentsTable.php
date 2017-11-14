@@ -59,7 +59,7 @@ class DepartmentsTable extends Table
             ->notEmpty('name');
 
         $validator
-            ->integer('description')
+            ->scalar('description')
             ->allowEmpty('description');
 
         return $validator;

@@ -28,7 +28,7 @@
             <tr>
                 <td><?= $this->Number->format($department->id) ?></td>
                 <td><?= h($department->name) ?></td>
-                <td><?= $this->Number->format($department->description) ?></td>
+                <td><?= h($department->description) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $department->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $department->id]) ?>
