@@ -25,6 +25,7 @@ class OfficerRanksTableTest extends TestCase
      */
     public $fixtures = [
         'app.officer_ranks',
+        'app.departments',
         'app.officers',
         'app.users',
         'app.evidence_items',

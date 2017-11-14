@@ -51,7 +51,8 @@ class DepartmentsTable extends Table
     {
         $validator
             ->integer('id')
-            ->allowEmpty('id', 'create');
+            ->requirePresence('id')
+            ->notEmpty('id');
 
         $validator
             ->scalar('name')

@@ -12,6 +12,7 @@ use Cake\ORM\Entity;
  * @property string $rank_description
  * @property int $department_id
  *
+ * @property \App\Model\Entity\Department $department
  * @property \App\Model\Entity\Officer[] $officers
  */
 class OfficerRank extends Entity
@@ -31,6 +32,7 @@ class OfficerRank extends Entity
         'rank_name' => true,
         'rank_description' => true,
         'department_id' => true,
+        'department' => true,
         'officers' => true
     ];
 }

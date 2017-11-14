@@ -9,7 +9,7 @@ use Cake\Validation\Validator;
 /**
  * OfficerRanks Model
  *
- * @property |\Cake\ORM\Association\BelongsTo $Departments
+ * @property \App\Model\Table\DepartmentsTable|\Cake\ORM\Association\BelongsTo $Departments
  * @property \App\Model\Table\OfficersTable|\Cake\ORM\Association\HasMany $Officers
  *
  * @method \App\Model\Entity\OfficerRank get($primaryKey, $options = [])
@@ -31,19 +31,19 @@ class OfficerRanksTable extends Table
      */
     public function initialize(array $config)
     {
-        parent::initialize($config);
+    	parent::initialize($config);
 
-        $this->setTable('officer_ranks');
-        $this->setDisplayField('rank_name');
-        $this->setPrimaryKey('id');
+    	$this->setTable('officer_ranks');
+    	$this->setDisplayField('rank_name');
+    	$this->setPrimaryKey('id');
 
-        $this->belongsTo('Departments', [
-            'foreignKey' => 'department_id',
-            'joinType' => 'INNER'
-        ]);
-        $this->hasMany('Officers', [
-            'foreignKey' => 'officer_rank_id'
-        ]);
+    	$this->belongsTo('Departments', [
+    		'foreignKey' => 'department_id',
+    		'joinType' => 'INNER'
+    	]);
+    	$this->hasMany('Officers', [
+    		'foreignKey' => 'officer_rank_id'
+    	]);
     }
 
     /**
@@ -54,25 +54,30 @@ class OfficerRanksTable extends Table
      */
     public function validationDefault(Validator $validator)
     {
-        $validator
-            ->integer('id')
-            ->allowEmpty('id', 'create');
+    	$validator
+    	->integer('id')
+    	->allowEmpty('id', 'create');
 
-        $validator
-            ->scalar('rank_code')
-            ->requirePresence('rank_code', 'create')
-            ->notEmpty('rank_code');
+    	$validator
+    	->scalar('rank_code')
+    	->requirePresence('rank_code', 'create')
+    	->notEmpty('rank_code');
 
-        $validator
-            ->scalar('rank_name')
-            ->requirePresence('rank_name', 'create')
-            ->notEmpty('rank_name');
+    	$validator
+    	->scalar('rank_name')
+    	->requirePresence('rank_name', 'create')
+    	->notEmpty('rank_name');
 
-        $validator
-            ->scalar('rank_description')
-            ->allowEmpty('rank_description');
+    	$validator
+    	->scalar('rank_description')
+    	->allowEmpty('rank_description');
+    	
+    	$validator
+    	->integer('department_id')
+    	->requirePresence('department_id')
+    	->notEmpty('department_id');
 
-        return $validator;
+    	return $validator;
     }
 
     /**
@@ -84,8 +89,8 @@ class OfficerRanksTable extends Table
      */
     public function buildRules(RulesChecker $rules)
     {
-        $rules->add($rules->existsIn(['department_id'], 'Departments'));
+    	$rules->add($rules->existsIn(['department_id'], 'Departments'));
 
-        return $rules;
+    	return $rules;
     }
 }
