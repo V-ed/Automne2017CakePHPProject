@@ -16,7 +16,13 @@ class OfficerRanksControllerTest extends IntegrationTestCase
      * @var array
      */
     public $fixtures = [
-        'app.officer_ranks'
+        'app.officer_ranks',
+        'app.departments',
+        'app.officers',
+        'app.users',
+        'app.evidence_items',
+        'app.files',
+        'app.user_confirmations'
     ];
 
     /**

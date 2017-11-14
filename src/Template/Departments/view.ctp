@@ -15,7 +15,7 @@
         <li><?= $this->Html->link(__('New Officer Rank'), ['controller' => 'OfficerRanks', 'action' => 'add']) ?> </li>
     </ul>
 </nav>
-<div class="departments view large-9 medium-8 columns content">
+<div class="departments view large-10 medium-8 columns content">
     <h3><?= h($department->name) ?></h3>
     <table class="vertical-table">
         <tr>

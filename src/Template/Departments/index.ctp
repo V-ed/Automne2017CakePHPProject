@@ -12,7 +12,7 @@
         <li><?= $this->Html->link(__('New Officer Rank'), ['controller' => 'OfficerRanks', 'action' => 'add']) ?></li>
     </ul>
 </nav>
-<div class="departments index large-9 medium-8 columns content">
+<div class="departments index large-10 medium-8 columns content">
     <h3><?= __('Departments') ?></h3>
     <table cellpadding="0" cellspacing="0">
         <thead>

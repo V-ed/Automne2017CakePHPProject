@@ -12,7 +12,7 @@
         <li><?= $this->Html->link(__('New Officer Rank'), ['controller' => 'OfficerRanks', 'action' => 'add']) ?></li>
     </ul>
 </nav>
-<div class="departments form large-9 medium-8 columns content">
+<div class="departments form large-10 medium-8 columns content">
     <?= $this->Form->create($department) ?>
     <fieldset>
         <legend><?= __('Add Department') ?></legend>
