@@ -24,12 +24,14 @@ class OfficerRanksSeed extends AbstractSeed
                 'rank_code' => 'sgt',
                 'rank_name' => 'Sergeant',
                 'rank_description' => 'Sergeant of the US Police Department',
+                'department_id' => '2',
             ],
             [
                 'id' => '2',
                 'rank_code' => 'of',
                 'rank_name' => 'Officer',
                 'rank_description' => 'The most basic rank available to officers.',
+                'department_id' => '1',
             ],
         ];
 
