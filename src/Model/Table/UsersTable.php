@@ -166,4 +166,9 @@ class UsersTable extends Table
 		return $this->Officers->find('all')->where(['user_id' => $userId])->first();
 	}
 	
+	public function getUsersWithoutOfficers()
+	{
+		return $this->find('list', ['contain' => ['Officers']])->where(['Officers.user_id IS NULL']);
+	}
+	
 }
