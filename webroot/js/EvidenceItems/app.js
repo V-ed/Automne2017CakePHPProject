@@ -6,6 +6,15 @@ $(document).ready(function(){
 
 function init_index() {
 	
+	(function ($) {
+		// Get the path to action from CakePHP
+		var autoCompleteSource = urlToAutocompleteAction;
+		$('#autocomplete').autocomplete({
+			source: autoCompleteSource,
+			minLength: 1
+		});
+	})(jQuery);
+	
 	$addButton = $('#add-button');
 	$editButtons = $('[id^="edit-button-"]');
 	$deleteButtons = $('[id^="delete-button-"]');
