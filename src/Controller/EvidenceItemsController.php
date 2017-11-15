@@ -3,6 +3,7 @@ namespace App\Controller;
 
 use App\Controller\AppController;
 use Cake\Event\Event;
+use Cake\Network\Exception\NotFoundException;
 
 /**
 * EvidenceItems Controller
@@ -16,13 +17,19 @@ class EvidenceItemsController extends AppController
 	
 	public function findItems() {
 		
-		if ($this->request->is('ajax')) {
+		if (!$this->request->is('ajax')) {
+			throw new NotFoundException();
+		}
+		else {
 			
 			$this->autoRender = false;
+			
 			$description = $this->request->query['term'];
+			
 			$results = $this->EvidenceItems->find('all', [
 				'conditions' => ['EvidenceItems.description LIKE ' => '%' . $description . '%']
 			]);
+			
 			$resultArr = array();
 			foreach ($results as $result) {
 				$resultArr[] = ['label' => $result['description'], 'value' => $result['description']];

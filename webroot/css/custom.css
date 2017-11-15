@@ -26,7 +26,11 @@ body.home {
 #ajax-loading-icon {
 	display: block;
 	margin: auto;
-/*	width: 40%;*/
+	/*	width: 40%;*/
+}
+
+#about {
+	text-align: center;
 }
 
 /* OVERRIDING BOOTSTRAP CSS */
