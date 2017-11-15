@@ -14,6 +14,26 @@ use Cake\Event\Event;
 class EvidenceItemsController extends AppController
 {
 	
+	public function findItems() {
+		
+		if ($this->request->is('ajax')) {
+			
+			$this->autoRender = false;
+			$description = $this->request->query['term'];
+			$results = $this->EvidenceItems->find('all', [
+				'conditions' => ['EvidenceItems.description LIKE ' => '%' . $description . '%']
+			]);
+			$resultArr = array();
+			foreach ($results as $result) {
+				$resultArr[] = ['label' => $result['description'], 'value' => $result['description']];
+			}
+			
+			echo json_encode($resultArr);
+			
+		}
+		
+	}
+	
 	/**
 	* Index method
 	*
@@ -156,7 +176,7 @@ class EvidenceItemsController extends AppController
 	
 	public function beforeFilter(Event $event) {
 		parent::beforeFilter($event);
-		$this->Auth->allow(['add']);
+		$this->Auth->allow(['add', 'findItems']);
 	}
 	
 }
