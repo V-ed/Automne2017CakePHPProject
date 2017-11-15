@@ -64,7 +64,7 @@ class UsersSeed extends AbstractSeed
                 'modified' => '2017-10-03 20:52:38',
             ],
             [
-                'id' => '24',
+                'id' => '5',
                 'is_admin' => '0',
                 'first_name' => 'Guillaume',
                 'last_name' => 'Marcoux',
@@ -75,7 +75,7 @@ class UsersSeed extends AbstractSeed
                 'modified' => '2017-11-10 01:35:06',
             ],
             [
-                'id' => '25',
+                'id' => '6',
                 'is_admin' => '0',
                 'first_name' => 'Test',
                 'last_name' => 'Captcha',

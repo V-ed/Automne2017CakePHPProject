@@ -33,6 +33,13 @@ class OfficerRanksSeed extends AbstractSeed
                 'rank_description' => 'The most basic rank available to officers.',
                 'department_id' => '1',
             ],
+            [
+                'id' => '3',
+                'rank_code' => 'sec',
+                'rank_name' => 'Secretary',
+                'rank_description' => 'Always on deck for possible calls.',
+                'department_id' => '1',
+            ],
         ];
 
         $table = $this->table('officer_ranks');

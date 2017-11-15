@@ -44,16 +44,16 @@ class UserConfirmationsSeed extends AbstractSeed
                 'user_id' => '4',
             ],
             [
-                'id' => '24',
+                'id' => '5',
                 'uuid' => '02df2b90-9dec-4465-a912-3e913f4a90a8',
                 'is_confirmed' => '1',
-                'user_id' => '24',
+                'user_id' => '5',
             ],
             [
-                'id' => '25',
+                'id' => '6',
                 'uuid' => '59cf2a5c-218a-4469-a3d0-d20088500efe',
                 'is_confirmed' => '0',
-                'user_id' => '25',
+                'user_id' => '6',
             ],
         ];
 
