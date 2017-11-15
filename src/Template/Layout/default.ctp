@@ -32,6 +32,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 	<?= $this->Html->css('custom.css') ?>
 	
 	<?= $this->Html->script('https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js') ?>
+	<?= $this->Html->script('https://code.jquery.com/ui/1.12.1/jquery-ui.js') ?>
 	
 	<?php
 	// In case a view request to load another css file
