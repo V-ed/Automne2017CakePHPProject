@@ -20,7 +20,7 @@
 			</tr>
 			<tr>
 				<th><?= __('My database') ?></th>
-				<td><?= $this->Html->image('my-schema.png', ['height' => '300']) ?></td>
+				<td><?= $this->Html->image('my-schema.png') ?></td>
 			</tr>
 			<tr>
 				<th><?= __('Original database') ?></th>
