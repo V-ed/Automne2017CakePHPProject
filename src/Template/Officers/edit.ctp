@@ -2,6 +2,16 @@
 /**
 * @var \App\View\AppView $this
 */
+
+$urlToLinkedListFilter = $this->Url->build([
+	"controller" => "OfficerRanks",
+	"action" => "getByDepartment",
+	"_ext" => "json"
+]);
+$this->Html->scriptBlock('var urlToLinkedListFilter = "' . $urlToLinkedListFilter . '";', ['block' => true]);
+
+$this->Html->script('Officers/app', ['block' => true]);
+
 ?>
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
 	<ul class="side-nav">
@@ -16,8 +26,9 @@
 		<legend><?= __('Edit Officer') ?></legend>
 		<?php
 		echo $this->Form->control('email');
-		echo $this->Form->control('officer_rank_id');
-		echo $this->Form->control('user_id');
+		echo $this->Form->control('user_id', ['label' => __('Available Users')]);
+		echo $this->Form->control('officer_ranks.departments', ['id' => 'field-departments', 'required' => true]);
+		echo $this->Form->control('officer_rank_id', ['id' => 'field-officer_ranks']);
 		?>
 	</fieldset>
 	<?= $this->Form->button(__('Submit')) ?>
