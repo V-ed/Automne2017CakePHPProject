@@ -424,7 +424,7 @@ $config = [
 
 $source = env('DATABASE_SOURCE');
 
-if( isset($source) ){
+if ( isset($source) ) {
 	$config['Datasources']['default'] = $config['Datasources'][$source];
 	$config['Datasources']['test'] = $config['Datasources']["test_$source"];
 }

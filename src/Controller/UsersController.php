@@ -126,7 +126,7 @@ class UsersController extends AppController
 			if ($isHuman) {
 				$user = $this->Users->newUser($user, $this->request->getData());
 				if ($user) {
-					$this->sendConfirmationMailToUser($user, $user->confirmation);
+					$this->sendConfirmationMailToUser($user);
 					
 					$this->Flash->success(__('The user has been saved. Go check under your email ({0}) to activate your account!', $user->email));
 					
@@ -142,30 +142,21 @@ class UsersController extends AppController
 		$this->set('_serialize', ['user']);
 	}
 	
-	private function sendConfirmationMailToUser($user, $userConfirmation)
+	private function sendConfirmationMailToUser($user)
 	{
-		$paragraph = '<br /><br />';
 		
 		$company = 'Evidocs';
 		
 		$emailSubject = $company . ' | ' . __('Please confirm your account!');
 		
-		$textHeader = __('Thank you for registering to {0}, {1}!', $company, $user->full_name);
-		
-		$confirmLink = Router::url(['controller' => 'Users', 'action' => 'confirm', $userConfirmation->uuid], true);
-		$confirmLink = '<a href="' . $confirmLink . '">' . __('activate your account!') . '</a>';
-		$textBody = __('To complete your account activation, please click on the following link : {0}', $confirmLink);
-		
-		$textFooter = __('Thank you again for registering to our website and we hope you\'ll have a nice stay!');
-		
-		$mailContent = $textHeader . $paragraph . $textBody . $paragraph . $textFooter;
-		
 		$email = new Email('default');
 		$email
-		->to($user->email)
-		->subject($emailSubject)
 		->emailFormat('html')
-		->send($mailContent);
+		->template('new_user_confirmation')
+		->viewVars(['user' => $user, 'company' => $company])
+		->subject($emailSubject)
+		->to($user->email)
+		->send();
 	}
 	
 	public function confirm($uuid)
