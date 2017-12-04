@@ -12,11 +12,6 @@ class AddedDepartments extends AbstractMigration
             ->update();
 
         $this->table('evidence_items')
-            ->changeColumn('id', 'integer', [
-                'default' => null,
-                'limit' => 11,
-                'null' => false,
-            ])
             ->changeColumn('description', 'string', [
                 'default' => null,
                 'limit' => 255,
@@ -63,11 +58,6 @@ class AddedDepartments extends AbstractMigration
             ->update();
 
         $this->table('files')
-            ->changeColumn('id', 'integer', [
-                'default' => null,
-                'limit' => 11,
-                'null' => false,
-            ])
             ->changeColumn('name', 'string', [
                 'default' => null,
                 'limit' => 255,
@@ -101,11 +91,6 @@ class AddedDepartments extends AbstractMigration
             ->update();
 
         $this->table('officer_ranks')
-            ->changeColumn('id', 'integer', [
-                'default' => null,
-                'limit' => 11,
-                'null' => false,
-            ])
             ->changeColumn('rank_code', 'string', [
                 'default' => null,
                 'limit' => 10,
@@ -128,11 +113,6 @@ class AddedDepartments extends AbstractMigration
             ->update();
 
         $this->table('officers')
-            ->changeColumn('id', 'integer', [
-                'default' => null,
-                'limit' => 11,
-                'null' => false,
-            ])
             ->changeColumn('email', 'string', [
                 'default' => null,
                 'limit' => 255,
@@ -154,11 +134,6 @@ class AddedDepartments extends AbstractMigration
             ->update();
 
         $this->table('user_confirmations')
-            ->changeColumn('id', 'integer', [
-                'default' => null,
-                'limit' => 11,
-                'null' => false,
-            ])
             ->changeColumn('uuid', 'string', [
                 'default' => null,
                 'limit' => 40,
@@ -178,11 +153,6 @@ class AddedDepartments extends AbstractMigration
             ->update();
 
         $this->table('users')
-            ->changeColumn('id', 'integer', [
-                'default' => null,
-                'limit' => 11,
-                'null' => false,
-            ])
             ->changeColumn('is_admin', 'boolean', [
                 'comment' => '0 : FALSE | 1 : TRUE',
                 'default' => '0',
