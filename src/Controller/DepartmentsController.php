@@ -12,6 +12,18 @@ use App\Controller\AppController;
  */
 class DepartmentsController extends AppController
 {
+	
+	public function getDepartments() {
+	    $this->autoRender = false; // avoid to render view
+
+	    $departments = $this->Departments->find('all', [
+	    	'contain' => ['OfficerRanks'],
+	    ]);
+
+	    $departmentsJ = json_encode($departments);
+	    $this->response->type('json');
+	    $this->response->body($departmentsJ);
+	}
 
     /**
      * Index method
@@ -20,10 +32,10 @@ class DepartmentsController extends AppController
      */
     public function index()
     {
-        $departments = $this->paginate($this->Departments);
+    	$departments = $this->paginate($this->Departments);
 
-        $this->set(compact('departments'));
-        $this->set('_serialize', ['departments']);
+    	$this->set(compact('departments'));
+    	$this->set('_serialize', ['departments']);
     }
 
     /**
@@ -35,12 +47,12 @@ class DepartmentsController extends AppController
      */
     public function view($id = null)
     {
-        $department = $this->Departments->get($id, [
-            'contain' => ['OfficerRanks']
-        ]);
+    	$department = $this->Departments->get($id, [
+    		'contain' => ['OfficerRanks']
+    	]);
 
-        $this->set('department', $department);
-        $this->set('_serialize', ['department']);
+    	$this->set('department', $department);
+    	$this->set('_serialize', ['department']);
     }
 
     /**
@@ -50,18 +62,18 @@ class DepartmentsController extends AppController
      */
     public function add()
     {
-        $department = $this->Departments->newEntity();
-        if ($this->request->is('post')) {
-            $department = $this->Departments->patchEntity($department, $this->request->getData());
-            if ($this->Departments->save($department)) {
-                $this->Flash->success(__('The department has been saved.'));
+    	$department = $this->Departments->newEntity();
+    	if ($this->request->is('post')) {
+    		$department = $this->Departments->patchEntity($department, $this->request->getData());
+    		if ($this->Departments->save($department)) {
+    			$this->Flash->success(__('The department has been saved.'));
 
-                return $this->redirect(['action' => 'index']);
-            }
-            $this->Flash->error(__('The department could not be saved. Please, try again.'));
-        }
-        $this->set(compact('department'));
-        $this->set('_serialize', ['department']);
+    			return $this->redirect(['action' => 'index']);
+    		}
+    		$this->Flash->error(__('The department could not be saved. Please, try again.'));
+    	}
+    	$this->set(compact('department'));
+    	$this->set('_serialize', ['department']);
     }
 
     /**
@@ -73,20 +85,20 @@ class DepartmentsController extends AppController
      */
     public function edit($id = null)
     {
-        $department = $this->Departments->get($id, [
-            'contain' => []
-        ]);
-        if ($this->request->is(['patch', 'post', 'put'])) {
-            $department = $this->Departments->patchEntity($department, $this->request->getData());
-            if ($this->Departments->save($department)) {
-                $this->Flash->success(__('The department has been saved.'));
+    	$department = $this->Departments->get($id, [
+    		'contain' => []
+    	]);
+    	if ($this->request->is(['patch', 'post', 'put'])) {
+    		$department = $this->Departments->patchEntity($department, $this->request->getData());
+    		if ($this->Departments->save($department)) {
+    			$this->Flash->success(__('The department has been saved.'));
 
-                return $this->redirect(['action' => 'index']);
-            }
-            $this->Flash->error(__('The department could not be saved. Please, try again.'));
-        }
-        $this->set(compact('department'));
-        $this->set('_serialize', ['department']);
+    			return $this->redirect(['action' => 'index']);
+    		}
+    		$this->Flash->error(__('The department could not be saved. Please, try again.'));
+    	}
+    	$this->set(compact('department'));
+    	$this->set('_serialize', ['department']);
     }
 
     /**
@@ -98,14 +110,14 @@ class DepartmentsController extends AppController
      */
     public function delete($id = null)
     {
-        $this->request->allowMethod(['post', 'delete']);
-        $department = $this->Departments->get($id);
-        if ($this->Departments->delete($department)) {
-            $this->Flash->success(__('The department has been deleted.'));
-        } else {
-            $this->Flash->error(__('The department could not be deleted. Please, try again.'));
-        }
+    	$this->request->allowMethod(['post', 'delete']);
+    	$department = $this->Departments->get($id);
+    	if ($this->Departments->delete($department)) {
+    		$this->Flash->success(__('The department has been deleted.'));
+    	} else {
+    		$this->Flash->error(__('The department could not be deleted. Please, try again.'));
+    	}
 
-        return $this->redirect(['action' => 'index']);
+    	return $this->redirect(['action' => 'index']);
     }
 }
