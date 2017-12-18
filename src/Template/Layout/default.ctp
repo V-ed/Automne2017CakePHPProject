@@ -36,11 +36,6 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 	<?= $this->Html->script('https://code.jquery.com/ui/1.12.1/jquery-ui.js') ?>
 	<?= $this->Html->script('https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js') ?>
 	
-	<?php
-	// In case a view request to load another css file
-	$this->fetch('viewStyle');
-	?>
-	
 	<?= $this->fetch('meta') ?>
 	<?= $this->fetch('css') ?>
 	<?= $this->fetch('script') ?>
@@ -101,6 +96,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 		<?= $this->fetch('content') ?>
 	</div>
 	<footer>
+		<?= $this->fetch('scriptBottom') ?>
 	</footer>
 </body>
 </html>

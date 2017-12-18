@@ -10,6 +10,13 @@ $urlToLinkedListFilter = $this->Url->build([
 ]);
 $this->Html->scriptBlock('var urlToLinkedListFilter = "' . $urlToLinkedListFilter . '";', ['block' => true]);
 
+$getDepartmentsUrl = $this->Url->build([
+	"controller" => "Departments",
+	"action" => "getDepartments",
+	"_ext" => "json"
+]);
+$this->Html->scriptBlock('var getDepartmentsUrl = "' . $getDepartmentsUrl . '";', ['block' => true]);
+
 $this->Html->script('Officers/app', ['block' => true]);
 
 ?>
@@ -19,7 +26,7 @@ $this->Html->script('Officers/app', ['block' => true]);
 		<li><?= $this->Html->link(__('List Officers'), ['action' => 'index']) ?></li>
 	</ul>
 </nav>
-<div class="officers form large-10 medium-8 columns content">
+<div class="officers form large-10 medium-8 columns content" ng-app="OfficersAdd" ng-controller="DepartmentsLinkedList">
 	
 	<?= $this->element('ajax_loading_image') ?>
 	
@@ -29,7 +36,17 @@ $this->Html->script('Officers/app', ['block' => true]);
 		<?php
 		echo $this->Form->control('email');
 		echo $this->Form->control('user_id', ['label' => __('Available Users')]);
-		echo $this->Form->control('officer_ranks.departments', ['id' => 'field-departments', 'required' => true]);
+		
+		echo $this->Form->input('department_id', [
+			'label' => __('Departments'),
+			'type' => 'select',
+			'required' => true,
+			'empty' => __('[Choose one]'),
+			'id' => 'field-departments',
+			'ng-model' => 'departments',
+			'ng-options' => 'department.name for department in departments track by department.id',
+		]);
+		
 		echo $this->Form->control('officer_rank_id', ['id' => 'field-officer_ranks']);
 		?>
 	</fieldset>

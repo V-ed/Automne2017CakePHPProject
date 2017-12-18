@@ -73,11 +73,12 @@ class OfficersController extends AppController
 				$this->Flash->error(__('The officer could not be saved. Please, try again.'));
 			}
 			$officerRanks = $this->Officers->OfficerRanks->find('list', ['limit' => 200]);
+			
 			$departments = $this->Officers->OfficerRanks->Departments->find('list');
 			
 			$users = $this->Officers->Users->getUsersWithoutOfficers();
 			
-			$this->set(compact('officer', 'users', 'officerRanks', 'departments'));
+			$this->set(compact('officer', 'users', 'officerRanks'));
 			$this->set('_serialize', ['officer']);
 			
 		}
