@@ -43,11 +43,20 @@ $this->Html->script('Officers/app', ['block' => true]);
 			'required' => true,
 			'empty' => __('[Choose one]'),
 			'id' => 'field-departments',
-			'ng-model' => 'departments',
+			'ng-model' => 'department',
 			'ng-options' => 'department.name for department in departments track by department.id',
 		]);
 		
-		echo $this->Form->control('officer_rank_id', ['id' => 'field-officer_ranks']);
+		echo $this->Form->input('officer_ranks_id', [
+			'label' => __('Officer Ranks'),
+			'type' => 'select',
+			'required' => true,
+			'empty' => __('[Choose one]'),
+			'id' => 'field-officer-ranks',
+			'ng-disabled' => '!department',
+			'ng-model' => 'officer_rank',
+			'ng-options' => 'officer_rank.rank_name for officer_rank in department.officer_ranks track by officer_rank.id',
+		]);
 		?>
 	</fieldset>
 	<?= $this->Form->button(__('Submit')) ?>
