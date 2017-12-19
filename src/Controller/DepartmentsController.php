@@ -110,6 +110,10 @@ class DepartmentsController extends AppController
      */
     public function delete($id = null)
     {
+    	
+    	$data = $this->request->input('json_decode');
+    	$id = $data->id;
+    	
     	$this->request->allowMethod(['post', 'delete']);
     	$department = $this->Departments->get($id);
     	if ($this->Departments->delete($department)) {
@@ -119,5 +123,7 @@ class DepartmentsController extends AppController
     	}
 
     	return $this->redirect(['action' => 'index']);
+    	
     }
+    
 }
