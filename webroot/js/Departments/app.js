@@ -30,13 +30,9 @@ app.controller('DepsController', function ($scope, $http) {
 	
 	$scope.editDepartment = function (id) {
 		
-		$scope.load_icon();
+		var link = editLink + '/' + id;
 		
-	}
-	
-	$scope.saveEditDepartment = function () {
-		
-		$scope.load_icon();
+		window.location.replace(link);
 		
 	}
 	

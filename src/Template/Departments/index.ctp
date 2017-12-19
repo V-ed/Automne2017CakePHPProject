@@ -6,6 +6,12 @@
 $deletionText = __('Are you sure you want to delete # {0}?');
 echo $this->Html->scriptBlock('var deletionText = "' . $deletionText . '";', ['block' => true]);
 
+$editLink = $this->Url->build(['action' => 'edit'], [
+    'fullBase' => true
+]);
+
+echo $this->Html->scriptBlock('var editLink = \'' . $editLink . '\';', ['block' => true]);
+
 $this->Html->script('Departments/app', ['block' => 'scriptBottom']);
 ?>
 <div ng-app="DepartmentsApp" ng-controller="DepsController" id="viewport">
