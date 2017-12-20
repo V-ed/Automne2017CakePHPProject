@@ -28,6 +28,8 @@ app.controller('DepsController', function ($scope, $http) {
 		
 		$('#viewport-add').hide();
 		
+		$scope.listAll();
+		
 	}
 	
 	$scope.newDepartment = function() {
@@ -41,6 +43,21 @@ app.controller('DepsController', function ($scope, $http) {
 	$scope.saveNewDepartment = function() {
 		
 		$scope.load_icon();
+		
+		$http.post('departments/add.json', {
+			'name': $scope.name,
+			'description': $scope.description,
+		}).success(function (data, status, headers, config) {
+			
+			$('#viewport-add').modal('close');
+			
+			$scope.clearForm();
+			
+			$scope.restoreIndex();
+			
+			$scope.unload_icon();
+			
+		})
 		
 	}
 	
@@ -91,6 +108,10 @@ app.controller('DepsController', function ($scope, $http) {
 	$scope.unload_icon = function() {
 		$('#ajax-loading-icon').hide();
 	}
+	
+	$('#submit-btn-add').click(function(event) {
+		event.preventDefault();
+	});
 
 });
 

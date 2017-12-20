@@ -26,82 +26,94 @@ $this->Html->script('Departments/app', ['block' => 'scriptBottom']);
 		</ul>
 	</nav>
 	
-	<div id="viewport-index">
+	<div class="departments large-10 medium-8 columns content">
 		
-		<div class="departments index large-10 medium-8 columns content">
+		<?= $this->element('ajax_loading_image') ?>
+		
+		<div id="viewport-index">
 			
-			<?= $this->element('ajax_loading_image') ?>
+			<div class="index">
+				
+				<h3><?= __('Departments') ?></h3>
+				<table cellpadding="0" cellspacing="0">
+					<thead>
+						<tr>
+							<th scope="col"><?= $this->Paginator->sort('id') ?></th>
+							<th scope="col"><?= $this->Paginator->sort('name') ?></th>
+							<th scope="col"><?= $this->Paginator->sort('description') ?></th>
+							<th scope="col" class="actions"><?= __('Actions') ?></th>
+						</tr>
+					</thead>
+					<tbody ng-init="listAll()">
+						<tr ng-repeat="department in departments">
+							<td>{{ department.id }}</td>
+							<td>{{ department.name }}</td>
+							<td>{{ department.description }}</td>
+							<td>
+								<?=
+								$this->Html->tag('a', __('View'), [
+									'ng-click' => 'viewDepartment(department.id)',
+								])
+								?>
+								<?=
+								$this->Html->tag('a', __('Edit'), [
+									'ng-click' => 'editDepartment(department.id)',
+								])
+								?>
+								<?=
+								$this->Html->tag('a', __('Delete'), [
+									'ng-click' => 'deleteDepartment(department.id)',
+								])
+								?>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<div class="paginator">
+					<ul class="pagination">
+						<?= $this->Paginator->first('<< ' . __('first')) ?>
+						<?= $this->Paginator->prev('< ' . __('previous')) ?>
+						<?= $this->Paginator->numbers() ?>
+						<?= $this->Paginator->next(__('next') . ' >') ?>
+						<?= $this->Paginator->last(__('last') . ' >>') ?>
+					</ul>
+					<p><?= $this->Paginator->counter(['format' => __('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')]) ?></p>
+				</div>
+				
+			</div>
 			
-			<h3><?= __('Departments') ?></h3>
-			<table cellpadding="0" cellspacing="0">
-				<thead>
-					<tr>
-						<th scope="col"><?= $this->Paginator->sort('id') ?></th>
-						<th scope="col"><?= $this->Paginator->sort('name') ?></th>
-						<th scope="col"><?= $this->Paginator->sort('description') ?></th>
-						<th scope="col" class="actions"><?= __('Actions') ?></th>
-					</tr>
-				</thead>
-				<tbody ng-init="listAll()">
-					<tr ng-repeat="department in departments">
-						<td>{{ department.id }}</td>
-						<td>{{ department.name }}</td>
-						<td>{{ department.description }}</td>
-						<td>
-							<?=
-							$this->Html->tag('a', __('View'), [
-								'ng-click' => 'viewDepartment(department.id)',
-							])
-							?>
-							<?=
-							$this->Html->tag('a', __('Edit'), [
-								'ng-click' => 'editDepartment(department.id)',
-							])
-							?>
-							<?=
-							$this->Html->tag('a', __('Delete'), [
-								'ng-click' => 'deleteDepartment(department.id)',
-							])
-							?>
-						</td>
-					</tr>
-				</tbody>
-			</table>
-			<div class="paginator">
-				<ul class="pagination">
-					<?= $this->Paginator->first('<< ' . __('first')) ?>
-					<?= $this->Paginator->prev('< ' . __('previous')) ?>
-					<?= $this->Paginator->numbers() ?>
-					<?= $this->Paginator->next(__('next') . ' >') ?>
-					<?= $this->Paginator->last(__('last') . ' >>') ?>
-				</ul>
-				<p><?= $this->Paginator->counter(['format' => __('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')]) ?></p>
+		</div>
+		
+		<div id="viewport-add" style="display: none;">
+			
+			<div class="form">
+				
+				<?= $this->Form->create() ?>
+				<fieldset>
+					<legend><?= __('Add Department') ?></legend>
+					<?php
+					echo $this->Form->control('name', [
+						'ng-model' => 'name',
+						'placeholder' => __('Type the department\'s name here'),
+					]);
+					echo $this->Form->control('description', [
+						'ng-model' => 'description',
+						'placeholder' => __('Type the department\'s description here'),
+					]);
+					?>
+				</fieldset>
+				<?=
+				$this->Form->button(__('Submit'), [
+					'id' => 'submit-btn-add',
+					'ng-click' => 'saveNewDepartment()',
+				])
+				?>
+				<?= $this->Form->end() ?>
+				
 			</div>
 			
 		</div>
 		
 	</div>
-	
-	<div id="viewport-add" style="display: none;">
-		
-		<div class="departments form large-10 medium-8 columns content">
-			
-			<?= $this->element('ajax_loading_image') ?>
-			
-			<?= $this->Form->create() ?>
-			<fieldset>
-				<legend><?= __('Add Department') ?></legend>
-				<?php
-				echo $this->Form->control('name');
-				echo $this->Form->control('description');
-				?>
-			</fieldset>
-			<?= $this->Form->button(__('Submit')) ?>
-			<?= $this->Form->end() ?>
-			
-		</div>
-		
-	</div>
-	
 
 </div>
