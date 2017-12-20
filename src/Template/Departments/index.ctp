@@ -114,6 +114,50 @@ $this->Html->script('Departments/app', ['block' => 'scriptBottom']);
 			
 		</div>
 		
+		
+		<div id="viewport-view" style="display: none;">
+			
+			<div class="view">
+				
+				<h3>{{ department.name }}</h3>
+				<table class="vertical-table">
+					<tr>
+						<th scope="row"><?= __('Name') ?></th>
+						<td>{{ department.name }}</td>
+					</tr>
+					<tr>
+						<th scope="row"><?= __('Description') ?></th>
+						<td>{{ department.description }}</td>
+					</tr>
+					<tr>
+						<th scope="row"><?= __('Id') ?></th>
+						<td>{{ department.id }}</td>
+					</tr>
+				</table>
+				
+				<div class="related" ng-hide="department.officer_ranks == null">
+					<h4><?= __('Related Officer Ranks') ?></h4>
+					<table cellpadding="0" cellspacing="0">
+						<tr>
+							<th scope="col"><?= __('Id') ?></th>
+							<th scope="col"><?= __('Rank Code') ?></th>
+							<th scope="col"><?= __('Rank Name') ?></th>
+							<th scope="col"><?= __('Rank Description') ?></th>
+						</tr>
+						<tr ng-repeat="officer_rank in department.officer_ranks">
+							<td>{{ officer_rank.id }}</td>
+							<td>{{ officer_rank.rank_code }}</td>
+							<td>{{ officer_rank.rank_name }}</td>
+							<td>{{ officer_rank.rank_description }}</td>
+						</tr>
+					</table>
+					
+				</div>
+				
+			</div>
+			
+		</div>
+		
 	</div>
 
 </div>

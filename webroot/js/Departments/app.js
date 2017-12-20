@@ -27,6 +27,7 @@ app.controller('DepsController', function ($scope, $http) {
 		$('#viewport-index').show();
 		
 		$('#viewport-add').hide();
+		$('#viewport-view').hide();
 		
 		$scope.listAll();
 		
@@ -47,9 +48,7 @@ app.controller('DepsController', function ($scope, $http) {
 		$http.post('departments/add.json', {
 			'name': $scope.name,
 			'description': $scope.description,
-		}).success(function (data, status, headers, config) {
-			
-			$('#viewport-add').modal('close');
+		}).then(function (response, status, headers, config) {
 			
 			$scope.clearForm();
 			
@@ -64,6 +63,20 @@ app.controller('DepsController', function ($scope, $http) {
 	$scope.viewDepartment = function (id) {
 		
 		$scope.load_icon();
+		
+		$http.post('departments/view.json', {
+			'id': id
+		}).then(function (response, status, headers, config) {
+
+			$scope.department = response.data.department;
+			
+			$('#viewport-index').hide();
+			
+			$('#viewport-view').show();
+
+			$scope.unload_icon();
+			
+		});
 		
 	}
 	

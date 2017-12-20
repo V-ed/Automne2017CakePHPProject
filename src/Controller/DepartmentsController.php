@@ -47,6 +47,11 @@ class DepartmentsController extends AppController
 	 */
 	public function view($id = null)
 	{
+		
+		$data = $this->request->input('json_decode');
+		
+		$id = $data->id;
+		
 		$department = $this->Departments->get($id, [
 			'contain' => ['OfficerRanks']
 		]);
