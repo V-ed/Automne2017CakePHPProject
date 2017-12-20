@@ -4,19 +4,41 @@ app.controller('DepsController', function ($scope, $http) {
 	
 	$scope.listAll = function() {
 		
+		$scope.load_icon();
+		
 		$http.get("departments/index.json").then(function (response) {
+			
 			$scope.departments = response.data.departments;
+			
+			$scope.unload_icon();
+			
 		});
+		
+	}
+	
+	$scope.clearForm = function () {
+		$scope.id = "";
+		$scope.name = "";
+		$scope.description = "";
+	}
+	
+	$scope.restoreIndex = function() {
+		
+		$('#viewport-index').show();
+		
+		$('#viewport-add').hide();
 		
 	}
 	
 	$scope.newDepartment = function() {
 		
-		$scope.load_icon();
+		$('#viewport-index').hide();
+		
+		$('#viewport-add').show();
 		
 	}
 	
-	$scope.saveNewDepartment = function(){
+	$scope.saveNewDepartment = function() {
 		
 		$scope.load_icon();
 		
@@ -30,9 +52,9 @@ app.controller('DepsController', function ($scope, $http) {
 	
 	$scope.editDepartment = function (id) {
 		
-		var link = editLink + '/' + id;
+		var link = editLink.format(id);
 		
-		window.location.replace(link);
+		window.location.href = link;
 		
 	}
 	
@@ -49,8 +71,8 @@ app.controller('DepsController', function ($scope, $http) {
 				'id': id
 			}).success(function (data, status, headers, config) {
 				
-				// tell the user subcategory was deleted
-				Materialize.toast(data.response.result, 4000);
+				// tell the user that the department was deleted
+				// Materialize.toast(data.response.result, 4000);
 				
 				// refresh the list
 				$scope.listAll();
@@ -63,9 +85,6 @@ app.controller('DepsController', function ($scope, $http) {
 		
 	}
 	
-	$scope.setViewport = function(data) {
-		$('#viewport').empty().append(data);
-	}
 	$scope.load_icon = function() {
 		$('#ajax-loading-icon').show();
 	}
