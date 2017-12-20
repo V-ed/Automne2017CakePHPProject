@@ -58,6 +58,7 @@ class DepartmentsController extends AppController
 
 		$this->set('department', $department);
 		$this->set('_serialize', ['department']);
+		
 	}
 
 	/**
@@ -73,11 +74,11 @@ class DepartmentsController extends AppController
 		if ($this->request->is('post')) {
 			$department = $this->Departments->patchEntity($department, $this->request->getData());
 			if ($this->Departments->save($department)) {
-				$this->Flash->success(__('The department has been saved.'));
+				// $this->Flash->success(__('The department has been saved.'));
 
 				return $this->redirect(['action' => 'index']);
 			}
-			$this->Flash->error(__('The department could not be saved. Please, try again.'));
+			// $this->Flash->error(__('The department could not be saved. Please, try again.'));
 		}
 		
 		$this->set(compact('department'));

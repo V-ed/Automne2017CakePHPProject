@@ -54,7 +54,7 @@ app.controller('DepsController', function ($scope, $http) {
 			
 			$scope.restoreIndex();
 			
-			$scope.unload_icon();
+			// $scope.unload_icon();
 			
 		})
 		
@@ -99,7 +99,7 @@ app.controller('DepsController', function ($scope, $http) {
 			
 			$http.post('departments/delete.json', {
 				'id': id
-			}).success(function (data, status, headers, config) {
+			}).then(function (data, status, headers, config) {
 				
 				// tell the user that the department was deleted
 				// Materialize.toast(data.response.result, 4000);
@@ -107,7 +107,7 @@ app.controller('DepsController', function ($scope, $http) {
 				// refresh the list
 				$scope.listAll();
 				
-				$scope.unload_icon();
+				// $scope.unload_icon();
 				
 			});
 			
