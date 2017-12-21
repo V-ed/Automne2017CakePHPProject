@@ -6,11 +6,11 @@
 $deletionText = __('Are you sure you want to delete # {0}?');
 echo $this->Html->scriptBlock('var deletionText = "' . $deletionText . '";', ['block' => true]);
 
-$editLink = $this->Url->build(['action' => 'edit'], [
-	'fullBase' => true
+$getEditingDepartmentUrl = $this->Url->build([
+	"controller" => "Departments",
+	"action" => "getDepartment"
 ]);
-
-echo $this->Html->scriptBlock('var editLink = "' . $editLink . '/{0}";', ['block' => true]);
+$this->Html->scriptBlock('var getEditingDepartmentUrl = "' . $getEditingDepartmentUrl . '";', ['block' => true]);
 
 $this->Html->script('Departments/app', ['block' => 'scriptBottom']);
 ?>
@@ -98,14 +98,13 @@ $this->Html->script('Departments/app', ['block' => 'scriptBottom']);
 			</fieldset>
 			<?=
 			$this->Form->button(__('Submit'), [
-				'id' => 'submit-btn-add',
+				'class' => 'submit-btn',
 				'ng-click' => 'saveNewDepartment()',
 			])
 			?>
 			<?= $this->Form->end() ?>
 			
 		</div>
-		
 		
 		<div id="viewport-view" class="view" style="display: none;">
 			
@@ -143,6 +142,32 @@ $this->Html->script('Departments/app', ['block' => 'scriptBottom']);
 				</table>
 				
 			</div>
+			
+		</div>
+		
+		<div id="viewport-edit" class="form" style="display: none;">
+			
+			<?= $this->Form->create() ?>
+			<fieldset>
+				<legend><?= __('Edit Department') ?></legend>
+				<?php
+				echo $this->Form->control('name', [
+					'ng-model' => 'department.name',
+					'placeholder' => __('Type the department\'s name here'),
+				]);
+				echo $this->Form->control('description', [
+					'ng-model' => 'department.description',
+					'placeholder' => __('Type the department\'s description here'),
+				]);
+				?>
+			</fieldset>
+			<?=
+			$this->Form->button(__('Submit'), [
+				'class' => 'submit-btn',
+				'ng-click' => 'saveEditedDepartment()',
+			])
+			?>
+			<?= $this->Form->end() ?>
 			
 		</div>
 		

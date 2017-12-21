@@ -24,6 +24,22 @@ class DepartmentsController extends AppController
 		$this->response->type('json');
 		$this->response->body($departmentsJ);
 	}
+	
+	public function getDepartment() {
+		$this->autoRender = false; // avoid to render view
+		
+		$data = $this->request->input('json_decode');
+		
+		$id = $data->id;
+
+		$department = $this->Departments->get($id, [
+			'contain' => ['OfficerRanks'],
+		]);
+
+		$departmentJ = json_encode($department);
+		$this->response->type('json');
+		$this->response->body($departmentJ);
+	}
 
 	/**
 	 * Index method
@@ -95,20 +111,32 @@ class DepartmentsController extends AppController
 	 */
 	public function edit($id = null)
 	{
+		
+		$data = $this->request->input('json_decode');
+		
+		$id = $data->id;
+		
 		$department = $this->Departments->get($id, [
 			'contain' => []
 		]);
+		
 		if ($this->request->is(['patch', 'post', 'put'])) {
+			
 			$department = $this->Departments->patchEntity($department, $this->request->getData());
+			
 			if ($this->Departments->save($department)) {
 				$this->Flash->success(__('The department has been saved.'));
 				
 				return $this->redirect(['action' => 'index']);
 			}
+			
 			$this->Flash->error(__('The department could not be saved. Please, try again.'));
+			
 		}
+		
 		$this->set(compact('department'));
 		$this->set('_serialize', ['department']);
+		
 	}
 	
 	/**
