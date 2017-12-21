@@ -28,6 +28,7 @@ app.controller('DepsController', function ($scope, $http) {
 		
 		$('#viewport-add').hide();
 		$('#viewport-view').hide();
+		$('#viewport-edit').hide();
 		
 		$scope.listAll();
 		
@@ -67,13 +68,13 @@ app.controller('DepsController', function ($scope, $http) {
 		$http.post('departments/view.json', {
 			'id': id
 		}).then(function (response, status, headers, config) {
-
+			
 			$scope.department = response.data.department;
 			
 			$('#viewport-index').hide();
 			
 			$('#viewport-view').show();
-
+			
 			$scope.unload_icon();
 			
 		});
@@ -82,9 +83,50 @@ app.controller('DepsController', function ($scope, $http) {
 	
 	$scope.editDepartment = function (id) {
 		
-		var link = editLink.format(id);
+		$scope.load_icon();
 		
-		window.location.href = link;
+		var url = getEditingDepartmentUrl;
+		// var url = "departments/edit/{0}".format(id);
+		
+		$http.post(url, {
+			'id': id
+		}).then(
+		function (response, status, headers, config) {
+			
+			$scope.department = response.data;
+			
+			$('#viewport-index').hide();
+			
+			$('#viewport-edit').show();
+			
+			$scope.unload_icon();
+			
+		},
+		function (response, status, headers, config) {
+			
+			console.log("Kill me pls");
+			
+		});
+		
+		
+	}
+	
+	$scope.saveEditedDepartment = function() {
+		
+		$scope.load_icon();
+		
+		$http.post('departments/edit.json', {
+			'name': $scope.name,
+			'description': $scope.description,
+		}).then(function (response, status, headers, config) {
+			
+			$scope.clearForm();
+			
+			$scope.restoreIndex();
+			
+			// $scope.unload_icon();
+			
+		})
 		
 	}
 	
@@ -122,10 +164,10 @@ app.controller('DepsController', function ($scope, $http) {
 		$('#ajax-loading-icon').hide();
 	}
 	
-	$('#submit-btn-add').click(function(event) {
+	$('.submit-btn').click(function(event) {
 		event.preventDefault();
 	});
-
+	
 });
 
 String.prototype.format = function() {
