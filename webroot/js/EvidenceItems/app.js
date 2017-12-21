@@ -19,7 +19,7 @@ function init_index() {
 	$editButtons = $('[id^="edit-button-"]');
 	$deleteButtons = $('[id^="delete-button-"]');
 	
-	$addButton.click(function(event){
+	$addButton.click(function(event) {
 		event.preventDefault();
 		
 		$button = $(this);
@@ -109,7 +109,7 @@ function init_add(data) {
 	
 	$addForm = $('#form-add');
 	
-	$addForm.submit(function(event){
+	$addForm.submit(function(event) {
 		event.preventDefault();
 		
 		$form = $(this);
@@ -144,7 +144,7 @@ function init_edit(data) {
 	
 	$editForm = $('#form-edit');
 	
-	$editForm.submit(function(event){
+	$editForm.submit(function(event) {
 		event.preventDefault();
 		
 		$form = $(this);

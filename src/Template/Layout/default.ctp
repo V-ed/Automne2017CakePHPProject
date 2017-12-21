@@ -56,6 +56,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 				<?php if($loggedUser != null && $loggedUser->is_admin) : ?>
 					<li><?= $this->Html->link(__('Files'), ['controller' => 'files']) ?></li>
 					<li><?= $this->Html->link(__('Ranks'), ['controller' => 'officer_ranks']) ?></li>
+					<li><?= $this->Html->link(__('Departments'), ['controller' => 'departments']) ?></li>
 				<?php endif; ?>
 				<li><?= $this->Html->link(__('About'), ['controller' => 'about']) ?></li>
 				<li><?= $this->Html->link(__('Coverage'), '/coverage/index.html') ?></li>
