@@ -101,11 +101,6 @@ app.controller('DepsController', function ($scope, $http) {
 			
 			$scope.unload_icon();
 			
-		},
-		function (response, status, headers, config) {
-			
-			console.log("Kill me pls");
-			
 		});
 		
 		
