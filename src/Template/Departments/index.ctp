@@ -152,11 +152,11 @@ $this->Html->script('Departments/app', ['block' => 'scriptBottom']);
 				<legend><?= __('Edit Department') ?></legend>
 				<?php
 				echo $this->Form->control('name', [
-					'ng-model' => 'name',
+					'ng-model' => 'department.name',
 					'placeholder' => __('Type the department\'s name here'),
 				]);
 				echo $this->Form->control('description', [
-					'ng-model' => 'description',
+					'ng-model' => 'department.description',
 					'placeholder' => __('Type the department\'s description here'),
 				]);
 				?>
@@ -164,7 +164,7 @@ $this->Html->script('Departments/app', ['block' => 'scriptBottom']);
 			<?=
 			$this->Form->button(__('Submit'), [
 				'class' => 'submit-btn',
-				'ng-click' => 'saveNewDepartment()',
+				'ng-click' => 'saveEditedDepartment()',
 			])
 			?>
 			<?= $this->Form->end() ?>

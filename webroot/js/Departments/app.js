@@ -116,8 +116,9 @@ app.controller('DepsController', function ($scope, $http) {
 		$scope.load_icon();
 		
 		$http.post('departments/edit.json', {
-			'name': $scope.name,
-			'description': $scope.description,
+			'id': $scope.department.id,
+			'name': $scope.department.name,
+			'description': $scope.department.description,
 		}).then(function (response, status, headers, config) {
 			
 			$scope.clearForm();
