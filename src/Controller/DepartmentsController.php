@@ -15,11 +15,11 @@ class DepartmentsController extends AppController
 	
 	public function getDepartments() {
 		$this->autoRender = false; // avoid to render view
-
+		
 		$departments = $this->Departments->find('all', [
 			'contain' => ['OfficerRanks'],
 		]);
-
+		
 		$departmentsJ = json_encode($departments);
 		$this->response->type('json');
 		$this->response->body($departmentsJ);
@@ -31,16 +31,16 @@ class DepartmentsController extends AppController
 		$data = $this->request->input('json_decode');
 		
 		$id = $data->id;
-
+		
 		$department = $this->Departments->get($id, [
 			'contain' => ['OfficerRanks'],
 		]);
-
+		
 		$departmentJ = json_encode($department);
 		$this->response->type('json');
 		$this->response->body($departmentJ);
 	}
-
+	
 	/**
 	 * Index method
 	 *
@@ -49,11 +49,11 @@ class DepartmentsController extends AppController
 	public function index()
 	{
 		$departments = $this->paginate($this->Departments);
-
+		
 		$this->set(compact('departments'));
 		$this->set('_serialize', ['departments']);
 	}
-
+	
 	/**
 	 * View method
 	 *
@@ -71,12 +71,12 @@ class DepartmentsController extends AppController
 		$department = $this->Departments->get($id, [
 			'contain' => ['OfficerRanks']
 		]);
-
+		
 		$this->set('department', $department);
 		$this->set('_serialize', ['department']);
 		
 	}
-
+	
 	/**
 	 * Add method
 	 *
