@@ -33,6 +33,11 @@ body.home {
 	text-align: center;
 }
 
+#about p, #about td {
+	text-align: justify;
+	word-break: normal;
+}
+
 /* OVERRIDING BOOTSTRAP CSS */
 
 #actions-sidebar, #top-left-bar {
